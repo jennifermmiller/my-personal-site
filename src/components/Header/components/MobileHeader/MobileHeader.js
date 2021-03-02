@@ -11,22 +11,26 @@ const MobileHeaderContainer = styled.header(({ theme }) => ({
     top: '0',
     width: '100%',
     ' > button': {
-        position: 'absolute',
         padding: '1rem',
+        position: 'absolute',
         right: '0',
         top: '0'
     }
 }));
 
 const MobileHeader = props => {
-    const { handleThemeClick, navigation, theme } = props;
+    const {
+        handleThemeClick, 
+        navigation, 
+        theme 
+    } = props;
 
     return (
-        <MobileHeaderContainer>
+        <MobileHeaderContainer className="header">
             <MobileNav navigation={navigation}/>
             <ToggleThemeButton handleThemeClick={handleThemeClick} theme={theme}/>
         </MobileHeaderContainer>
-    )
+    );
 };
 
 export default MobileHeader;

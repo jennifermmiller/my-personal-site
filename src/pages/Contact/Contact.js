@@ -1,24 +1,25 @@
 import styled from 'styled-components';
 
-import PageTitle from '../../components/PageTitle';
+import PageHeader from '../../components/PageHeader';
 import GenericContent from '../../components/GenericContent';
 import ContactForm from './components/ContactForm';
+import PageTitle from '../../components/PageTitle';
 
 const ContactContainer = styled.div({
-    maxWidth: '720px',
+    maxWidth: '700px',
 });
-
-// TODO: Add a picture to fill up some space?
 
 const Contact = props => {
     const { content, title } = props;
+    
     return (
         <ContactContainer>
-            <PageTitle title={title}/>
+            <PageTitle tab="Contact"/>
+            <PageHeader title={title}/>
             <GenericContent content={content}/>
             <ContactForm/>
         </ContactContainer>
-    )
-}
+    );
+};
 
 export default Contact;

@@ -21,7 +21,7 @@ const ToggleThemeButton = props => {
                 icon={theme === 'light' ? faMoon : faSun }
                 title={theme === 'light' ? 'Display page in Dark Mode' : 'Display page in Light Mode'}/>
         </ThemeButton>
-    )
+    );
 };
 
 export default ToggleThemeButton;

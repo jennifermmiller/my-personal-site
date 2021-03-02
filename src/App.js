@@ -1,30 +1,59 @@
-import { useState } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
+import { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import styled, { ThemeProvider } from 'styled-components';
 
-import data from './constants/data'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import About from './pages/About'
-import Chuck from './pages/Chuck'
-import Contact from './pages/Contact'
-import Home from './pages/Home'
-import Work from './pages/Work/Work'
-import { GlobalStyles } from './theme/GlobalStyles'
-import { lightTheme, darkTheme } from './theme/themes'
+import data from './constants/data';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import About from './pages/About';
+import Chuck from './pages/Chuck';
+import Contact from './pages/Contact';
+import Home from './pages/Home';
+import Work from './pages/Work/Work';
+import { GlobalStyles } from './theme/GlobalStyles';
+import { lightTheme, darkTheme } from './theme/themes';
 
-//TODO:
-//  Flush out work page
-//  Fix prettier -- doesn't seem to be hitting all files
-//  add Typescript
-//  add tests? not a ton of functionality
-//  Longterm: put data on server???
+const FlexContainer = styled.div({
+  display: 'flex',
+  minHeight: '100%',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  ' > main': {
+    flexGrow: '1',
+    minHeight: 'calc(100vh - 8.5rem)'
+  }
+});
+
+//TODO list:
+//    - address any TODOs in files
+//    - fix validation on ContactForm; move ContactForm?
+//    - add some photos of Chuck
+//    - decide on color scheme and adjust accordingly
+//        - hover decoration for links/buttons
+//        - styling header/footer; different bg-color than main?
+//        - Add overlay to main content when mobile nav is open?
+//    - check for accessibility
+//    - personalize readME
+//    - Fix prettier; doesn't seem to be hitting all files
+//    - add Typescript?
+//    - add tests? (not a ton of functionality)
+//    - add audible click sounds?
+//    - Longterm: add backend?
+
 function App() {
-  const { about, chuck, contact, footer, home, navigation, personalLinks, work } = data
-  const [theme, setTheme] = useState('light')
-
+  const { 
+    about,
+    chuck,
+    contact,
+    footer,
+    home,
+    navigation,
+    personalLinks,
+    work
+  } = data;
+  const [theme, setTheme] = useState('light');
   const toggleTheme = () =>
-    theme === 'light' ? setTheme('dark') : setTheme('light')
+    theme === 'light' ? setTheme('dark') : setTheme('light');
 
   return (
     <Router>
@@ -32,34 +61,35 @@ function App() {
         <div className="App">
           <GlobalStyles />
           <Header
-            navigation={navigation}
             handleThemeClick={toggleTheme}
-            theme={theme}
-          />
-          <main>
-            <Switch>
-              <Route path="/about">
-                <About {...about} />
-              </Route>
-              <Route path="/work-experience">
-                <Work {...work} links={personalLinks}/>
-              </Route>
-              <Route path="/contact">
-                <Contact {...contact} />
-              </Route>
-              <Route path="/chuck">
-                <Chuck {...chuck} />
-              </Route>
-              <Route path="/">
-                <Home {...home} links={personalLinks}/>
-              </Route>
-            </Switch>
-          </main>
-          <Footer {...footer} />
+            navigation={navigation}
+            theme={theme}/>
+          <FlexContainer>
+            <main>
+              <Switch>
+                <Route exact path="/about">
+                  <About {...about}/>
+                </Route>
+                <Route path="/work-experience">
+                  <Work {...work} links={personalLinks}/>
+                </Route>
+                <Route path="/contact">
+                  <Contact {...contact}/>
+                </Route>
+                <Route path="/about/chuck">
+                  <Chuck {...chuck}/>
+                </Route>
+                <Route exact path="/">
+                  <Home {...home}/>
+                </Route>
+              </Switch>
+            </main>
+            <Footer {...footer} links={personalLinks}/>
+          </FlexContainer>
         </div>
       </ThemeProvider>
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;

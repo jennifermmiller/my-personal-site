@@ -3,13 +3,13 @@ const Emoji = props => {
 
     return (
         <span
-            role="img"
-            aria-label={label ? label : ""}
             aria-hidden={label ? "false" : "true"}
+            aria-label={label ? label : ""}
+            role="img"
         >
             {symbol}
         </span>
-    )
+    );
 };
 
 export default Emoji;

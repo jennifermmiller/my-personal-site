@@ -1,23 +1,18 @@
-import { Link } from 'react-router-dom'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { Link } from 'react-router-dom';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 import Emoji from '../components/Emoji/';
-import profile from '../assets/profile.png'
+import profile from '../assets/profile.png';
 
-// TODO: Use an existing gallery; hand roll something??
-import chuckWork1 from '../assets/chuckWork1.png'
-import chuckWork1TN from '../assets/chuckWork1TN.jpg'
-import chuckWork2 from '../assets/chuckWork2.png'
-import chuckWork2TN from '../assets/chuckWork2TN.jpg'
-import chuckWork3 from '../assets/chuckWork3.png'
-import chuckWork3TN from '../assets/chuckWork3TN.jpg'
-import chuckWork4 from '../assets/chuckWork4.jpg'
-import chuckWork4TN from '../assets/chuckWork4TN.jpg'
-import chuckBall from '../assets/chuckBall.jpg'
-import chuckBlankets from '../assets/chuckBlankets.jpg'
-import chuckGeorge from '../assets/chuckGeorge.jpg'
-import chuckWinter from '../assets/chuckWinter.jpg'
+import chuckWork1 from '../assets/chuckWork1.png';
+import chuckWork2 from '../assets/chuckWork2.png';
+import chuckWork3 from '../assets/chuckWork3.png';
+import chuckWork4 from '../assets/chuckWork4.jpg';
+import chuckBall from '../assets/chuckBall.jpg';
+import chuckBlankets from '../assets/chuckBlankets.jpg';
+import chuckGeorge from '../assets/chuckGeorge.jpg';
+import chuckWinter from '../assets/chuckWinter.jpg';
 
 import {
   EMAIL_LINK,
@@ -36,20 +31,20 @@ import {
   SCHOOL_LINK,
   TRAIL_LINK,
   WORK_LINK,
-} from './constants'
+} from './constants';
 
-const DOG = <Link to="/chuck">my dog</Link>
+const DOG = <Link to="/about/chuck">my dog</Link>;
 
-const CURRENT_YEAR = new Date().getFullYear()
-const EXPERIENCE = CURRENT_YEAR - 2014
-const CHUCK_AGE = CURRENT_YEAR - 2017
+const CURRENT_YEAR = new Date().getFullYear();
+const EXPERIENCE = CURRENT_YEAR - 2014;
+const CHUCK_AGE = CURRENT_YEAR - 2017;
 
 const data = {
   about: {
-    title: 'About Jen',
+    title: `About ${NAME.nickname}`,
     content: [
       {
-        section: <p key={0}>Hi! <Emoji label="waving hand" symbol={'👋'}/> I’m {NAME.first} {NAME.last}.</p>,
+        section: <p key={0}>Hi! <Emoji label="waving hand" symbol={'👋'}/> I’m {NAME.first} {NAME.last}.</p>
       },
       {
         section: (
@@ -59,38 +54,37 @@ const data = {
             I haven’t looked back! Changing career paths was one of the best
             decisions I’ve ever made.
           </p>
-        ),
+        )
       },
       {
         section: (
-          // TODO: Expand on this? Talk about pixel perfect code, working with design/product/back end
           <p key={2}>
             Currently, I’m part of the engineering team at {WORK_LINK} where I work
             on all things UX. Most of the projects I'm involved with are part of
-            our newer technology stack consisting of React.js, Typescript,
+            our newer technology stack consisting of ReactJS, Typescript,
             XState, and GraphQL. But, I’ve been known (on more than one
             occasion) to dip my toes into our older applications running on
             Backbone.js/Marionette.js, Dust.js, and, yes, even jQuery. 
           </p>
-        ),
+        )
       },
       {
         section: (
           <p key={3}>
             These days when I’m not coding, I’m chasing my three little
             munchkins around the house. If the stars align and I get some time
-            alone, I love to take {DOG} for a hike or cycle down the {TRAIL_LINK}.
+            alone, I love to take {DOG} for a hike or to cycle down the {TRAIL_LINK}.
           </p>
-        ),
+        )
       },
       {
         section: (
           <p key={4}>
             I’m inspired by a hot cup of coffee, {JOSH_ALLEN_LINK}, and good music.
           </p>
-        ),
-      },
-    ],
+        )
+      }
+    ]
   },
   chuck: {
     title: 'Chuck',
@@ -101,17 +95,17 @@ const data = {
             Chuck has been my near constant companion ever since he was brought
             home from the Humane Society {CHUCK_AGE} years ago.
           </p>
-        ),
+        )
       },
       {
         section: (
           <p key={1}>
             Pre-Covid, Chuck's office duties included (but were not limited to)
             morning greeter, office morale booster, and treat taster. He worked
-            hard and was most committed to his role. He is looking forward to a
+            hard and was most committed to his role. He looks forward to a
             time when he can get back to the office.
           </p>
-        ),
+        )
       },
       {
         section: (
@@ -119,53 +113,50 @@ const data = {
             When Chuck's not at work, he can be found lounging on a soft
             surface, playing ball, or taking a walk with his human.
           </p>
-        ),
-      },
+        )
+      }
     ],
+    // TODO: This section needs finished
     workImages: [
       {
         title: 'Chuck proudly displaying his name plate.',
         id: 'chuck0',
-        original: chuckWork4,
-        thumbnail: chuckWork4TN,
+        original: chuckWork4
       },
       {
         title: 'Chuck hard at work.',
         id: 'chuck1',
-        original: chuckWork3,
-        thumbnail: chuckWork3TN,
+        original: chuckWork3
       },
       {
         title: 'Chuck taking a snooze on the job.',
         id: 'chuck2',
-        original: chuckWork1,
-        thumbnail: chuckWork1TN,
+        original: chuckWork1
       },
       {
         title: 'Chuck keeping me company at work.',
         id: 'chuck3',
-        original: chuckWork2,
-        thumbnail: chuckWork2TN,
-      },
+        original: chuckWork2
+      }
     ],
     playImages: [
       {
         alt: 'Chuck going for a winter hike.',
-        source: chuckWinter,
+        source: chuckWinter
       },
       {
         alt: 'Chuck resting among blankets.',
-        source: chuckBlankets,
+        source: chuckBlankets
       },
       {
         alt: 'Chuck resting on his ball after playtime.',
-        source: chuckBall,
+        source: chuckBall
       },
       {
         alt: 'Chuck napping by the fireplace with his cat friend.',
-        source: chuckGeorge,
-      },
-    ],
+        source: chuckGeorge
+      }
+    ]
   },
   contact: {
     title: 'Get in touch',
@@ -176,72 +167,72 @@ const data = {
             Want to say “Hi!”? Have something you’d like to ask? Interested in
             hiring me? Get in touch!
           </p>
-        ),
+        )
       },
       {
         section: (
           <p key={1}>
-            User the form below. Or, alternatively, shoot me an email at {EMAIL_LINK}
+            Use the form below. Alternatively, shoot me an email at {EMAIL_LINK}
             .
           </p>
-        ),
+        )
       },
       {
         section: (
           <p key={2}>
             I can also be found on {GITHUB_LINK} and {LINKEDIN_LINK}.
           </p>
-        ),
-      },
-    ],
+        )
+      }
+    ]
   },
   home: {
     name: {
       first: NAME.first,
-      last: NAME.last,
+      last: NAME.last
     },
     profileImage: {
       alt: `${NAME.first} ${NAME.last} headshot`,
-      source: profile,
+      source: profile
     },
     hobbies: [
       {
-        description: 'Front end developer',
+        description: 'Front end developer'
       },
       {
-        description: 'Mother of three',
+        description: 'Mother of three'
       },
       {
-        description: 'Coffee drinker',
+        description: 'Coffee drinker'
       },
       {
-        description: 'Continous learner',
+        description: 'Continous learner'
       },
       {
-        description: 'Listener of vinyl',
+        description: 'Listener of vinyl'
       },
       {
-        description: 'Animal companion',
+        description: 'Animal companion'
       },
       {
-        description: 'Bills mafia member',
+        description: 'Bills mafia member'
       },
       {
-        description: 'Amateur woodworker',
+        description: 'Amateur woodworker'
       },
       {
-        description: 'Outdoor enthusiast',
-      },
+        description: 'Outdoor enthusiast'
+      }
       // {
       //     description: 'Gastronome'
       // }
-    ],
+    ]
   },
   work: {
     name: `${NAME.first} ${NAME.last}`,
     jobTitle: JOB_TITLE,
     lastUpdated: RESUME_LAST_UPDATED,
-    about:
+    summary:
       'Talented Front End Developer with 6+ years of experience building and maintaining enterprise-level single page applications. Proficient in HTML, CSS, and JavaScript; as well as modern libraries and frameworks. Looking for an opportunity to collaborate with a group of exceptional engineers on complex projects where I can continue to grow and improve my skillset.',
     jobs: [
       {
@@ -252,33 +243,33 @@ const data = {
         responsibilities: [
           {
             description:
-              'Utilized React.js, GraphQL, and Stripe API to develop a seamless checkout experience for employee paid benefits',
+              'Utilized ReactJS, GraphQL, and Stripe API to develop a seamless checkout experience for employee paid benefits'
           },
           {
             description:
-              'Implemented a Salesforce chatbot to improve customer service',
+              'Implemented a Salesforce chatbot to improve customer service'
           },
           {
             description:
-              'Contributed to a CMS page builder that allows administrators to create custom content',
+              'Contributed to a CMS page builder that allows administrators to create custom content'
           },
           {
             description:
-              'Worked alongside other developers to build out a reusable UI component library using React.js and styled-components; unit tested with Jest',
+              'Worked alongside other developers to build out a reusable UI component library using ReactJS and styled-components; unit tested with Jest'
           },
           {
             description:
-              'Developed an internal data health dashboard tool to assist in group configurations',
+              'Developed an internal data health dashboard tool to assist in group configurations'
           },
           {
             description:
-              'Migrated legacy applications to the current tech stack - React.js, XState, Typescript, and GraphQL',
+              'Migrated legacy applications to the current tech stack - ReactJS, XState, Typescript, and GraphQL'
           },
           {
             description:
-              'Wrote technical documentation for internal users; with a focus on helping new hires and cross-trained developers',
-          },
-        ],
+              'Wrote technical documentation for internal users; with a focus on helping new hires and cross-trained developers'
+          }
+        ]
       },
       {
         company: 'Benefitfocus',
@@ -288,29 +279,29 @@ const data = {
         responsibilities: [
           {
             description:
-              'Collaborated with designers and product owners to ensure designs were efficient and technically sound',
+              'Collaborated with designers and product owners to ensure designs were efficient and technically sound'
           },
           {
             description:
-              'Developed various client specific applications with Backbone.js and Marionette.js',
+              'Developed various client specific applications with Backbone.js and Marionette.js'
           },
           {
             description:
-              'Contributed to a reusable UI component library built with Dust.js and JavaScript; unit tested with Mocha',
+              'Contributed to a reusable UI component library built with Dust.js and JavaScript; unit tested with Mocha'
           },
           {
             description:
-              'Using Less.js, skinned various customer facing platforms to allow for private labels',
+              'Using Less.js, skinned various customer facing platforms to allow for private labels'
           },
           {
             description:
-              'Ensured cross-browser compatibility across all customer facing applications',
+              'Ensured cross-browser compatibility across all customer facing applications'
           },
           {
             description:
-              'Developed applications to meet WCAG level AA requirements',
-          },
-        ],
+              'Developed applications to meet WCAG level AA requirements'
+          }
+        ]
       },
       {
         company: 'Dept. of Veterans Affairs',
@@ -320,18 +311,18 @@ const data = {
         responsibilities: [
           {
             description:
-              'Handled confidential information in accordance with HIPAA',
+              'Handled confidential information in accordance with HIPAA'
           },
           {
             description:
-              'Completed training in both inpatient and outpatient pharmacy procedures',
+              'Completed training in both inpatient and outpatient pharmacy procedures'
           },
           {
             description:
-              'Addressed veterans’ questions and concerns both in person and on the phone',
+              'Addressed veterans’ questions and concerns both in person and on the phone'
           },
           {
-            description: 'Accurately and efficiently filled prescriptions',
+            description: 'Accurately and efficiently filled prescriptions'
           },
         ],
       },
@@ -343,24 +334,24 @@ const data = {
         responsibilities: [
           {
             description:
-              "Worked extensively with pharmacists, doctors' offices, and insurance companies to meet and exceed customers' needs and expectations.",
+              "Worked extensively with pharmacists, doctors' offices, and insurance companies to meet and exceed customers' needs and expectations."
           },
           {
-            description: 'Meticulously processed prescription data entry',
+            description: 'Meticulously processed prescription data entry'
           },
           {
-            description: 'Oversaw daily ordering and inventory maintenance',
+            description: 'Oversaw daily ordering and inventory maintenance'
           },
           {
-            description: 'Wrote weekly schedule for approximately 25 employees',
+            description: 'Wrote weekly schedule for approximately 25 employees'
           },
           {
-            description: 'Promoted employee development',
+            description: 'Promoted employee development'
           },
           {
-            description: 'Organized and supported employee wellness screenings',
-          },
-        ],
+            description: 'Organized and supported employee wellness screenings'
+          }
+        ]
       },
       {
         company: 'Hickory Hill Farm',
@@ -369,18 +360,18 @@ const data = {
         timePeriod: '2002 - 2008',
         responsibilities: [
           {
-            description: 'Provided daily care for approximately 20 horses',
+            description: 'Provided daily care for approximately 20 horses'
           },
           {
-            description: 'Contributed to facility maintenance and improvements',
+            description: 'Contributed to facility maintenance and improvements'
           },
           {
-            description: 'Exercised and trained young/inexperienced horses',
+            description: 'Exercised and trained young/inexperienced horses'
           },
           {
-            description: 'Attended to sick and injured horses',
-          },
-        ],
+            description: 'Attended to sick and injured horses'
+          }
+        ]
       },
       {
         company: 'Wegmans Food Markets',
@@ -389,21 +380,21 @@ const data = {
         timePeriod: '2000 - 2007',
         responsibilities: [
           {
-            description: 'Completed training in six perishable departments',
+            description: 'Completed training in six perishable departments'
           },
           {
             description:
-              'Ensured that HACCP and company food safety standards were met',
+              'Ensured that HACCP and company food safety standards were met'
           },
           {
             description:
-              'Prepared bi-weekly orders for multiple departments and assisted with monthly inventory',
+              'Prepared bi-weekly orders for multiple departments and assisted with monthly inventory'
           },
           {
-            description: 'Traveled to new markets to assist in store openings',
-          },
-        ],
-      },
+            description: 'Traveled to new markets to assist in store openings'
+          }
+        ]
+      }
     ],
     contactInformation: {
       // website: TODO
@@ -422,30 +413,27 @@ const data = {
           'The Iron Yard Academy was an intensive, 12-week front-end engineering program.',
         location: 'Greenville, SC',
         name: 'The Iron Yard',
-        timePeriod: '2014',
+        timePeriod: '2014'
       },
       {
         description: 'Bachelor’s Degree in Mathematics',
         location: 'Geneseo, NY',
         name: 'State University of New York College at Geneseo ',
-        timePeriod: '2002 - 2016',
-      },
+        timePeriod: '2002 - 2016'
+      }
     ],
-    // TODO: thoughts
-    //    Add experience level
-    //    Or, just switch these to plain arrays to use array.join(', ')
     technicalSkills: [
       {
         title: 'Languages',
         skills: [
           {
-            name: 'HTML',
+            name: 'HTML'
           },
           {
-            name: 'CSS',
+            name: 'CSS'
           },
           {
-            name: 'JavaScript/ECMAScript6',
+            name: 'JavaScript/ECMAScript6'
           },
         ],
       },
@@ -453,99 +441,99 @@ const data = {
         title: 'Frameworks & Libraries',
         skills: [
           {
-            name: 'ReactJS',
+            name: 'ReactJS'
           },
           {
-            name: 'Redux',
+            name: 'Redux'
           },
           {
-            name: 'XState',
+            name: 'XState'
           },
           {
-            name: 'GraphQL',
+            name: 'GraphQL'
           },
           {
-            name: 'Backbone.js/Marionette.js',
+            name: 'Backbone.js/Marionette.js'
           },
           {
-            name: 'Dust.js',
+            name: 'Dust.js'
           },
           {
-            name: 'jQuery',
+            name: 'jQuery'
           },
           {
-            name: 'Styled-components',
+            name: 'Styled-components'
           },
           {
-            name: 'Jest',
+            name: 'Jest'
           },
           {
-            name: 'Mocha',
-          },
-        ],
+            name: 'Mocha'
+          }
+        ]
       },
       {
         title: 'CSS Preprocessors',
         skills: [
           {
-            name: 'Less',
+            name: 'Less'
           },
           {
-            name: 'Sass',
-          },
-        ],
+            name: 'Sass'
+          }
+        ]
       },
       {
         title: 'Additional Skills',
         skills: [
           {
-            name: 'Git',
+            name: 'Git'
           },
           {
-            name: 'Jira',
+            name: 'Jira'
           },
           {
-            name: 'Babel',
+            name: 'Babel'
           },
           {
-            name: 'Npm',
+            name: 'Npm'
           },
           {
-            name: 'Webpack',
+            name: 'Webpack'
           },
           {
-            name: 'component libraries',
+            name: 'component libraries'
           },
           {
-            name: 'cross browser development',
+            name: 'cross browser development'
           },
           {
-            name: 'accessibility',
+            name: 'accessibility'
           },
           {
-            name: 'responsive web development',
-          },
-        ],
-      },
-    ],
+            name: 'responsive web development'
+          }
+        ]
+      }
+    ]
   },
   navigation: [
     {
       path: '/',
-      label: 'Home',
+      label: 'Home'
     },
     {
       path: '/about',
-      label: 'About',
+      label: 'About'
     },
     {
       path: '/work-experience',
-      label: 'Work',
+      label: 'Work'
     },
     {
       path: '/contact',
-      label: 'Contact',
-    },
+      label: 'Contact'
+    }
   ],
   footer: {
     copyright: <span>&#169; {CURRENT_YEAR} {NAME.first} {NAME.last}</span>,
@@ -553,20 +541,20 @@ const data = {
       {
         url: `mailto:${EMAIL_URL}`,
         icon: faEnvelope,
-        iconTitle: "Send Jen an email"
+        iconTitle: `Send ${NAME.nickname} an email`
       },
       {
         url: `https://${GITHUB_URL}`,
         icon: faGithub,
-        iconTitle: "View Jen's Github profile"
+        iconTitle: `View ${NAME.nickname}'s Github profile`
       },
       {
         url: `https://www.${LINKEDIN_URL}`,
         icon: faLinkedin,
-        iconTitle: "View Jen's LinkedIn profile"
+        iconTitle: `View ${NAME.nickname}'s LinkedIn profile`
       }
     ]
   }
 }
 
-export default data
+export default data;

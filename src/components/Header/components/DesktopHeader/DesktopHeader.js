@@ -23,14 +23,18 @@ const navStyles = {
 }
 
 const DesktopHeader = props => {
-    const { handleThemeClick, navigation, theme} = props;
+    const { 
+        handleThemeClick, 
+        navigation, 
+        theme
+    } = props;
 
     return (
-        <DesktopHeaderContainer>
-            <Nav navigation={navigation} css={navStyles}/>
+        <DesktopHeaderContainer className="header">
+            <Nav css={navStyles} navigation={navigation}/>
             <ToggleThemeButton handleThemeClick={handleThemeClick} theme={theme}/> 
         </DesktopHeaderContainer>  
-    )
+    );
 };
 
 export default DesktopHeader;

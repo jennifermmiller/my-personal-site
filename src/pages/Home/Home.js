@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-import { mediaQuery, TABLET, DESKTOP } from '../../constants/breakpoints';
+import PageTitle from '../../components/PageTitle';
+import { mediaQuery, DESKTOP, TABLET } from '../../constants/breakpoints';
 
 const HomeContainer = styled.div({
     display: 'flex',
     justifyContent: 'center'
-})
+});
 
 const Content = styled.div({
     maxWidth: '540px',
@@ -21,7 +22,7 @@ const Name = styled.h1({
     flexDirection: 'column',
     fontSize: '4rem',
     ' > span:last-child': {
-        fontSize: '6rem',
+        fontSize: '6rem'
     }
 });
 
@@ -31,7 +32,6 @@ const ImageContainer = styled.figure({
     }
 });
 
-//TODO: Fix this, want smaller font on mobile; 2rem laptop
 const HobbyContainer = styled.p({
     fontSize: '1.25rem',
     marginTop: '2.625rem',
@@ -50,25 +50,31 @@ const HobbyContainer = styled.p({
 
 
 const Home = props => {
-    const { hobbies, name, profileImage} = props;
+    const { 
+        hobbies, 
+        name,
+        profileImage
+    } = props;
     
     return (
         <HomeContainer>
+            <PageTitle/>
             <Content>
                 <Name>
                     <span>{name.first}</span>
                     <span>{name.last}</span>
                 </Name>
-                {/* TODO: tag line??? */}
                 <ImageContainer>
-                    <img src={profileImage.source} alt={profileImage.alt}/>
+                    <img alt={profileImage.alt} src={profileImage.source}/>
                 </ImageContainer>
                 <HobbyContainer>
-                    {hobbies.map((hobby, idx) => <span className="hobby" key={idx}>{hobby.description}</span>)}
+                    {hobbies.map((hobby, index) => (
+                        <span className="hobby" key={index}>{hobby.description}</span>
+                    ))}
                 </HobbyContainer>
             </Content>
         </HomeContainer>
-    )
-}
+    );
+};
 
 export default Home;

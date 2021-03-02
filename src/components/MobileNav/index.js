@@ -1,1 +1,1 @@
-export {default} from './MobileNav.js';
+export { default } from './MobileNav.js';

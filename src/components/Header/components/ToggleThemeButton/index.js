@@ -1,1 +1,1 @@
-export {default} from './ToggleThemeButton.js';
+export { default } from './ToggleThemeButton.js';

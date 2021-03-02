@@ -13,22 +13,46 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
+import PageHeader from '../../components/PageHeader';
+import {
+    mediaQueryWithPrint, 
+    MOBILE, 
+    MOBILE_SM,
+    TABLET
+} from '../../constants/breakpoints';
 import PageTitle from '../../components/PageTitle';
-import { mediaQuery, TABLET, MOBILE_SM } from '../../constants/breakpoints';
 
-const WorkContainer = styled.div({
-});
-
-//TODO: Larger font
 const HeadingContainer = styled.div({
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
     paddingBottom: '3rem',
-    textAlign: 'center',
-    // TODO: need any media queries?
-    // [mediaQuery(`(min-width: ${TABLET})`)]: {
-    //     ' > h1': {
-    //         fontSize: '6rem'
-    //     }
-    // },
+    ' > h1': {
+        fontSize: '3rem',
+        marginBottom: '0',
+        textAlign: 'center'
+    },
+    ' > span': {
+        fontSize: '2rem'
+    },
+    [mediaQueryWithPrint(`(min-width: ${MOBILE})`)]: {
+        ' > h1': {
+            fontSize: '6rem',
+            marginBottom: '0'
+        },
+        ' > span': {
+            fontSize: '3rem'
+        }
+    },
+    '@media print': {
+        ' > h1': {
+            fontSize: '28pt'
+        },
+        ' > span': {
+            fontSize: '14pt'
+        }
+    }
 });
 
 const ContentContainer = styled.div({
@@ -36,13 +60,12 @@ const ContentContainer = styled.div({
     flexDirection: 'column-reverse',
     flexWrap: 'wrap',
     maxWidth: '700px',
-    [mediaQuery(`(min-width: ${TABLET})`)]: {
+    [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
         alignItems: 'flex-start',
         maxWidth: 'none',
         flexDirection: 'row',
-        flexWrap: 'noWrap',
-
-    },
+        flexWrap: 'noWrap'
+    }
 });
 
 const ContactContainer = styled.div({
@@ -56,13 +79,9 @@ const ContactContainer = styled.div({
         marginLeft: '1rem'
     },
     ' a': {
-        textDecoration: 'underline',
         whiteSpace: 'nowrap'
     },
-    ' a:hover': {
-        textDecoration: 'none'
-    },
-    [mediaQuery(`(min-width: ${TABLET})`)]: {
+    [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
         ' .contact-item': {
             flexDirection: 'row',
             justifyContent: 'flex-end'
@@ -74,30 +93,34 @@ const ContactContainer = styled.div({
     },
 });
 
-// TODO: Switch this out so mobile first, one column up through laptop(?)
 const PrimaryContainer = styled.div({
     display: 'flex',
     flexDirection: 'column',
-    [mediaQuery(`(min-width: ${TABLET})`)]: {
+    [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
         borderLeft: '1px solid', //TODO: variable
         paddingLeft: '2rem'
-    },
+    }
 });
 
 const SecondaryContainer = styled.div({
     display: 'flex',
     flexDirection: 'column-reverse',
-    flexBasis: '100%',
-    [mediaQuery(`(min-width: ${TABLET})`)]: {
+    [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
         flexDirection: 'column',
         maxWidth: '33%',
-        textAlign: 'right',
-        paddingRight: '2rem'
-    },
+        paddingRight: '2rem',
+        textAlign: 'right'
+    }
 });
 
 const SectionContainer = styled.div({
-    paddingBottom: 'rem 0'
+    paddingBottom: 'rem 0',
+    [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
+        ' > .secondary-section-header': {
+            justifyContent: 'flex-end',
+            whiteSpace: 'nowrap'
+        }
+    }
 });
 
 //TODO: Different color headers if ever decide on color palette
@@ -109,10 +132,13 @@ const SectionHeader = styled.h2({
     ' > svg': {
         marginRight: '0.5rem'
     },
-    [mediaQuery(`(min-width: ${TABLET})`)]: {
-        justifyContent: 'inherit'
-    },
-})
+    [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
+        justifyContent: 'inherit',
+        '&.mtn': {
+            marginTop: '0'
+        }
+    }
+});
 
 const JobContainer = styled.div({
     paddingBottom: '1rem',
@@ -120,8 +146,8 @@ const JobContainer = styled.div({
         marginBottom: '0.25rem'
     },
     ' > ul': {
-        paddingLeft: '2rem',
-        marginBottom: '0'
+        marginBottom: '0',
+        paddingLeft: '2rem'
     }
 });
 
@@ -136,13 +162,12 @@ const EducationDetailsContainer = styled.div({
     display: 'flex',
     flexDirection: 'column',
     ' > span': {
-        // fontWeight: '600',
         lineHeight: '1.5rem'
     },
     ' > .divider': {
         display: 'none'
     },
-    [mediaQuery(`(min-width: ${MOBILE_SM})`)]: {
+    [mediaQueryWithPrint(`(min-width: ${MOBILE_SM})`)]: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
         ' > span': {
@@ -151,7 +176,7 @@ const EducationDetailsContainer = styled.div({
         ' .divider': {
             display: 'block',
             marginLeft: '0.25rem',
-            marginRight: '0.25rem',
+            marginRight: '0.25rem'
         }
     }
 });
@@ -160,13 +185,12 @@ const DetailsContainer = styled.div({
     display: 'flex',
     flexDirection: 'column',
     ' > span': {
-        // fontWeight: '600',
         lineHeight: '1.5rem'
     },
     ' > .divider': {
         display: 'none'
     },
-    [mediaQuery(`(min-width: ${MOBILE_SM})`)]: {
+    [mediaQueryWithPrint(`(min-width: ${MOBILE_SM})`)]: {
         flexDirection: 'row',
         ' > span': {
             fontWeight: '500'
@@ -174,82 +198,82 @@ const DetailsContainer = styled.div({
         ' .divider': {
             display: 'block',
             marginLeft: '0.25rem',
-            marginRight: '0.25rem',
+            marginRight: '0.25rem'
         }
-    },
+    }
 });
 
-const displaySkills = skills => {
-    const skillSet = skills.map(skill => skill.name)
-    const skillString = skillSet.join(', ')
+const displaySkillSet = skills => {
+    const skillSet = skills.map(skill => skill.name);
+    const skillString = skillSet.join(', ');
     
     return (
         <p>{skillString}</p>
-    )
+    );
 };
 
-//TODO:
-// Print as pdf? If not, make sure to add print styles
+//TODO: Print as pdf instead od print styles?
 const Work = props => {
     const {
-        about,
         contactInformation,
         education,
         jobs,
         jobTitle,
         lastUpdated, //TODO: put this somewhere?
         name,
+        summary,
         technicalSkills
     } = props;
  
     return (
-        <WorkContainer>
+        <>
+            <PageTitle tab="Work"/>
             <HeadingContainer>
-                <PageTitle title={name}/>
+                <PageHeader title={name}/>
                 <span>{jobTitle}</span>
             </HeadingContainer>
             <ContentContainer>
                 <SecondaryContainer>
                     <SectionContainer>
-                        <SectionHeader className="secondary-section-header">
-                            <FontAwesomeIcon icon={faPhoneAlt} title="Education icon" />
+                        <SectionHeader className="secondary-section-header mtn">
+                            <FontAwesomeIcon icon={faPhoneAlt} title="Contact icon"/>
                             Contact
                         </SectionHeader>
                         <ContactContainer>
                             <p className="contact-item">
                                 <span>{contactInformation.location}</span>
-                                <FontAwesomeIcon icon={faMapMarker} title="Current location icon" />
+                                <FontAwesomeIcon icon={faMapMarker} title="Current location icon"/>
                             </p>
                             <p>
                                 <a href={`tel:${contactInformation.phone.number}`} className="contact-item">
                                     <span>{contactInformation.phone.formattedNumber}</span>
-                                    <FontAwesomeIcon icon={faMobileAlt} title="Mobile phone icon" />
+                                    <FontAwesomeIcon icon={faMobileAlt} title="Mobile phone icon"/>
                                 </a>
                             </p>
                             <p>
                                 <a href={contactInformation.email} className="contact-item">
                                     <span>{contactInformation.email}</span>
-                                    <FontAwesomeIcon icon={faEnvelope} title="Email icon" />    
+                                    <FontAwesomeIcon icon={faEnvelope} title="Email icon"/> 
                                 </a>    
                             </p>
                             <p>
                                 <a href={contactInformation.linkedIn} className="contact-item">
                                     <span>{contactInformation.linkedIn}</span>
-                                    <FontAwesomeIcon icon={faLinkedin} title="LinkedIn icon" />
+                                    <FontAwesomeIcon icon={faLinkedin} title="LinkedIn icon"/>
                                 </a>
                             </p>
                             {/* TODO: Add website
                             <p>
                                 <a href={contactInformation.website} className="contact-item">
                                     <span>{contactInformation.website}</span>
-                                    <FontAwesomeIcon icon={faLaptop} title="Website icon" />
+                                    <FontAwesomeIcon icon={faLaptop} title="Website icon"/>
                                 </a>
                             </p> */}
                         </ContactContainer>
                     </SectionContainer>
                     <SectionContainer>
-                        <SectionHeader>
-                            <FontAwesomeIcon icon={faGraduationCap} title="Education icon" />
+                        <SectionHeader className="secondary-section-header">
+                            <FontAwesomeIcon icon={faGraduationCap} title="Education icon"/>
                             Education
                         </SectionHeader>
                         {education.map((school, index) => (
@@ -265,14 +289,14 @@ const Work = props => {
                         ))}
                     </SectionContainer>
                     <SectionContainer>
-                        <SectionHeader>
-                            <FontAwesomeIcon icon={faTools} title="Skills icon" />
+                        <SectionHeader className="secondary-section-header">
+                            <FontAwesomeIcon icon={faTools} title="Skills icon"/>
                             Technical Skills
                         </SectionHeader>
-                        {technicalSkills.map(section => (
-                            <div>
+                        {technicalSkills.map((section, index) => (
+                            <div key={index}>
                                 <h3>{section.title}</h3>
-                                {displaySkills(section.skills)}
+                                {displaySkillSet(section.skills)}
                             </div>
                         ))}
                     </SectionContainer>
@@ -280,15 +304,15 @@ const Work = props => {
                 </SecondaryContainer>
                 <PrimaryContainer>
                     <SectionContainer>
-                        <SectionHeader>
-                            <FontAwesomeIcon icon={faUser} title="Education icon" />
+                        <SectionHeader className="mtn">
+                            <FontAwesomeIcon icon={faUser} title="Profile icon"/>
                             Profile
                         </SectionHeader>    
-                        <p>{about}</p>
+                        <p>{summary}</p>
                     </SectionContainer>
                     <SectionContainer>
                         <SectionHeader>
-                        <FontAwesomeIcon icon={faBusinessTime} title="Education icon" />
+                        <FontAwesomeIcon icon={faBusinessTime} title="Work experience icon"/>
                             Work Experience
                         </SectionHeader>
                         {jobs.map((job, index) => (
@@ -304,15 +328,17 @@ const Work = props => {
                                 {/* TODO: Want this header?
                                 <h4>Key Qualifications & Responsibilities:</h4> */}
                                 <ul>
-                                    {(job.responsibilities).map((resp, idx) => <li key={idx}>{resp.description}</li>)}
+                                    {(job.responsibilities).map((resp, index) => (
+                                        <li key={index}>{resp.description}</li>
+                                    ))}
                                 </ul>
                             </JobContainer>
                         ))}
                     </SectionContainer>
                 </PrimaryContainer>
             </ContentContainer>
-        </WorkContainer>
-    )
-}
+        </>
+    );
+};
 
 export default Work;

@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { mediaQuery, MOBILE, MOBILE_SM } from '../../constants/breakpoints';
+import { 
+    mediaQuery, 
+    mediaQueryWithPrint, 
+    MOBILE, 
+    MOBILE_SM 
+} from '../../constants/breakpoints';
 
 // TODO: Add Styling?
 //      - hover state to links... need to decide on color palette
-//      - different color than body?
+//      - different bg color than body?
 const FooterContainer = styled.footer({
     alignItems: 'center',
     bottom: '0',
@@ -30,7 +35,7 @@ const FooterContainer = styled.footer({
             marginRight: '1rem',
         }
     },
-    [mediaQuery(`(min-width: ${MOBILE})`)]: {
+    [mediaQueryWithPrint(`(min-width: ${MOBILE})`)]: {
         justifyContent: 'flex-end',
         textAlign: 'left'
     }
@@ -57,7 +62,7 @@ const Footer = props => {
 
     return (
         <FooterContainer>
-            <ContactContainer>
+            <ContactContainer className="footer-links">
                 {contactLinks.map((link, index) => (
                     <a key={index} href={link.url}>
                         <FontAwesomeIcon icon={link.icon} title={link.iconTitle} />
@@ -67,7 +72,7 @@ const Footer = props => {
             <span className="divider">|</span>
             {copyright}
         </FooterContainer>
-    )
+    );
 };
 
 export default Footer;

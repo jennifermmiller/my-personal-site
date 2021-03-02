@@ -1,1 +1,2 @@
-export {default} from './Emoji.js';
+export { default } from './Emoji.js';
+

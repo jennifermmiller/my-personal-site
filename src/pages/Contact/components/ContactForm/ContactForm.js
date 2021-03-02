@@ -4,7 +4,8 @@ import { init, sendForm } from 'emailjs-com';
 import styled from 'styled-components';
 
 const FormContainer = styled.div({
-    margin: '6rem 0'
+    margin: '6rem 0',
+    maxWidth: '420px'
 });
 
 const InputContainer = styled.div(({ theme }) => ({
@@ -33,6 +34,7 @@ const InputContainer = styled.div(({ theme }) => ({
     }
 }));
 
+//TODO: add error styes once validation is working
 const ErrorContainer = styled.div({
 
 });
@@ -40,8 +42,8 @@ const ErrorContainer = styled.div({
 init("user_BEkCBtrnJNeaE7c2GdRHB");
 
 // TODO: 
-    //      validation's not working?
-    //      counter?
+//      validation's not working?
+//      counter?
 const ContactForm = () => {
     const { errors, handleSubmit, register } = useForm();
 
@@ -51,7 +53,7 @@ const ContactForm = () => {
     const generateContactNumber = () => {
         const numStr = "000000" + (Math.random() * 1000000 | 0);
         setContactNumber(numStr.substring(numStr.length - 6));
-    }
+    };
 
     // TODO: If adding this...need to do add useEffect or something so charsLeft can be reset    
     // const message = watch('message') || "";
@@ -70,11 +72,14 @@ const ContactForm = () => {
                 setStatusMessage("Thank you for contacting me! Your message has been sent!");
                 statusMessage.className = "status-message success";
                 
-                setTimeout(()=> setStatusMessage(''), 7000)
+                setTimeout(()=> setStatusMessage(''), 7000);
             }, function(error) {
                 setStatusMessage("Oops! Message failed to send! Please try again later.");
                 statusMessage.className = "status-message failure";
-                setTimeout(()=> setStatusMessage(''), 7000)
+                
+                // TODO: do something with returned error
+
+                setTimeout(()=> setStatusMessage(''), 7000);
             });
         
     }
@@ -83,7 +88,7 @@ const ContactForm = () => {
         <FormContainer>
             <div className='status-message'>{statusMessage}</div>
             <form id="contact-form" onSubmit={handleSubmit(sendEmail)}>
-                <input type='hidden' name='contact_number' value={contactNumber} />
+                <input type='hidden' name='contact_number' value={contactNumber}/>
                 <InputContainer>
                     <label htmlFor="userName">Name</label>
                     <input
@@ -149,7 +154,7 @@ const ContactForm = () => {
                 </InputContainer>
             </form>
         </FormContainer>
-    )
-}
+    );
+};
 
 export default ContactForm;

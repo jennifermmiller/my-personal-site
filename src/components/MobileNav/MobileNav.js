@@ -3,12 +3,8 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-import Nav from '../Nav';
 import useComponentVisible from '../../hooks/useComponentVisible';
-
-const MobileNavContainer = styled.div({
-    
-});
+import Nav from '../Nav';
 
 const MobileNavButton = styled.button({
     background: 'transparent',
@@ -17,7 +13,7 @@ const MobileNavButton = styled.button({
     padding: '1rem'
 });
 
-//TODO: Clean this div up, display is slightly off
+//TODO: Fix - looks slightly off 
 const DropdownContainer = styled.div(({ theme }) => ({
     backgroundColor: theme.dropdown,
     opacity: 1,
@@ -39,7 +35,6 @@ const mobileSyles = {
     }
 };
 
-//TODO: darken page when dropdown is open?
 const MobileNav = props => {
     const { navigation } = props;
     const [open, setOpen] = useState(false);
@@ -50,16 +45,21 @@ const MobileNav = props => {
     const toggleOpen = () => open ? setOpen(false) : setOpen(true);
 
     return (
-        <MobileNavContainer ref={ref}>
+        <div ref={ref}>
             <MobileNavButton onClick={toggleOpen}>
                 <FontAwesomeIcon icon={faBars} title={open ? 'Close menu' : 'Open menu'}/>
             </MobileNavButton>
-            {open && 
+            {open ? 
                 <DropdownContainer>
-                    <Nav navigation={navigation} onNavClick={toggleOpen} css={mobileSyles}/>
-                </DropdownContainer>}
-       </MobileNavContainer>
-    )
+                    <Nav 
+                        css={mobileSyles}
+                        navigation={navigation}
+                        onNavClick={toggleOpen}
+                    />
+                </DropdownContainer>
+            : null}
+       </div>
+    );
 }
 
 export default MobileNav;

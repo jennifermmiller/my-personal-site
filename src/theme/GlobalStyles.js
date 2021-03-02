@@ -1,16 +1,19 @@
-import { createGlobalStyle } from 'styled-components'
-import { mediaQueries } from '../constants/breakpoints'
+import { createGlobalStyle } from 'styled-components';
 
-//TODO: light/dark theme
-// TODO: font family, links, buttons, nav
+import { mediaQueries } from '../constants/breakpoints';
+
 export const GlobalStyles = createGlobalStyle`
+  body, html {
+    height: 100%;
+    width: 100%;
+  }
+
   html {
     background-color: ${({ theme }) => theme.body};
     box-sizing: border-box;
     color: ${({ theme }) => theme.text};
     font-family: 'Inter', sans-serif;
     font-size: 11px;
-    height: 100vh;
 
     @media ${mediaQueries.tablet} {
       font-size: 14px;
@@ -19,6 +22,54 @@ export const GlobalStyles = createGlobalStyle`
     @media ${mediaQueries.desktop} {
       font-size: 16px;
     }
+
+    @media print {
+      font: 9pt 'Helvetica', 'Arial', san-serif;
+      background: #fff;
+      color: 000;
+
+      .header,
+      footer .divider,
+      .footer-links {
+        display: none;
+      }
+
+      main {
+        padding: 0;
+        margin:  1cm;
+      }
+  
+      h1 {
+        margin-top: 0;
+      }
+
+      h1, h2, h3, h4 {
+        page-break-after:avoid; 
+        page-break-inside:avoid;
+      }
+      
+      img {
+        page-break-inside:avoid; 
+        page-break-after:avoid;
+      }
+
+      a {
+        page-break-inside:avoid
+      }
+
+      ul { 
+        page-break-before:avoid;
+      }
+
+      a[href^=http]:after {
+        color: #520;
+        content:" <" attr(href) "> ";
+      }
+    }
+  }
+
+  body {
+    margin: 0
   }
 
   *, *:before, *:after {
@@ -30,20 +81,21 @@ export const GlobalStyles = createGlobalStyle`
     padding: 1rem;
 
     @media ${mediaQueries.tablet} {
-      padding: 3rem;
+      padding: 2rem;
     }
   }
 
+
   a {
     color: ${({ theme }) => theme.text};
-    text-decoration: none; 
+    text-decoration: underline;
   }
 
   a:hover {
-    text-decoration: underline;
+    text-decoration: none; 
   }
 
   svg {
     color: ${({ theme }) => theme.text};
   }
-`
+`;

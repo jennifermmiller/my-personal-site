@@ -23,7 +23,7 @@ const NavItemContainer = styled.li(({theme}) => ({
 }));
 
 const NavItem = props => {
-    const {handleClick, label, path} = props;
+    const { handleClick, label, path } = props;
     
     return (
        <NavItemContainer>
@@ -35,7 +35,7 @@ const NavItem = props => {
                     {label}
             </NavLink>
         </NavItemContainer>
-    )
-}
+    );
+};
 
 export default NavItem;
