@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from "react";
 
 const useComponentVisible = ({ enabled = true, onClickHideComponent, ref }) => {
   const containerRef = useRef();
@@ -20,21 +20,21 @@ const useComponentVisible = ({ enabled = true, onClickHideComponent, ref }) => {
 
   useEffect(() => {
     const handleHideDropdown = (event) => {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         onClickHideComponent instanceof Function && onClickHideComponent();
       }
     };
 
-    document.addEventListener('keydown', handleHideDropdown, true);
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("keydown", handleHideDropdown, true);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('keydown', handleHideDropdown, true);
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-  }, [handleClickOutside, onClickHideComponent])
+      document.removeEventListener("keydown", handleHideDropdown, true);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [handleClickOutside, onClickHideComponent]);
 
-  return { ref: targetRef }
+  return { ref: targetRef };
 };
 
 export default useComponentVisible;
