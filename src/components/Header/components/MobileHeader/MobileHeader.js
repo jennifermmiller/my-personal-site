@@ -13,8 +13,8 @@ const MobileHeaderContainer = styled.header(({ theme }) => ({
     ' > button': {
         position: 'absolute',
         padding: '1rem',
-        right: '0.5rem',
-        top: '0.5rem'
+        right: '0',
+        top: '0'
     }
 }));
 

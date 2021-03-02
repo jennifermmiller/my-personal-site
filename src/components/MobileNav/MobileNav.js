@@ -14,14 +14,12 @@ const MobileNavButton = styled.button({
     background: 'transparent',
     border: 'none',
     fontSize: '2rem',
-    padding: '1rem',
-    marginLeft:'0.5rem',
-    marginTop:'0.5rem'
+    padding: '1rem'
 });
 
+//TODO: Clean this div up, display is slightly off
 const DropdownContainer = styled.div(({ theme }) => ({
     backgroundColor: theme.dropdown,
-    borderRadius: '0.25rem',
     opacity: 1,
     width: '100%'
 }));
@@ -34,6 +32,7 @@ const mobileSyles = {
         lineHeight: '4rem'
     },
     '> li > a': {
+        borderRadius: '0',
         display: 'block',
         height: '100%',
         width: '100%'  

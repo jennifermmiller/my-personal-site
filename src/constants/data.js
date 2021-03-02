@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
+import Emoji from '../components/Emoji/';
 import profile from '../assets/profile.png'
 
 // TODO: Use an existing gallery; hand roll something??
@@ -20,17 +20,23 @@ import chuckGeorge from '../assets/chuckGeorge.jpg'
 import chuckWinter from '../assets/chuckWinter.jpg'
 
 import {
-  EMAIL,
+  EMAIL_LINK,
   EMAIL_URL,
-  GITHUB,
+  GITHUB_LINK,
   GITHUB_URL,
-  JOSH_ALLEN,
-  LINKEDIN,
+  JOB_TITLE,
+  JOSH_ALLEN_LINK,
+  LINKEDIN_LINK,
   LINKEDIN_URL,
-  SCHOOL,
-  TRAIL,
-  WORK,
-} from './links'
+  LOCATION,
+  NAME,
+  PHONE_NUMBER,
+  PHONE_NUMBER_FORMATTED,
+  RESUME_LAST_UPDATED,
+  SCHOOL_LINK,
+  TRAIL_LINK,
+  WORK_LINK,
+} from './constants'
 
 const DOG = <Link to="/chuck">my dog</Link>
 
@@ -43,28 +49,28 @@ const data = {
     title: 'About Jen',
     content: [
       {
-        section: <p key={0}>Hi, I’m Jennifer Miller.</p>,
+        section: <p key={0}>Hi! <Emoji label="waving hand" symbol={'👋'}/> I’m {NAME.first} {NAME.last}.</p>,
       },
       {
         section: (
           <p key={1}>
             {EXPERIENCE} years ago, I made the outrageous decision to turn my
-            life upside down and attend the {SCHOOL}. It’s been a wild ride but
+            life upside down and attend the {SCHOOL_LINK}. It’s been a wild ride but
             I haven’t looked back! Changing career paths was one of the best
-            decisions I’ve ever made. I now have the opportunity to learn
-            something new on a daily basis!
+            decisions I’ve ever made.
           </p>
         ),
       },
       {
         section: (
+          // TODO: Expand on this? Talk about pixel perfect code, working with design/product/back end
           <p key={2}>
-            Currently, I’m part of the engineering team at {WORK} where I work
+            Currently, I’m part of the engineering team at {WORK_LINK} where I work
             on all things UX. Most of the projects I'm involved with are part of
             our newer technology stack consisting of React.js, Typescript,
             XState, and GraphQL. But, I’ve been known (on more than one
             occasion) to dip my toes into our older applications running on
-            Backbone.js/Marionette.js, Dust.js, and, yes, even jQuery.
+            Backbone.js/Marionette.js, Dust.js, and, yes, even jQuery. 
           </p>
         ),
       },
@@ -73,14 +79,14 @@ const data = {
           <p key={3}>
             These days when I’m not coding, I’m chasing my three little
             munchkins around the house. If the stars align and I get some time
-            alone, I love to take {DOG} for a hike or cycle down the {TRAIL}.
+            alone, I love to take {DOG} for a hike or cycle down the {TRAIL_LINK}.
           </p>
         ),
       },
       {
         section: (
           <p key={4}>
-            I’m inspired by a hot cup of coffee, {JOSH_ALLEN}, and good music.
+            I’m inspired by a hot cup of coffee, {JOSH_ALLEN_LINK}, and good music.
           </p>
         ),
       },
@@ -175,7 +181,7 @@ const data = {
       {
         section: (
           <p key={1}>
-            User the form below. Or, alternatively, shoot me an email at {EMAIL}
+            User the form below. Or, alternatively, shoot me an email at {EMAIL_LINK}
             .
           </p>
         ),
@@ -183,7 +189,7 @@ const data = {
       {
         section: (
           <p key={2}>
-            I can also be found on {GITHUB} and {LINKEDIN}.
+            I can also be found on {GITHUB_LINK} and {LINKEDIN_LINK}.
           </p>
         ),
       },
@@ -191,11 +197,11 @@ const data = {
   },
   home: {
     name: {
-      first: 'Jennifer',
-      last: 'Miller',
+      first: NAME.first,
+      last: NAME.last,
     },
     profileImage: {
-      alt: 'Jennifer Miller headshot',
+      alt: `${NAME.first} ${NAME.last} headshot`,
       source: profile,
     },
     hobbies: [
@@ -218,10 +224,10 @@ const data = {
         description: 'Animal companion',
       },
       {
-        description: 'Amateur woodworker',
+        description: 'Bills mafia member',
       },
       {
-        description: 'Bills mafia member',
+        description: 'Amateur woodworker',
       },
       {
         description: 'Outdoor enthusiast',
@@ -232,15 +238,16 @@ const data = {
     ],
   },
   work: {
-    name: 'Jennifer Miller',
-    jobTitle: 'Front End Developer',
+    name: `${NAME.first} ${NAME.last}`,
+    jobTitle: JOB_TITLE,
+    lastUpdated: RESUME_LAST_UPDATED,
     about:
       'Talented Front End Developer with 6+ years of experience building and maintaining enterprise-level single page applications. Proficient in HTML, CSS, and JavaScript; as well as modern libraries and frameworks. Looking for an opportunity to collaborate with a group of exceptional engineers on complex projects where I can continue to grow and improve my skillset.',
     jobs: [
       {
         company: 'Benefitfocus',
         location: 'Greenville, SC',
-        jobTitle: 'Front End Developer, II, UX Core,',
+        jobTitle: 'UX Engineer, II, UX Core',
         timePeriod: '2018 - Present',
         responsibilities: [
           {
@@ -276,7 +283,7 @@ const data = {
       {
         company: 'Benefitfocus',
         location: 'Greenville, SC',
-        jobTitle: 'Front End Developer, Global Services,',
+        jobTitle: 'UI Engineer, Global Services',
         timePeriod: '2014 - 2018',
         responsibilities: [
           {
@@ -398,13 +405,16 @@ const data = {
         ],
       },
     ],
-    // TODO: Icon links for web; written out link if pdf (if we make it that far)
     contactInformation: {
+      // website: TODO
       email: EMAIL_URL,
       github: GITHUB_URL,
       linkedIn: LINKEDIN_URL,
-      location: 'Greenville, SC',
-      phone: '585.489.7590',
+      location: LOCATION,
+      phone: {
+        number: PHONE_NUMBER,
+        formattedNumber: PHONE_NUMBER_FORMATTED
+      }
     },
     education: [
       {
@@ -421,7 +431,9 @@ const data = {
         timePeriod: '2002 - 2016',
       },
     ],
-    // TODO: Switch these to plain arrays to use array.join(', ')?
+    // TODO: thoughts
+    //    Add experience level
+    //    Or, just switch these to plain arrays to use array.join(', ')
     technicalSkills: [
       {
         title: 'Languages',
@@ -536,37 +548,25 @@ const data = {
     },
   ],
   footer: {
-    content: <span>&#169; {CURRENT_YEAR} Jennifer Miller</span>,
-  },
-  personalLinks: [
+    copyright: <span>&#169; {CURRENT_YEAR} {NAME.first} {NAME.last}</span>,
+    contactLinks: [
       {
-        link: (
-          <a key={0} href={`mailto:${EMAIL_URL}`}>
-            <FontAwesomeIcon icon={faEnvelope} title="Send Jen an email" />
-          </a>
-        ),
+        url: `mailto:${EMAIL_URL}`,
+        icon: faEnvelope,
+        iconTitle: "Send Jen an email"
       },
       {
-        link: (
-          <a key={1} href={`https://${GITHUB_URL}`}>
-            <FontAwesomeIcon
-              icon={faGithub}
-              title="View Jen's Github profile"
-            />
-          </a>
-        ),
+        url: `https://${GITHUB_URL}`,
+        icon: faGithub,
+        iconTitle: "View Jen's Github profile"
       },
       {
-        link: (
-          <a key={2} href={`https://www.${LINKEDIN_URL}`}>
-            <FontAwesomeIcon
-              icon={faLinkedin}
-              title="View Jen's LinkedIn profile"
-            />
-          </a>
-        ),
-      },
-  ]
+        url: `https://www.${LINKEDIN_URL}`,
+        icon: faLinkedin,
+        iconTitle: "View Jen's LinkedIn profile"
+      }
+    ]
+  }
 }
 
 export default data

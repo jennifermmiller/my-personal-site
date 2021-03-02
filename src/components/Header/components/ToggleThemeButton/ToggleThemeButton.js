@@ -6,7 +6,6 @@ const ThemeButton = styled.button({
     background: 'transparent',
     border: 'none',
     fontSize: '2rem',
-    marginRight: '0.5rem',
     padding: '0.5rem',
     ':hover': {
       cursor: 'pointer'
