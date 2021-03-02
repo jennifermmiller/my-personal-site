@@ -1,48 +1,75 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { 
+    faBusinessTime, 
+    faEnvelope,
+    faGraduationCap,
+    faLaptop,
+    faMapMarker, 
+    faMobileAlt,
+    faPhoneAlt,
+    faTools, 
+    faUser
+} from '@fortawesome/free-solid-svg-icons'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import PageTitle from '../../components/PageTitle';
-import { mediaQuery, TABLET, DESKTOP, MOBILE } from '../../constants/breakpoints';
+import { mediaQuery, TABLET, MOBILE_SM } from '../../constants/breakpoints';
 
 const WorkContainer = styled.div({
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    width: '100%'
 });
 
+//TODO: Larger font
 const HeadingContainer = styled.div({
+    paddingBottom: '3rem',
     textAlign: 'center',
+    // TODO: need any media queries?
+    // [mediaQuery(`(min-width: ${TABLET})`)]: {
+    //     ' > h1': {
+    //         fontSize: '6rem'
+    //     }
+    // },
+});
+
+const ContentContainer = styled.div({
+    display: 'flex',
+    flexDirection: 'column-reverse',
+    flexWrap: 'wrap',
+    maxWidth: '700px',
     [mediaQuery(`(min-width: ${TABLET})`)]: {
-        textAlign: 'left',
+        alignItems: 'flex-start',
+        maxWidth: 'none',
+        flexDirection: 'row',
+        flexWrap: 'noWrap',
+
     },
 });
 
 const ContactContainer = styled.div({
-    ' > div': {
-        display: 'flex',
-        justifyContent: 'center',
+    ' .contact-item': {
         alignItems: 'center',
-        flexWrap: 'wrap',
+        display: 'flex',
+        flexDirection: 'row-reverse',
+        justifyContent: 'flex-end'
     },
-    ' .contact-info span': {
-        flexBasis: '100%'
+    ' .contact-item > span': {
+        marginLeft: '1rem'
     },
-    ' .contact-links a': {
-        fontSize: '1.5rem',
-        padding: '0.5rem'
+    ' a': {
+        textDecoration: 'underline',
+        whiteSpace: 'nowrap'
     },
-    [mediaQuery(`(min-width: ${MOBILE})`)]: {
-        ' .contact-info span': {
-            flexBasis: 'auto'
-        },
-        ' .contact-info span:not(:last-child)::after': {
-            content: "'\\00B7'",
-            padding: '0 0.3125rem'
-        },
+    ' a:hover': {
+        textDecoration: 'none'
     },
     [mediaQuery(`(min-width: ${TABLET})`)]: {
-        ' > div': {
-            justifyContent: 'start',
+        ' .contact-item': {
+            flexDirection: 'row',
+            justifyContent: 'flex-end'
+        },
+        ' .contact-item > span': {
+            marginLeft: '0',
+            marginRight: '1rem'
         }
     },
 });
@@ -51,37 +78,118 @@ const ContactContainer = styled.div({
 const PrimaryContainer = styled.div({
     display: 'flex',
     flexDirection: 'column',
-    flexBasis: '100%',
-    flex: '3'
+    [mediaQuery(`(min-width: ${TABLET})`)]: {
+        borderLeft: '1px solid', //TODO: variable
+        paddingLeft: '2rem'
+    },
 });
 
 const SecondaryContainer = styled.div({
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column-reverse',
     flexBasis: '100%',
-    marginLeft: '2rem',
     [mediaQuery(`(min-width: ${TABLET})`)]: {
-        flex: '1'
+        flexDirection: 'column',
+        maxWidth: '33%',
+        textAlign: 'right',
+        paddingRight: '2rem'
     },
 });
 
-const DateAndLocationContainer = styled.div({
-    display: 'flex',
-    justifyContent: 'space-between'
-});
-
 const SectionContainer = styled.div({
-
+    paddingBottom: 'rem 0'
 });
+
+//TODO: Different color headers if ever decide on color palette
+const SectionHeader = styled.h2({
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    textTransform: 'uppercase',
+    ' > svg': {
+        marginRight: '0.5rem'
+    },
+    [mediaQuery(`(min-width: ${TABLET})`)]: {
+        justifyContent: 'inherit'
+    },
+})
 
 const JobContainer = styled.div({
-
+    paddingBottom: '1rem',
+    ' > h3': {
+        marginBottom: '0.25rem'
+    },
+    ' > ul': {
+        paddingLeft: '2rem',
+        marginBottom: '0'
+    }
 });
 
+const EducationContainer = styled.div({
+    paddingBottom: '1rem',
+    ' > h3': {
+        marginBottom: '0.25rem'
+    }
+});
+
+const EducationDetailsContainer = styled.div({
+    display: 'flex',
+    flexDirection: 'column',
+    ' > span': {
+        // fontWeight: '600',
+        lineHeight: '1.5rem'
+    },
+    ' > .divider': {
+        display: 'none'
+    },
+    [mediaQuery(`(min-width: ${MOBILE_SM})`)]: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        ' > span': {
+            fontWeight: '500'
+        },
+        ' .divider': {
+            display: 'block',
+            marginLeft: '0.25rem',
+            marginRight: '0.25rem',
+        }
+    }
+});
+
+const DetailsContainer = styled.div({
+    display: 'flex',
+    flexDirection: 'column',
+    ' > span': {
+        // fontWeight: '600',
+        lineHeight: '1.5rem'
+    },
+    ' > .divider': {
+        display: 'none'
+    },
+    [mediaQuery(`(min-width: ${MOBILE_SM})`)]: {
+        flexDirection: 'row',
+        ' > span': {
+            fontWeight: '500'
+        },
+        ' .divider': {
+            display: 'block',
+            marginLeft: '0.25rem',
+            marginRight: '0.25rem',
+        }
+    },
+});
+
+const displaySkills = skills => {
+    const skillSet = skills.map(skill => skill.name)
+    const skillString = skillSet.join(', ')
+    
+    return (
+        <p>{skillString}</p>
+    )
+};
+
 //TODO:
-// Updated @ ? 
-// Print as pdf?
-// Add icons to each section header?
+// Print as pdf? If not, make sure to add print styles
 const Work = props => {
     const {
         about,
@@ -89,82 +197,120 @@ const Work = props => {
         education,
         jobs,
         jobTitle,
-        links,
-        // TODO: Add location somewhere?
+        lastUpdated, //TODO: put this somewhere?
         name,
         technicalSkills
     } = props;
  
     return (
         <WorkContainer>
-            <PrimaryContainer>
-                <HeadingContainer>
-                    <PageTitle title={name}/>
-                    {/* TODO: Need this? over doing it? */}
-                    <ContactContainer>
-                        <div className="contact-info">
-                            <span>{contactInformation.location}</span>
-                            <span>{contactInformation.phone}</span>
-                        </div>
-                        <div className="contact-links">
-                            {links.map(item => item.link)}
-                        </div>
-                    </ContactContainer>
-                </HeadingContainer>
-                <SectionContainer>
-                    <h2>Profile</h2>    
-                    <p>{about}</p>
-                </SectionContainer>
-                <SectionContainer>
-                    <h2>Work Experience</h2>
-                    {/* Todo: Do I want this in here?? */}
-                    <span>Last updated: March 2021</span> 
-                    {jobs.map((job, index) => (
-                        <JobContainer key={index}>
-                            <h3>{job.jobTitle} at {job.company}</h3>
-                            <DateAndLocationContainer>
-                                <span>{job.location}</span>
-                                <span>{job.timePeriod}</span>
-                            </DateAndLocationContainer>
-                            <h4>Key Qualifications & Responsibilities</h4>
-                            <ul>
-                                {(job.responsibilities).map((resp, idx) => <li key={idx}>{resp.description}</li>)}
-                            </ul>
-                        </JobContainer>
-                    ))}
-                </SectionContainer>
-                <SectionContainer>
-                    <h2>Education</h2>
-                    {education.map((school, index) => (
-                        <div key={index}>
-                            <h3>{school.name}</h3>
-                            <DateAndLocationContainer>
-                                <span>{school.location}</span>
-                                <span>{school.timePeriod}</span>
-                            </DateAndLocationContainer>
-                            <p>{school.description}</p>
-                        </div>
-                    ))}
-                </SectionContainer>
-            </PrimaryContainer>
-            <SecondaryContainer>
-                <SectionContainer>
-                    <h2>Technical Skills</h2>
-                    {technicalSkills.map(section => (
-                        <div>
-                            <h3>{section.title}</h3>
-                            {/* TODO: decide how I want to do this */}
-                            {(section.skills).map((item, idx)=> <span key={idx}>{item.name}, </span>)}
-                        </div>
-                    ))}
-                </SectionContainer>
-                {/* TODO: where to put this? Seems like lower might work better for mobile? */}
-                {/* <SectionContainer>
-                    <h2>Contact Information</h2>
-                    <p>{contactInformation.phone}</p>
-                    {links.map(item => item.link)}
-                </SectionContainer> */}
-            </SecondaryContainer>
+            <HeadingContainer>
+                <PageTitle title={name}/>
+                <span>{jobTitle}</span>
+            </HeadingContainer>
+            <ContentContainer>
+                <SecondaryContainer>
+                    <SectionContainer>
+                        <SectionHeader className="secondary-section-header">
+                            <FontAwesomeIcon icon={faPhoneAlt} title="Education icon" />
+                            Contact
+                        </SectionHeader>
+                        <ContactContainer>
+                            <p className="contact-item">
+                                <span>{contactInformation.location}</span>
+                                <FontAwesomeIcon icon={faMapMarker} title="Current location icon" />
+                            </p>
+                            <p>
+                                <a href={`tel:${contactInformation.phone.number}`} className="contact-item">
+                                    <span>{contactInformation.phone.formattedNumber}</span>
+                                    <FontAwesomeIcon icon={faMobileAlt} title="Mobile phone icon" />
+                                </a>
+                            </p>
+                            <p>
+                                <a href={contactInformation.email} className="contact-item">
+                                    <span>{contactInformation.email}</span>
+                                    <FontAwesomeIcon icon={faEnvelope} title="Email icon" />    
+                                </a>    
+                            </p>
+                            <p>
+                                <a href={contactInformation.linkedIn} className="contact-item">
+                                    <span>{contactInformation.linkedIn}</span>
+                                    <FontAwesomeIcon icon={faLinkedin} title="LinkedIn icon" />
+                                </a>
+                            </p>
+                            {/* TODO: Add website
+                            <p>
+                                <a href={contactInformation.website} className="contact-item">
+                                    <span>{contactInformation.website}</span>
+                                    <FontAwesomeIcon icon={faLaptop} title="Website icon" />
+                                </a>
+                            </p> */}
+                        </ContactContainer>
+                    </SectionContainer>
+                    <SectionContainer>
+                        <SectionHeader>
+                            <FontAwesomeIcon icon={faGraduationCap} title="Education icon" />
+                            Education
+                        </SectionHeader>
+                        {education.map((school, index) => (
+                            <EducationContainer key={index}>
+                                <h3>{school.name}</h3>
+                                <EducationDetailsContainer>
+                                    <span>{school.timePeriod}</span>
+                                    <span className="divider">/</span>
+                                    <span>{school.location}</span>
+                                </EducationDetailsContainer>
+                                <p>{school.description}</p>
+                            </EducationContainer>
+                        ))}
+                    </SectionContainer>
+                    <SectionContainer>
+                        <SectionHeader>
+                            <FontAwesomeIcon icon={faTools} title="Skills icon" />
+                            Technical Skills
+                        </SectionHeader>
+                        {technicalSkills.map(section => (
+                            <div>
+                                <h3>{section.title}</h3>
+                                {displaySkills(section.skills)}
+                            </div>
+                        ))}
+                    </SectionContainer>
+                    
+                </SecondaryContainer>
+                <PrimaryContainer>
+                    <SectionContainer>
+                        <SectionHeader>
+                            <FontAwesomeIcon icon={faUser} title="Education icon" />
+                            Profile
+                        </SectionHeader>    
+                        <p>{about}</p>
+                    </SectionContainer>
+                    <SectionContainer>
+                        <SectionHeader>
+                        <FontAwesomeIcon icon={faBusinessTime} title="Education icon" />
+                            Work Experience
+                        </SectionHeader>
+                        {jobs.map((job, index) => (
+                            <JobContainer key={index}>
+                                <h3>{job.jobTitle}</h3>
+                                <DetailsContainer>
+                                    <span>{job.company}</span>
+                                    <span className="divider">/</span>
+                                    <span>{job.timePeriod}</span>
+                                    <span className="divider">/</span>
+                                    <span>{job.location}</span>
+                                </DetailsContainer>
+                                {/* TODO: Want this header?
+                                <h4>Key Qualifications & Responsibilities:</h4> */}
+                                <ul>
+                                    {(job.responsibilities).map((resp, idx) => <li key={idx}>{resp.description}</li>)}
+                                </ul>
+                            </JobContainer>
+                        ))}
+                    </SectionContainer>
+                </PrimaryContainer>
+            </ContentContainer>
         </WorkContainer>
     )
 }

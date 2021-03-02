@@ -48,16 +48,9 @@ const HobbyContainer = styled.p({
     }
 });
 
-const ContactContainer = styled.div({
-    marginTop: '2rem 1rem',
-    '> a': {
-        fontSize: '3rem',
-        margin: '1.5rem'
-    }
-});
 
 const Home = props => {
-    const { hobbies, links, name, profileImage} = props;
+    const { hobbies, name, profileImage} = props;
     
     return (
         <HomeContainer>
@@ -73,9 +66,6 @@ const Home = props => {
                 <HobbyContainer>
                     {hobbies.map((hobby, idx) => <span className="hobby" key={idx}>{hobby.description}</span>)}
                 </HobbyContainer>
-                <ContactContainer>
-                    {links.map(item => item.link)}
-                </ContactContainer>
             </Content>
         </HomeContainer>
     )
