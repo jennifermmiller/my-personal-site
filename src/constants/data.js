@@ -129,45 +129,27 @@ const data = {
       },
     ],
     // TODO: This section needs finished
-    workImages: [
+    images: [
       {
-        title: "Chuck proudly displaying his name plate.",
-        id: "chuck0",
-        original: chuckWork4,
+        alt: "Chuck proudly displaying his name plate.",
+        source: chuckWork4,
       },
       {
-        title: "Chuck hard at work.",
-        id: "chuck1",
-        original: chuckWork3,
+        alt: "Chuck hard at work.",
+        source: chuckWork3,
       },
       {
-        title: "Chuck taking a snooze on the job.",
-        id: "chuck2",
-        original: chuckWork1,
+        alt: "Chuck taking a snooze on the job.",
+        source: chuckWork1,
       },
-      {
-        title: "Chuck keeping me company at work.",
-        id: "chuck3",
-        original: chuckWork2,
-      },
-    ],
-    playImages: [
-      {
-        alt: "Chuck going for a winter hike.",
-        source: chuckWinter,
-      },
-      {
-        alt: "Chuck resting among blankets.",
-        source: chuckBlankets,
-      },
-      {
-        alt: "Chuck resting on his ball after playtime.",
-        source: chuckBall,
-      },
-      {
-        alt: "Chuck napping by the fireplace with his cat friend.",
-        source: chuckGeorge,
-      },
+      // {
+      //   alt: "Chuck resting on his ball after playtime.",
+      //   source: chuckBall,
+      // },
+      // {
+      //   alt: "Chuck going for a winter hike.",
+      //   source: chuckWinter,
+      // },
     ],
   },
   contact: {
