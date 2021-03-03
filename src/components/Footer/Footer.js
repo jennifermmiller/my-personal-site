@@ -2,10 +2,8 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
-  mediaQuery,
+  DESKTOP,
   mediaQueryWithPrint,
-  MOBILE,
-  MOBILE_SM,
   TABLET,
 } from "../../constants/breakpoints";
 
@@ -48,7 +46,7 @@ const ContactContainer = styled.div(({ theme }) => ({
 
 const CopyrightContainer = styled.span({
   fontSize: "0.75rem",
-  [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
+  [mediaQueryWithPrint(`(min-width: ${DESKTOP})`)]: {
     position: "absolute",
     right: "1rem",
   },

@@ -73,7 +73,7 @@ const data = {
             work on all things UX. Most of the projects I'm involved with are
             part of their newer technology stack consisting of ReactJS,
             Typescript, XState, and GraphQL. But, I’ve been known (on more than
-            one occasion) to dip my toes into our older applications running on
+            one occasion) to dip my toes into the older applications running on
             Backbone.js/Marionette.js, Dust.js, and, yes, even jQuery.
           </p>
         ),
@@ -177,7 +177,7 @@ const data = {
         section: (
           <p key={0}>
             Want to say “Hi!”? Have something you’d like to ask? Interested in
-            hiring me? Get in touch!
+            hiring me? Let's connect!
           </p>
         ),
       },
