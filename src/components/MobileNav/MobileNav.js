@@ -23,15 +23,14 @@ const DropdownContainer = styled.div(({ theme }) => ({
 const mobileSyles = {
   display: "flex",
   flexFlow: "column wrap",
+  margin: "0",
   paddingLeft: "0",
+  width: "100%",
   "> li": {
-    lineHeight: "4rem",
+    lineHeight: "3rem",
   },
   "> li > a": {
-    borderRadius: "0",
     display: "block",
-    height: "100%",
-    width: "100%",
   },
 };
 

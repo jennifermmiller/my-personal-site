@@ -62,7 +62,6 @@ export const GlobalStyles = createGlobalStyle`
       }
 
       a[href^=http]:after {
-        color: #520;
         content:" <" attr(href) "> ";
       }
     }
@@ -87,12 +86,14 @@ export const GlobalStyles = createGlobalStyle`
 
 
   a {
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.linkText};
     text-decoration: underline;
   }
 
   a:hover {
-    text-decoration: none; 
+    background-color: ${({ theme }) => theme.linkHoverBg};
+    color: ${({ theme }) => theme.linkHoverText};
+    text-decoration: none;
   }
 
   svg {

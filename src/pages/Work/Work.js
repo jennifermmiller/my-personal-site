@@ -15,6 +15,7 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 import PageHeader from "../../components/PageHeader";
 import {
+  mediaQuery,
   mediaQueryWithPrint,
   MOBILE,
   MOBILE_SM,
@@ -97,7 +98,7 @@ const PrimaryContainer = styled.div({
   display: "flex",
   flexDirection: "column",
   [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
-    borderLeft: "1px solid", //TODO: variable
+    borderLeft: "1px solid #555555",
     paddingLeft: "2rem",
   },
 });
@@ -167,17 +168,17 @@ const EducationDetailsContainer = styled.div({
   " > .divider": {
     display: "none",
   },
-  [mediaQueryWithPrint(`(min-width: ${MOBILE_SM})`)]: {
+  [mediaQuery(`(min-width: ${MOBILE_SM})`)]: {
     flexDirection: "row",
-    justifyContent: "flex-end",
-    " > span": {
-      fontWeight: "500",
-    },
+    justifyContent: "flex-start",
     " .divider": {
       display: "block",
       marginLeft: "0.25rem",
       marginRight: "0.25rem",
     },
+  },
+  [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
+    justifyContent: "flex-end",
   },
 });
 
@@ -192,9 +193,6 @@ const DetailsContainer = styled.div({
   },
   [mediaQueryWithPrint(`(min-width: ${MOBILE_SM})`)]: {
     flexDirection: "row",
-    " > span": {
-      fontWeight: "500",
-    },
     " .divider": {
       display: "block",
       marginLeft: "0.25rem",
@@ -210,14 +208,13 @@ const displaySkillSet = (skills) => {
   return <p>{skillString}</p>;
 };
 
-//TODO: Print as pdf instead od print styles?
 const Work = (props) => {
   const {
     contactInformation,
     education,
     jobs,
     jobTitle,
-    lastUpdated, //TODO: put this somewhere?
+    // lastUpdated, //TODO: put this somewhere?
     name,
     summary,
     technicalSkills,
@@ -234,15 +231,16 @@ const Work = (props) => {
         <SecondaryContainer>
           <SectionContainer>
             <SectionHeader className="secondary-section-header mtn">
-              <FontAwesomeIcon icon={faPhoneAlt} title="Contact icon" />
+              <FontAwesomeIcon aria-hidden="true" icon={faPhoneAlt} title="" />
               Contact
             </SectionHeader>
             <ContactContainer>
               <p className="contact-item">
                 <span>{contactInformation.location}</span>
                 <FontAwesomeIcon
+                  aria-hidden="true"
                   icon={faMapMarker}
-                  title="Current location icon"
+                  title=""
                 />
               </p>
               <p>
@@ -252,35 +250,48 @@ const Work = (props) => {
                 >
                   <span>{contactInformation.phone.formattedNumber}</span>
                   <FontAwesomeIcon
+                    aria-hidden="true"
                     icon={faMobileAlt}
-                    title="Mobile phone icon"
+                    title=""
                   />
                 </a>
               </p>
               <p>
                 <a href={contactInformation.email} className="contact-item">
                   <span>{contactInformation.email}</span>
-                  <FontAwesomeIcon icon={faEnvelope} title="Email icon" />
+                  <FontAwesomeIcon
+                    aria-hidden="true"
+                    icon={faEnvelope}
+                    title=""
+                  />
                 </a>
               </p>
               <p>
                 <a href={contactInformation.linkedIn} className="contact-item">
                   <span>{contactInformation.linkedIn}</span>
-                  <FontAwesomeIcon icon={faLinkedin} title="LinkedIn icon" />
+                  <FontAwesomeIcon
+                    aria-hidden="true"
+                    icon={faLinkedin}
+                    title=""
+                  />
                 </a>
               </p>
               {/* TODO: Add website
-                            <p>
-                                <a href={contactInformation.website} className="contact-item">
-                                    <span>{contactInformation.website}</span>
-                                    <FontAwesomeIcon icon={faLaptop} title="Website icon"/>
-                                </a>
-                            </p> */}
+                <p>
+                    <a href={contactInformation.website} className="contact-item">
+                        <span>{contactInformation.website}</span>
+                        <FontAwesomeIcon aria-hidden="true" icon={faLaptop} title=""/>
+                    </a>
+                </p> */}
             </ContactContainer>
           </SectionContainer>
           <SectionContainer>
             <SectionHeader className="secondary-section-header">
-              <FontAwesomeIcon icon={faGraduationCap} title="Education icon" />
+              <FontAwesomeIcon
+                aria-hidden="true"
+                icon={faGraduationCap}
+                title=""
+              />
               Education
             </SectionHeader>
             {education.map((school, index) => (
@@ -297,7 +308,7 @@ const Work = (props) => {
           </SectionContainer>
           <SectionContainer>
             <SectionHeader className="secondary-section-header">
-              <FontAwesomeIcon icon={faTools} title="Skills icon" />
+              <FontAwesomeIcon aria-hidden="true" icon={faTools} title="" />
               Technical Skills
             </SectionHeader>
             {technicalSkills.map((section, index) => (
@@ -311,7 +322,7 @@ const Work = (props) => {
         <PrimaryContainer>
           <SectionContainer>
             <SectionHeader className="mtn">
-              <FontAwesomeIcon icon={faUser} title="Profile icon" />
+              <FontAwesomeIcon aria-hidden="true" icon={faUser} title="" />
               Profile
             </SectionHeader>
             <p>{summary}</p>
@@ -319,8 +330,9 @@ const Work = (props) => {
           <SectionContainer>
             <SectionHeader>
               <FontAwesomeIcon
+                aria-hidden="true"
                 icon={faBusinessTime}
-                title="Work experience icon"
+                title=""
               />
               Work Experience
             </SectionHeader>

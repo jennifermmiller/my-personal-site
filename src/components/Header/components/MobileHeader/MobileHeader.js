@@ -5,6 +5,7 @@ import ToggleThemeButton from "../ToggleThemeButton";
 
 const MobileHeaderContainer = styled.header(({ theme }) => ({
   backgroundColor: theme.body,
+  boxShadow: `0 2px 2px -2px ${theme.border}`,
   justifyContent: "space-between",
   left: "0",
   position: "fixed",

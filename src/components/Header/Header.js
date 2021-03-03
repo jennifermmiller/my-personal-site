@@ -1,12 +1,14 @@
 import { useMediaQuery } from "react-responsive";
 
-import { MOBILE } from "../../constants/breakpoints";
+import { TABLET } from "../../constants/breakpoints";
 import DesktopHeader from "./components/DesktopHeader";
 import MobileHeader from "./components/MobileHeader";
 
 const Header = (props) => {
   const { handleThemeClick, navigation, theme } = props;
-  const isMobile = useMediaQuery({ query: `(max-width: ${MOBILE})` });
+  const isMobile = useMediaQuery({ query: `(max-width: ${TABLET})` });
+
+  console.log("ismobile", isMobile);
 
   return (
     <>

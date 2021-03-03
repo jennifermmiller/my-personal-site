@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBriefcase,
+  faEnvelope,
+  faHome,
+  faSmileWink,
+} from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 import Emoji from "../components/Emoji/";
@@ -66,7 +71,7 @@ const data = {
           <p key={2}>
             Currently, I’m part of the engineering team at {WORK_LINK} where I
             work on all things UX. Most of the projects I'm involved with are
-            part of our newer technology stack consisting of ReactJS,
+            part of their newer technology stack consisting of ReactJS,
             Typescript, XState, and GraphQL. But, I’ve been known (on more than
             one occasion) to dip my toes into our older applications running on
             Backbone.js/Marionette.js, Dust.js, and, yes, even jQuery.
@@ -526,43 +531,40 @@ const data = {
   },
   navigation: [
     {
+      icon: faHome,
+      label: "home",
       path: "/",
-      label: "Home",
     },
     {
+      icon: faSmileWink,
+      label: "about",
       path: "/about",
-      label: "About",
     },
     {
+      icon: faBriefcase,
+      label: "work",
       path: "/work-experience",
-      label: "Work",
     },
     {
+      icon: faEnvelope,
+      label: "contact",
       path: "/contact",
-      label: "Contact",
     },
   ],
   footer: {
-    copyright: (
-      <span>
-        &#169; {CURRENT_YEAR} {NAME.first} {NAME.last}
-      </span>
-    ),
+    copyright: `${CURRENT_YEAR} ${NAME.first} ${NAME.last}, All rights reserved`,
     contactLinks: [
       {
         url: `mailto:${EMAIL_URL}`,
         icon: faEnvelope,
-        iconTitle: `Send ${NAME.nickname} an email`,
       },
       {
         url: `https://${GITHUB_URL}`,
         icon: faGithub,
-        iconTitle: `View ${NAME.nickname}'s Github profile`,
       },
       {
         url: `https://www.${LINKEDIN_URL}`,
         icon: faLinkedin,
-        iconTitle: `View ${NAME.nickname}'s LinkedIn profile`,
       },
     ],
   },

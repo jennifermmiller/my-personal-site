@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { init, sendForm } from "emailjs-com";
 import styled from "styled-components";
 
+import { mediaQuery, TABLET } from "../../../../constants/breakpoints";
+
 const FormContainer = styled.div({
   margin: "6rem 0",
   maxWidth: "420px",
@@ -26,24 +28,62 @@ const InputContainer = styled.div(({ theme }) => ({
     minHeight: "320px",
     width: "100%",
   },
-  ' > input[type="submit"]': {
-    background: theme.button,
-    border: theme.button,
-    borderRadius: "0.25rem",
-    color: theme.buttonText,
+  ' > input[aria-invalid="true"]': {
+    backgroundColor: theme.errorBg,
+    borderColor: theme.error,
+  },
+  ' > textarea[aria-invalid="true"]': {
+    backgroundColor: theme.errorBg,
+    borderColor: theme.error,
   },
 }));
 
-//TODO: add error styes once validation is working
-const ErrorContainer = styled.div({});
+const ErrorContainer = styled.div(({ theme }) => ({
+  color: theme.errorText,
+  fontStyle: "italic",
+  lineHeight: "1.5rem",
+}));
+
+const SubmitButton = styled.input(({ theme }) => ({
+  background: theme.button,
+  border: theme.button,
+  borderRadius: "0.25rem",
+  color: theme.buttonText,
+  fontSize: "1.25rem",
+  lineHeight: "1.5rem",
+  padding: "1rem 2rem",
+  width: "100%",
+  "&:hover": {
+    background: theme.buttonHover,
+    border: theme.buttonHover,
+    cursor: "pointer",
+  },
+  [mediaQuery(`(min-width: ${TABLET})`)]: {
+    width: "auto",
+  },
+}));
+
+const StatusContainer = styled.div(({ theme }) => ({
+  "&.success": {
+    backgroundColor: theme.successBg,
+    border: `1px solid ${theme.success}`,
+    color: theme.success,
+    marginBottom: "3rem",
+    padding: "1rem",
+  },
+  "&.failure": {
+    backgroundColor: theme.errorBg,
+    border: `1px solid ${theme.error}`,
+    color: theme.error,
+    marginBottom: "3rem",
+    padding: "1rem",
+  },
+}));
 
 init("user_BEkCBtrnJNeaE7c2GdRHB");
 
-// TODO:
-//      validation's not working?
-//      counter?
 const ContactForm = () => {
-  const { errors, handleSubmit, register } = useForm();
+  const { errors, handleSubmit, register } = useForm({ mode: "onBlur" });
 
   const [contactNumber, setContactNumber] = useState("000000");
   const [statusMessage, setStatusMessage] = useState("");
@@ -52,10 +92,6 @@ const ContactForm = () => {
     const numStr = "000000" + ((Math.random() * 1000000) | 0);
     setContactNumber(numStr.substring(numStr.length - 6));
   };
-
-  // TODO: If adding this...need to do add useEffect or something so charsLeft can be reset
-  // const message = watch('message') || "";
-  // const messageCharsLeft = 1500 - message.length;
 
   const sendEmail = () => {
     const form = document.querySelector("#contact-form");
@@ -68,7 +104,7 @@ const ContactForm = () => {
         form.reset();
 
         setStatusMessage(
-          "Thank you for contacting me! Your message has been sent!"
+          "Your message has been sent! Thanks for contacting me!"
         );
         statusMessage.className = "status-message success";
 
@@ -80,7 +116,7 @@ const ContactForm = () => {
         );
         statusMessage.className = "status-message failure";
 
-        // TODO: do something with returned error
+        console.error(error.message);
 
         setTimeout(() => setStatusMessage(""), 7000);
       }
@@ -89,7 +125,9 @@ const ContactForm = () => {
 
   return (
     <FormContainer>
-      <div className="status-message">{statusMessage}</div>
+      <StatusContainer className="status-message">
+        {statusMessage}
+      </StatusContainer>
       <form id="contact-form" onSubmit={handleSubmit(sendEmail)}>
         <input type="hidden" name="contact_number" value={contactNumber} />
         <InputContainer>
@@ -104,10 +142,10 @@ const ContactForm = () => {
           />
           <ErrorContainer>
             {errors.userName && errors.userName.type === "required" && (
-              <span>A name is required</span>
+              <span>Name is required.</span>
             )}
             {errors.userName && errors.userName.type === "maxLength" && (
-              <span>Max length exceeded</span>
+              <span>Max length exceeded.</span>
             )}
           </ErrorContainer>
         </InputContainer>
@@ -120,7 +158,7 @@ const ContactForm = () => {
             placeholder="example@email.com"
             type="text"
             ref={register({
-              required: "An email is required.",
+              required: "Email is required.",
               pattern: {
                 value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
                 message: "Email is not valid.",
@@ -154,16 +192,14 @@ const ContactForm = () => {
           />
           <ErrorContainer>
             {errors.message && errors.message.type === "required" && (
-              <span>A message is required</span>
+              <span>Message is required.</span>
             )}
             {errors.message && errors.message.type === "maxLength" && (
-              <span>Max length exceeded</span>
+              <span>Max length exceeded.</span>
             )}
           </ErrorContainer>
         </InputContainer>
-        <InputContainer>
-          <input type="submit" value="Send" />
-        </InputContainer>
+        <SubmitButton type="submit" value="Send" />
       </form>
     </FormContainer>
   );

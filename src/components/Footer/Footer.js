@@ -6,56 +6,53 @@ import {
   mediaQueryWithPrint,
   MOBILE,
   MOBILE_SM,
+  TABLET,
 } from "../../constants/breakpoints";
 
-// TODO: Add Styling?
-//      - hover state to links... need to decide on color palette
-//      - different bg color than body?
 const FooterContainer = styled.footer({
   alignItems: "center",
   bottom: "0",
   display: "flex",
+  flexDirection: "column",
   flexWrap: "wrap",
   justifyContent: "center",
-  padding: "2rem",
+  padding: "1rem",
   width: "100%",
-  " > .divider": {
-    display: "none",
-  },
   " > span": {
     alignItems: "center",
     display: "flex",
     lineHeight: "2.25rem",
   },
-  [mediaQuery(`(min-width: ${MOBILE_SM})`)]: {
-    " .divider": {
-      display: "block",
-      fontSize: "1.75rem",
-      marginLeft: "1rem",
-      marginRight: "1rem",
-    },
-  },
-  [mediaQueryWithPrint(`(min-width: ${MOBILE})`)]: {
-    justifyContent: "flex-end",
-    textAlign: "left",
+  [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
+    position: "relative",
   },
 });
 
 const ContactContainer = styled.div(({ theme }) => ({
+  flexGrow: "3",
   "> a": {
     fontSize: "2rem",
-    margin: "0 0.5rem",
     padding: "0.5rem",
+    margin: "0 0.5rem",
   },
   "> a:hover": {
-    backgroundColor: theme.text,
+    backgroundColor: theme.iconHoverBg,
     borderRadius: "0.25rem",
     cursor: "pointer",
   },
   "> a:hover svg": {
-    color: "#fff", //TODO: add variable
+    backgroundColor: theme.iconHoverBg,
+    color: theme.iconHover,
   },
 }));
+
+const CopyrightContainer = styled.span({
+  fontSize: "0.75rem",
+  [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
+    position: "absolute",
+    right: "1rem",
+  },
+});
 
 const Footer = (props) => {
   const { copyright, contactLinks } = props;
@@ -65,12 +62,11 @@ const Footer = (props) => {
       <ContactContainer className="footer-links">
         {contactLinks.map((link, index) => (
           <a key={index} href={link.url}>
-            <FontAwesomeIcon icon={link.icon} title={link.iconTitle} />
+            <FontAwesomeIcon icon={link.icon} title="" />
           </a>
         ))}
       </ContactContainer>
-      <span className="divider">|</span>
-      {copyright}
+      <CopyrightContainer>&copy; {copyright}</CopyrightContainer>
     </FooterContainer>
   );
 };

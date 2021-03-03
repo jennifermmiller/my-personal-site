@@ -13,16 +13,17 @@ import Work from "./pages/Work/Work";
 import { GlobalStyles } from "./theme/GlobalStyles";
 import { lightTheme, darkTheme } from "./theme/themes";
 
-const FlexContainer = styled.div({
+const FlexContainer = styled.div(({ theme }) => ({
   display: "flex",
   minHeight: "100%",
   flexDirection: "column",
   justifyContent: "space-between",
   " > main": {
+    boxShadow: `0 2px 2px -2px ${theme.border}`,
     flexGrow: "1",
     minHeight: "calc(100vh - 8.5rem)",
   },
-});
+}));
 
 //TODO list:
 //    - address any TODOs in files
@@ -37,6 +38,7 @@ const FlexContainer = styled.div({
 //    - add Typescript?
 //    - add tests? (not a ton of functionality)
 //    - add audible click sounds?
+//    - counter on ContactForm message field?
 //    - Longterm: add backend?
 
 function App() {
