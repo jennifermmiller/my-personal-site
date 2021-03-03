@@ -16,7 +16,7 @@ export const lightTheme = {
   buttonText: "#101517",
   buttonHover: "#D57D32",
   buttonHoverText: "#101517",
-  //Links
+  // Links
   linkText: "#002A66",
   linkHoverText: "#222222",
   linkHoverBg: "#f4d35e",
@@ -32,7 +32,6 @@ export const lightTheme = {
   successText: "#164A16",
 };
 
-//TODO: Decide on button color
 export const darkTheme = {
   body: "#101517",
   text: "#f5f5f5",
@@ -51,7 +50,7 @@ export const darkTheme = {
   buttonText: "#101517",
   buttonHover: "#D57D32",
   buttonHoverText: "#101517",
-  // links
+  // Links
   linkText: "#ee964b",
   linkHoverText: "#101517",
   linkHoverBg: "#f4d35e",

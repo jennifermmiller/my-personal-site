@@ -27,14 +27,12 @@ const FlexContainer = styled.div(({ theme }) => ({
 
 //TODO list:
 //    - address any TODOs in files
-//    - fix validation on ContactForm; move ContactForm?
 //    - add some photos of Chuck
-//    - decide on color scheme and adjust accordingly
-//        - hover decoration for links/buttons
-//        - styling header/footer; different bg-color than main?
+//    - Styling:
+//        - Links/buttons -> change these so they match more?
 //        - Add overlay to main content when mobile nav is open?
-//    - check for accessibility
-//    - personalize readME
+//    - Fix prettier
+//    - personalize README
 //    - add Typescript?
 //    - add tests? (not a ton of functionality)
 //    - add audible click sounds?
