@@ -1,4 +1,3 @@
-import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -62,7 +61,7 @@ const Footer = (props) => {
       <ContactContainer className="footer-links">
         {contactLinks.map((link, index) => (
           <a key={index} href={link.url}>
-            <FontAwesomeIcon icon={link.  icon} title="" />
+            <FontAwesomeIcon icon={link.icon} title="" />
           </a>
         ))}
       </ContactContainer>

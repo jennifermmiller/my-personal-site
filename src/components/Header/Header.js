@@ -7,9 +7,7 @@ import MobileHeader from './components/MobileHeader'
 const Header = (props) => {
   const { handleThemeClick, navigation, theme } = props
   const isMobile = useMediaQuery({ query: `(max-width: ${TABLET})` })
-
-  console.log('ismobile', isMobile)
-
+  
   return (
     <>
       {isMobile ? (
