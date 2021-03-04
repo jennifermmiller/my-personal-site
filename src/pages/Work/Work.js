@@ -13,7 +13,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
-import PageHeader from '../../components/PageHeader'
 import {
   mediaQuery,
   mediaQueryWithPrint,
@@ -28,33 +27,57 @@ const HeadingContainer = styled.div({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  paddingBottom: '3rem',
-  ' > h1': {
-    fontSize: '3rem',
-    marginBottom: '0',
-    textAlign: 'center',
+  paddingBottom: '3rem'
+})
+
+const Name = styled.h1(({ theme }) => ({
+  fontSize: '3rem',
+  marginBottom: '0',
+  textAlign: 'center',
+  textTransform: 'uppercase',
+  border: `3px solid ${theme.textHighlight}`,
+  zIndex: '5',
+  padding: '1rem 5rem',
+  backgroundColor: theme.nameBg,
+  ' > span:first-child': {
+    fontWeight: '400'
   },
-  ' > span': {
-    fontSize: '2rem',
+  ' > span:last-child': {
+    color: theme.textHighlight
   },
   [mediaQueryWithPrint(`(min-width: ${MOBILE})`)]: {
-    ' > h1': {
-      fontSize: '6rem',
-      marginBottom: '0',
-    },
+    fontSize: '6rem',
+    marginBottom: '0',
+  },
+  '@media print': {
+    backgroundColor: '#fff',
+    fontSize: '28pt',
+  },
+}))
+
+const JobTitle = styled.div(({ theme }) => ({
+  width: '110%',
+  padding: '4rem 0 2rem',
+  marginTop: '-3rem',
+  backgroundColor: theme.titleBg,
+  display: 'flex',
+  justifyContent: 'center',
+  ' > span': {
+    fontSize: '2rem',
+    fontWeight: '200'
+  },
+  [mediaQueryWithPrint(`(min-width: ${MOBILE})`)]: {
     ' > span': {
-      fontSize: '3rem',
+      fontSize: '4rem',
     },
   },
   '@media print': {
-    ' > h1': {
-      fontSize: '28pt',
-    },
+    backgroundColor: '#eaecec',
     ' > span': {
-      fontSize: '14pt',
-    },
+      fontSize: '22pt',
+    }
   },
-})
+}))
 
 const ContentContainer = styled.div({
   display: 'flex',
@@ -69,7 +92,7 @@ const ContentContainer = styled.div({
   },
 })
 
-const ContactContainer = styled.div({
+const ContactContainer = styled.div(({ theme }) => ({
   ' .contact-item': {
     alignItems: 'center',
     display: 'flex',
@@ -82,6 +105,9 @@ const ContactContainer = styled.div({
   ' a': {
     whiteSpace: 'nowrap',
   },
+  ' a: hover svg': {
+    color: theme.linkHoverText,
+  },
   [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
     ' .contact-item': {
       flexDirection: 'row',
@@ -92,16 +118,16 @@ const ContactContainer = styled.div({
       marginRight: '1rem',
     },
   },
-})
+}))
 
-const PrimaryContainer = styled.div({
+const PrimaryContainer = styled.div(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
-    borderLeft: '1px solid #555555',
+    borderLeft: `2px solid ${theme.textHighlight}`,
     paddingLeft: '2rem',
   },
-})
+}))
 
 const SecondaryContainer = styled.div({
   display: 'flex',
@@ -124,7 +150,6 @@ const SectionContainer = styled.div({
   },
 })
 
-//TODO: Different color headers if ever decide on color palette
 const SectionHeader = styled.h2({
   alignItems: 'center',
   display: 'flex',
@@ -182,6 +207,15 @@ const EducationDetailsContainer = styled.div({
   },
 })
 
+const SkillsContainer = styled.div({
+  ' > h3': {
+    marginBottom: '0'
+  },
+  ' > p': {
+    marginTop: '0.5rem'
+  }
+})
+
 const DetailsContainer = styled.div({
   display: 'flex',
   flexDirection: 'column',
@@ -214,7 +248,7 @@ const Work = (props) => {
     education,
     jobs,
     jobTitle,
-    // lastUpdated, //TODO: put this somewhere?
+    // lastUpdated, TODO: put this somewhere? If not, remove
     name,
     summary,
     technicalSkills,
@@ -224,8 +258,14 @@ const Work = (props) => {
     <>
       <PageTitle tab="Work" />
       <HeadingContainer>
-        <PageHeader title={name} />
-        <span>{jobTitle}</span>
+        <Name>
+          <span>{name.first}</span>
+          {' '}
+          <span>{name.last}</span>
+        </Name>
+        <JobTitle>
+          <span>{jobTitle}</span>
+        </JobTitle>
       </HeadingContainer>
       <ContentContainer>
         <SecondaryContainer>
@@ -310,12 +350,12 @@ const Work = (props) => {
             <SectionHeader className="secondary-section-header">
               <FontAwesomeIcon aria-hidden="true" icon={faTools} title="" />
               Technical Skills
-            </SectionHeader>
+            </SectionHeader>            
             {technicalSkills.map((section, index) => (
-              <div key={index}>
+              <SkillsContainer key={index}>
                 <h3>{section.title}</h3>
                 {displaySkillSet(section.skills)}
-              </div>
+              </SkillsContainer>
             ))}
           </SectionContainer>
         </SecondaryContainer>
@@ -347,7 +387,7 @@ const Work = (props) => {
                   <span>{job.location}</span>
                 </DetailsContainer>
                 {/* TODO: Want this header?
-                                <h4>Key Qualifications & Responsibilities:</h4> */}
+                <h4>Key Qualifications & Responsibilities:</h4> */}
                 <ul>
                   {job.responsibilities.map((resp, index) => (
                     <li key={index}>{resp.description}</li>

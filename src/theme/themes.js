@@ -4,7 +4,7 @@ export const lightTheme = {
   // Page header/navigation
   border: '#222222',
   headerColor: '#222222',
-  activeNav: '#0F508C',
+  activeNav: '#0f508C',
   activeNavText: '#ffffff',
   navHover: '#f4d35e',
   navHoverText: '#222222',
@@ -12,12 +12,12 @@ export const lightTheme = {
   themeButtonHover: '#222222',
   themeButtonHoverText: '#ffffff',
   // Buttons
-  button: '#ee964b',
-  buttonText: '#101517',
-  buttonHover: '#D57D32',
-  buttonHoverText: '#101517',
+  button: '#0f508c',
+  buttonText: '#ffffff',
+  buttonHover: '#003773',
+  buttonHoverText: '#ffffff',
   // Links
-  linkText: '#002A66',
+  linkText: '#002a66',
   linkHoverText: '#222222',
   linkHoverBg: '#f4d35e',
   iconHover: '#222222',
@@ -27,9 +27,13 @@ export const lightTheme = {
   errorBg: '#ffe8e8',
   errorText: '#640000',
   // Success message
-  success: '#164A16',
-  successBg: '#D5FFD5',
-  successText: '#164A16',
+  success: '#164a16',
+  successBg: '#d5ffd5',
+  successText: '#164a16',
+  // Resume
+  nameBg: '#bbcde5',
+  titleBg: '#acbed6',
+  textHighlight: '#0f508c'
 }
 
 export const darkTheme = {
@@ -38,7 +42,7 @@ export const darkTheme = {
   // Page header/navigation
   border: '#ffffff',
   headerColor: '#ffffff',
-  activeNav: '#0F508C',
+  activeNav: '#0f508c',
   activeNavText: '#ffffff',
   navHover: '#f4d35e',
   navHoverText: '#101517',
@@ -46,12 +50,12 @@ export const darkTheme = {
   themeButtonHover: '#ffffff',
   themeButtonHoverText: '#101517',
   // Button
-  button: '#ee964b',
+  button: '#f4d35e',
   buttonText: '#101517',
-  buttonHover: '#D57D32',
+  buttonHover: '#DBBA45',
   buttonHoverText: '#101517',
   // Links
-  linkText: '#ee964b',
+  linkText: '#f4d35e',
   linkHoverText: '#101517',
   linkHoverBg: '#f4d35e',
   iconHover: '#101517',
@@ -63,5 +67,9 @@ export const darkTheme = {
   // Success message
   success: '#164a16',
   successBg: '#d5ffd5',
-  successText: '#164A16',
+  successText: '#164a16',
+  // Resume
+  nameBg: '#101517',
+  titleBg: '#2A2F31',
+  textHighlight: '#fda522'
 }

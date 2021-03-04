@@ -27,16 +27,13 @@ const FlexContainer = styled.div(({ theme }) => ({
 
 //TODO list:
 //    - address any TODOs in files
-//    - add some photos of Chuck
 //    - Styling:
-//        - Links/buttons -> change these so they match more?
 //        - Add overlay to main content when mobile nav is open?
-//    - Fix prettier
 //    - personalize README
+//    - Improve carousel experience on Chuck's page
 //    - add Typescript?
 //    - add tests? (not a ton of functionality)
 //    - add audible click sounds?
-//    - counter on ContactForm message field?
 //    - Longterm: add backend?
 
 function App() {

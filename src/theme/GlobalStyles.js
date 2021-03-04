@@ -37,6 +37,7 @@ export const GlobalStyles = createGlobalStyle`
       main {
         padding: 0;
         margin:  1cm;
+        box-shadow: none !important;
       }
   
       h1 {
@@ -84,6 +85,9 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  h3 { 
+    font-weight: 500;
+  }
 
   a {
     color: ${({ theme }) => theme.linkText};

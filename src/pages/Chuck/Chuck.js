@@ -11,7 +11,7 @@ import {
 } from '../../constants/breakpoints'
 
 const CarouselContainer = styled.div({
-  marginBottom: '2rem',
+  marginTop: '6rem',
   padding: '0 2rem 6rem',
   [mediaQuery(`(min-width: ${MOBILE})`)]: {
     padding: '0 6rem 6rem'
@@ -25,13 +25,13 @@ const Chuck = (props) => {
     <>
       <PageTitle tab="Chuck" />
       <PageHeader title={title} />
+      <GenericContent content={content} />
       <CarouselContainer>
-        {/* TODO: This needs work */}
+        {/* TODO: This needs polish */}
         <AwesomeSlider>
           {images.map((img, index) => <div key={index} data-src={img.source}/>)}
         </AwesomeSlider>
       </CarouselContainer>
-      <GenericContent content={content} />
     </>
   )
 }

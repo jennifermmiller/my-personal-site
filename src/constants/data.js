@@ -69,21 +69,19 @@ const data = {
       {
         section: (
           <p key={2}>
-            Currently, I`&#39`m part of the engineering team at {WORK_LINK} where I
-            work on all things UX. Most of the projects I`&#39`m involved with are
-            part of their newer technology stack consisting of ReactJS,
-            Typescript, XState, and GraphQL. But, I’ve been known (on more than
-            one occasion) to dip my toes into the older applications running on
-            Backbone.js/Marionette.js, Dust.js, and, yes, even jQuery.
+            Currently, I’m part of the engineering team at {WORK_LINK} where I
+            work on all things UX. Most of the projects I’m involved with are
+            part of their newer technology stack consisting of ReactJS, XState, and GraphQL. But I’ve been known, on more than one occasion, to dip my toes into the older applications running on
+            Backbone.js/Marionette.js, Dust.js, and, yes, even jQuery. I work tirelessly with my team to ensure our applications are pixel perfect and easily accessible.
           </p>
         ),
       },
       {
         section: (
           <p key={3}>
-            These days when I`&#39`m not coding, I`&#39`m chasing my three little
+            These days when I’m not coding, I’m chasing my three little
             munchkins around the house. If the stars align and I get some time
-            alone, I love to take {DOG} for a hike or to cycle down the{' '}
+            alone, I love to take {DOG} for a hike or to cycle down the {' '} 
             {TRAIL_LINK}.
           </p>
         ),
@@ -91,7 +89,7 @@ const data = {
       {
         section: (
           <p key={4}>
-            I`&#39`m inspired by a hot cup of coffee, {JOSH_ALLEN_LINK}, and good
+            I’m inspired by a hot cup of coffee, {JOSH_ALLEN_LINK}, and good
             music.
           </p>
         ),
@@ -104,7 +102,7 @@ const data = {
       {
         section: (
           <p key={0}>
-            Chuck has been my near constant companion ever since he was brought
+            Chuck has been my near constant companion since the day he was brought
             home from the Humane Society {CHUCK_AGE} years ago.
           </p>
         ),
@@ -112,7 +110,7 @@ const data = {
       {
         section: (
           <p key={1}>
-            Pre-Covid, Chuck`&#39`s office duties included (but were not limited to)
+            Pre-Covid, Chuck’s office duties included (but were not limited to)
             morning greeter, office morale booster, and treat taster. He worked
             hard and was most committed to his role. He looks forward to a time
             when he can get back to the office.
@@ -122,13 +120,12 @@ const data = {
       {
         section: (
           <p key={2}>
-            When Chuck`&#39`s not at work, he can be found lounging on a soft
+            When Chuck is not at work, he can be found lounging on a soft
             surface, playing ball, or taking a walk with his human.
           </p>
         ),
       },
     ],
-    // TODO: This section needs finished
     images: [
       {
         alt: 'Chuck proudly displaying his name plate.',
@@ -159,7 +156,7 @@ const data = {
         section: (
           <p key={0}>
             Want to say “Hi!”? Have something you’d like to ask? Interested in
-            hiring me? Let`&#39`s connect!
+            hiring me? Let’s connect!
           </p>
         ),
       },
@@ -223,7 +220,10 @@ const data = {
     ],
   },
   work: {
-    name: `${NAME.first} ${NAME.last}`,
+    name: {
+      first: NAME.first,
+      last: NAME.last
+    },
     jobTitle: JOB_TITLE,
     lastUpdated: RESUME_LAST_UPDATED,
     summary:
