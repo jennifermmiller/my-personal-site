@@ -44,7 +44,7 @@ const ErrorContainer = styled.div(({ theme }) => ({
   lineHeight: '1.5rem',
 }))
 
-const SubmitButton = styled.input(({ theme }) => ({
+const SubmitButton = styled.button(({ theme }) => ({
   background: theme.button,
   border: theme.button,
   borderRadius: '0.25rem',
@@ -200,7 +200,7 @@ const ContactForm = () => {
             )}
           </ErrorContainer>
         </InputContainer>
-        <SubmitButton type="submit" value="Send" />
+        <SubmitButton type="submit">Send</SubmitButton>
       </form>
     </FormContainer>
   )

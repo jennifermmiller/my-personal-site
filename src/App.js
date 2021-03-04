@@ -12,6 +12,7 @@ import Home from './pages/Home'
 import Work from './pages/Work/Work'
 import { GlobalStyles } from './theme/GlobalStyles'
 import { lightTheme, darkTheme } from './theme/themes'
+import Greeting from './components/Greeting/Greeting'
 
 const FlexContainer = styled.div(({ theme }) => ({
   display: 'flex',
@@ -27,9 +28,12 @@ const FlexContainer = styled.div(({ theme }) => ({
 
 //TODO list:
 //    - address any TODOs in files
+//    - nav dropdown need zindex higher than title on work tab
+//    - send button look terrible on mobile
 //    - Styling:
 //        - Add overlay to main content when mobile nav is open?
 //    - personalize README
+//    - welcome message in console 
 //    - Improve carousel experience on Chuck's page
 //    - add Typescript?
 //    - add tests? (not a ton of functionality)
@@ -55,6 +59,7 @@ function App() {
     <Router>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <div className="App">
+          <Greeting/>
           <GlobalStyles />
           <Header
             handleThemeClick={toggleTheme}

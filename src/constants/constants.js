@@ -47,3 +47,23 @@ export const TRAIL_LINK = (
     Swamp Rabbit Trail
   </a>
 )
+
+export const CONSOLE_GREETING = 'Welcome! Enjoy your visit! Go Bills!!!'
+
+//eslint-disable-next-line
+export const BUFFALO_ASCII = `
+
+             _.-\`\`\`\`'-,_
+   _,.,_ ,-'\`           \`'-.,_
+ /)     (\\                   '\`\`-.
+((      ) )                      \`\\
+ \\)    (_/                        )\\
+  |       /)           '    ,'    / \\
+  \`\\    ^'            '     (    /  ))
+    |      _/\\ ,     /    ,,\`\\   (  "\`
+     \\Y,   |  \\  \\  | \`\`\`\`| / \\_ \\
+       \`)_/    \\  \\  )    ( >  ( >
+                \\( \\(     |/   |/
+               /_(/_(    /_(  /_(
+
+`
