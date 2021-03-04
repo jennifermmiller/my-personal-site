@@ -1,14 +1,14 @@
-import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from 'react-responsive'
 
-import { TABLET } from "../../constants/breakpoints";
-import DesktopHeader from "./components/DesktopHeader";
-import MobileHeader from "./components/MobileHeader";
+import { TABLET } from '../../constants/breakpoints'
+import DesktopHeader from './components/DesktopHeader'
+import MobileHeader from './components/MobileHeader'
 
 const Header = (props) => {
-  const { handleThemeClick, navigation, theme } = props;
-  const isMobile = useMediaQuery({ query: `(max-width: ${TABLET})` });
+  const { handleThemeClick, navigation, theme } = props
+  const isMobile = useMediaQuery({ query: `(max-width: ${TABLET})` })
 
-  console.log("ismobile", isMobile);
+  console.log('ismobile', isMobile)
 
   return (
     <>
@@ -26,7 +26,7 @@ const Header = (props) => {
         />
       )}
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

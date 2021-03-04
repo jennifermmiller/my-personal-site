@@ -1,1 +1,1 @@
-export { default } from "./Work.js";
+export { default } from './Work.js'

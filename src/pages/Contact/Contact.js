@@ -1,16 +1,16 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import PageHeader from "../../components/PageHeader";
-import GenericContent from "../../components/GenericContent";
-import ContactForm from "./components/ContactForm";
-import PageTitle from "../../components/PageTitle";
+import PageHeader from '../../components/PageHeader'
+import GenericContent from '../../components/GenericContent'
+import ContactForm from './components/ContactForm'
+import PageTitle from '../../components/PageTitle'
 
 const ContactContainer = styled.div({
-  maxWidth: "700px",
-});
+  maxWidth: '700px',
+})
 
 const Contact = (props) => {
-  const { content, title } = props;
+  const { content, title } = props
 
   return (
     <ContactContainer>
@@ -19,7 +19,7 @@ const Contact = (props) => {
       <GenericContent content={content} />
       <ContactForm />
     </ContactContainer>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

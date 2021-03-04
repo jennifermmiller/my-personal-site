@@ -1,16 +1,16 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const ContentContainer = styled.div({
-  maxWidth: "720px",
-  " p": {
-    fontSize: "1.25rem",
+  maxWidth: '720px',
+  ' p': {
+    fontSize: '1.25rem',
   },
-});
+})
 
 const GenericContent = (props) => {
-  const { content } = props;
+  const { content } = props
 
-  return <ContentContainer>{content.map((c) => c.section)}</ContentContainer>;
-};
+  return <ContentContainer>{content.map((c) => c.section)}</ContentContainer>
+}
 
-export default GenericContent;
+export default GenericContent

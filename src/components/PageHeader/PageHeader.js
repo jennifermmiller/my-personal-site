@@ -1,7 +1,7 @@
 const PageHeader = (props) => {
-  const { title } = props;
+  const { title } = props
 
-  return <h1>{title}</h1>;
-};
+  return <h1>{title}</h1>
+}
 
-export default PageHeader;
+export default PageHeader

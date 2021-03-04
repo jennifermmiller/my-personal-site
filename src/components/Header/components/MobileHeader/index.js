@@ -1,1 +1,1 @@
-export { default } from "./MobileHeader.js";
+export { default } from './MobileHeader.js'

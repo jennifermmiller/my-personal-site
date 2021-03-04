@@ -1,1 +1,1 @@
-export { default } from "./GenericContent.js";
+export { default } from './GenericContent.js'

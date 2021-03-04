@@ -1,29 +1,29 @@
-import { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import styled, { ThemeProvider } from "styled-components";
+import { useState } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import styled, { ThemeProvider } from 'styled-components'
 
-import data from "./constants/data";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import About from "./pages/About";
-import Chuck from "./pages/Chuck";
-import Contact from "./pages/Contact";
-import Home from "./pages/Home";
-import Work from "./pages/Work/Work";
-import { GlobalStyles } from "./theme/GlobalStyles";
-import { lightTheme, darkTheme } from "./theme/themes";
+import data from './constants/data'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import About from './pages/About'
+import Chuck from './pages/Chuck'
+import Contact from './pages/Contact'
+import Home from './pages/Home'
+import Work from './pages/Work/Work'
+import { GlobalStyles } from './theme/GlobalStyles'
+import { lightTheme, darkTheme } from './theme/themes'
 
 const FlexContainer = styled.div(({ theme }) => ({
-  display: "flex",
-  minHeight: "100%",
-  flexDirection: "column",
-  justifyContent: "space-between",
-  " > main": {
+  display: 'flex',
+  minHeight: '100%',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  ' > main': {
     boxShadow: `0 2px 2px -2px ${theme.border}`,
-    flexGrow: "1",
-    minHeight: "calc(100vh - 8.5rem)",
+    flexGrow: '1',
+    minHeight: 'calc(100vh - 8.5rem)',
   },
-}));
+}))
 
 //TODO list:
 //    - address any TODOs in files
@@ -49,14 +49,14 @@ function App() {
     navigation,
     personalLinks,
     work,
-  } = data;
-  const [theme, setTheme] = useState("light");
+  } = data
+  const [theme, setTheme] = useState('light')
   const toggleTheme = () =>
-    theme === "light" ? setTheme("dark") : setTheme("light");
+    theme === 'light' ? setTheme('dark') : setTheme('light')
 
   return (
     <Router>
-      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <div className="App">
           <GlobalStyles />
           <Header
@@ -89,7 +89,7 @@ function App() {
         </div>
       </ThemeProvider>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

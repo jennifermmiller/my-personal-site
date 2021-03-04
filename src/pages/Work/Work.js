@@ -1,212 +1,212 @@
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faBusinessTime,
   faEnvelope,
   faGraduationCap,
-  faLaptop,
+  // faLaptop,
   faMapMarker,
   faMobileAlt,
   faPhoneAlt,
   faTools,
   faUser,
-} from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+} from '@fortawesome/free-solid-svg-icons'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
-import PageHeader from "../../components/PageHeader";
+import PageHeader from '../../components/PageHeader'
 import {
   mediaQuery,
   mediaQueryWithPrint,
   MOBILE,
   MOBILE_SM,
   TABLET,
-} from "../../constants/breakpoints";
-import PageTitle from "../../components/PageTitle";
+} from '../../constants/breakpoints'
+import PageTitle from '../../components/PageTitle'
 
 const HeadingContainer = styled.div({
-  alignItems: "center",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  paddingBottom: "3rem",
-  " > h1": {
-    fontSize: "3rem",
-    marginBottom: "0",
-    textAlign: "center",
+  alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  paddingBottom: '3rem',
+  ' > h1': {
+    fontSize: '3rem',
+    marginBottom: '0',
+    textAlign: 'center',
   },
-  " > span": {
-    fontSize: "2rem",
+  ' > span': {
+    fontSize: '2rem',
   },
   [mediaQueryWithPrint(`(min-width: ${MOBILE})`)]: {
-    " > h1": {
-      fontSize: "6rem",
-      marginBottom: "0",
+    ' > h1': {
+      fontSize: '6rem',
+      marginBottom: '0',
     },
-    " > span": {
-      fontSize: "3rem",
-    },
-  },
-  "@media print": {
-    " > h1": {
-      fontSize: "28pt",
-    },
-    " > span": {
-      fontSize: "14pt",
+    ' > span': {
+      fontSize: '3rem',
     },
   },
-});
+  '@media print': {
+    ' > h1': {
+      fontSize: '28pt',
+    },
+    ' > span': {
+      fontSize: '14pt',
+    },
+  },
+})
 
 const ContentContainer = styled.div({
-  display: "flex",
-  flexDirection: "column-reverse",
-  flexWrap: "wrap",
-  maxWidth: "700px",
+  display: 'flex',
+  flexDirection: 'column-reverse',
+  flexWrap: 'wrap',
+  maxWidth: '700px',
   [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
-    alignItems: "flex-start",
-    maxWidth: "none",
-    flexDirection: "row",
-    flexWrap: "noWrap",
+    alignItems: 'flex-start',
+    maxWidth: 'none',
+    flexDirection: 'row',
+    flexWrap: 'noWrap',
   },
-});
+})
 
 const ContactContainer = styled.div({
-  " .contact-item": {
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "row-reverse",
-    justifyContent: "flex-end",
+  ' .contact-item': {
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'row-reverse',
+    justifyContent: 'flex-end',
   },
-  " .contact-item > span": {
-    marginLeft: "1rem",
+  ' .contact-item > span': {
+    marginLeft: '1rem',
   },
-  " a": {
-    whiteSpace: "nowrap",
+  ' a': {
+    whiteSpace: 'nowrap',
   },
   [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
-    " .contact-item": {
-      flexDirection: "row",
-      justifyContent: "flex-end",
+    ' .contact-item': {
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
     },
-    " .contact-item > span": {
-      marginLeft: "0",
-      marginRight: "1rem",
+    ' .contact-item > span': {
+      marginLeft: '0',
+      marginRight: '1rem',
     },
   },
-});
+})
 
 const PrimaryContainer = styled.div({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
   [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
-    borderLeft: "1px solid #555555",
-    paddingLeft: "2rem",
+    borderLeft: '1px solid #555555',
+    paddingLeft: '2rem',
   },
-});
+})
 
 const SecondaryContainer = styled.div({
-  display: "flex",
-  flexDirection: "column-reverse",
+  display: 'flex',
+  flexDirection: 'column-reverse',
   [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
-    flexDirection: "column",
-    maxWidth: "33%",
-    paddingRight: "2rem",
-    textAlign: "right",
+    flexDirection: 'column',
+    maxWidth: '33%',
+    paddingRight: '2rem',
+    textAlign: 'right',
   },
-});
+})
 
 const SectionContainer = styled.div({
-  paddingBottom: "rem 0",
+  paddingBottom: 'rem 0',
   [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
-    " > .secondary-section-header": {
-      justifyContent: "flex-end",
-      whiteSpace: "nowrap",
+    ' > .secondary-section-header': {
+      justifyContent: 'flex-end',
+      whiteSpace: 'nowrap',
     },
   },
-});
+})
 
 //TODO: Different color headers if ever decide on color palette
 const SectionHeader = styled.h2({
-  alignItems: "center",
-  display: "flex",
-  justifyContent: "center",
-  textTransform: "uppercase",
-  " > svg": {
-    marginRight: "0.5rem",
+  alignItems: 'center',
+  display: 'flex',
+  justifyContent: 'center',
+  textTransform: 'uppercase',
+  ' > svg': {
+    marginRight: '0.5rem',
   },
   [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
-    justifyContent: "inherit",
-    "&.mtn": {
-      marginTop: "0",
+    justifyContent: 'inherit',
+    '&.mtn': {
+      marginTop: '0',
     },
   },
-});
+})
 
 const JobContainer = styled.div({
-  paddingBottom: "1rem",
-  " > h3": {
-    marginBottom: "0.25rem",
+  paddingBottom: '1rem',
+  ' > h3': {
+    marginBottom: '0.25rem',
   },
-  " > ul": {
-    marginBottom: "0",
-    paddingLeft: "2rem",
+  ' > ul': {
+    marginBottom: '0',
+    paddingLeft: '2rem',
   },
-});
+})
 
 const EducationContainer = styled.div({
-  paddingBottom: "1rem",
-  " > h3": {
-    marginBottom: "0.25rem",
+  paddingBottom: '1rem',
+  ' > h3': {
+    marginBottom: '0.25rem',
   },
-});
+})
 
 const EducationDetailsContainer = styled.div({
-  display: "flex",
-  flexDirection: "column",
-  " > span": {
-    lineHeight: "1.5rem",
+  display: 'flex',
+  flexDirection: 'column',
+  ' > span': {
+    lineHeight: '1.5rem',
   },
-  " > .divider": {
-    display: "none",
+  ' > .divider': {
+    display: 'none',
   },
   [mediaQuery(`(min-width: ${MOBILE_SM})`)]: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    " .divider": {
-      display: "block",
-      marginLeft: "0.25rem",
-      marginRight: "0.25rem",
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    ' .divider': {
+      display: 'block',
+      marginLeft: '0.25rem',
+      marginRight: '0.25rem',
     },
   },
   [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
   },
-});
+})
 
 const DetailsContainer = styled.div({
-  display: "flex",
-  flexDirection: "column",
-  " > span": {
-    lineHeight: "1.5rem",
+  display: 'flex',
+  flexDirection: 'column',
+  ' > span': {
+    lineHeight: '1.5rem',
   },
-  " > .divider": {
-    display: "none",
+  ' > .divider': {
+    display: 'none',
   },
   [mediaQueryWithPrint(`(min-width: ${MOBILE_SM})`)]: {
-    flexDirection: "row",
-    " .divider": {
-      display: "block",
-      marginLeft: "0.25rem",
-      marginRight: "0.25rem",
+    flexDirection: 'row',
+    ' .divider': {
+      display: 'block',
+      marginLeft: '0.25rem',
+      marginRight: '0.25rem',
     },
   },
-});
+})
 
 const displaySkillSet = (skills) => {
-  const skillSet = skills.map((skill) => skill.name);
-  const skillString = skillSet.join(", ");
+  const skillSet = skills.map((skill) => skill.name)
+  const skillString = skillSet.join(', ')
 
-  return <p>{skillString}</p>;
-};
+  return <p>{skillString}</p>
+}
 
 const Work = (props) => {
   const {
@@ -218,7 +218,7 @@ const Work = (props) => {
     name,
     summary,
     technicalSkills,
-  } = props;
+  } = props
 
   return (
     <>
@@ -359,7 +359,7 @@ const Work = (props) => {
         </PrimaryContainer>
       </ContentContainer>
     </>
-  );
-};
+  )
+}
 
-export default Work;
+export default Work

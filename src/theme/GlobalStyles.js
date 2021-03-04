@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-import { mediaQueries } from "../constants/breakpoints";
+import { mediaQueries } from '../constants/breakpoints'
 
 export const GlobalStyles = createGlobalStyle`
   body, html {
@@ -99,4 +99,4 @@ export const GlobalStyles = createGlobalStyle`
   svg {
     color: ${({ theme }) => theme.text};
   }
-`;
+`

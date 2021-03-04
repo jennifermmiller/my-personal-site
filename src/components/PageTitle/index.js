@@ -1,1 +1,1 @@
-export { default } from "./PageTitle.js";
+export { default } from './PageTitle.js'
