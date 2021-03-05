@@ -6,17 +6,14 @@ import 'react-awesome-slider/dist/styles.css'
 import PageHeader from '../../components/PageHeader'
 import GenericContent from '../../components/GenericContent'
 import PageTitle from '../../components/PageTitle'
-import {
-  mediaQuery,
-  MOBILE
-} from '../../constants/breakpoints'
+import { mediaQuery, MOBILE } from '../../constants/breakpoints'
 
 const CarouselContainer = styled.div({
   marginTop: '6rem',
   padding: '0 2rem 6rem',
   [mediaQuery(`(min-width: ${MOBILE})`)]: {
-    padding: '0 6rem 6rem'
-  }
+    padding: '0 6rem 6rem',
+  },
 })
 
 const Chuck = (props) => {
@@ -30,7 +27,9 @@ const Chuck = (props) => {
       <CarouselContainer>
         {/* TODO: This needs polish */}
         <AwesomeSlider>
-          {images.map((img, index) => <div key={index} data-src={img.source}/>)}
+          {images.map((img, index) => (
+            <div key={index} data-src={img.source} />
+          ))}
         </AwesomeSlider>
       </CarouselContainer>
     </>
@@ -38,14 +37,18 @@ const Chuck = (props) => {
 }
 
 Chuck.propTypes = {
-  content: arrayOf(shape({
-    section: element.isRequired
-  })).isRequired,
-  images: arrayOf(shape({
-    alt: string,
-    source: string
-  })).isRequired,
-  title: string.isRequired
+  content: arrayOf(
+    shape({
+      section: element.isRequired,
+    })
+  ).isRequired,
+  images: arrayOf(
+    shape({
+      alt: string,
+      source: string,
+    })
+  ).isRequired,
+  title: string.isRequired,
 }
 
 export default Chuck

@@ -1,10 +1,5 @@
 import { Link } from 'react-router-dom'
-import {
-  faBriefcase,
-  faEnvelope,
-  faHome,
-  faSmileWink,
-} from '@fortawesome/free-solid-svg-icons'
+import { faBriefcase, faEnvelope, faHome, faSmileWink } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import Emoji from '../components/Emoji/'
@@ -47,47 +42,43 @@ const data = {
       {
         section: (
           <p key={0}>
-            Hi! <Emoji label="waving hand" symbol={'👋'} /> I’m {NAME.first}{' '}
-            {NAME.last}.
+            Hi! <Emoji label="waving hand" symbol={'👋'} /> I’m {NAME.first} {NAME.last}.
           </p>
         ),
       },
       {
         section: (
           <p key={1}>
-            {EXPERIENCE} years ago, I made the outrageous decision to turn my
-            life upside down and attend the {SCHOOL_LINK}. It’s been a wild ride
-            but I haven’t looked back! Changing career paths was one of the best
-            decisions I’ve ever made.
+            {EXPERIENCE} years ago, I made the outrageous decision to turn my life upside down and
+            attend the {SCHOOL_LINK}. It’s been a wild ride but I haven’t looked back! Changing
+            career paths was one of the best decisions I’ve ever made.
           </p>
         ),
       },
       {
         section: (
           <p key={2}>
-            Currently, I’m part of the engineering team at {WORK_LINK} where I
-            work on all things UX. Most of the projects I’m involved with are
-            part of their newer technology stack consisting of ReactJS, XState, and GraphQL. But I’ve been known, on more than one occasion, to dip my toes into the older applications running on
-            Backbone.js/Marionette.js, Dust.js, and, yes, even jQuery. I work tirelessly with my team to ensure our applications are pixel perfect and easily accessible.
+            Currently, I’m part of the engineering team at {WORK_LINK} where I work on all things
+            UX. Most of the projects I’m involved with are part of their newer technology stack
+            consisting of ReactJS, XState, and GraphQL. But I’ve been known, on more than one
+            occasion, to dip my toes into the older applications running on
+            Backbone.js/Marionette.js, Dust.js, and, yes, even jQuery. I work tirelessly with my
+            team to ensure our applications are pixel perfect and easily accessible.
           </p>
         ),
       },
       {
         section: (
           <p key={3}>
-            These days when I’m not coding, I’m chasing my three little
-            munchkins around the house. If the stars align and I get some time
-            alone, I love to take {DOG} for a hike or to cycle down the {' '} 
-            {TRAIL_LINK}.
+            These days when I’m not coding, I’m chasing my three little munchkins around the house.
+            If the stars align and I get some time alone, I love to take {DOG} for a hike or to
+            cycle down the {TRAIL_LINK}.
           </p>
         ),
       },
       {
         section: (
-          <p key={4}>
-            I’m inspired by a hot cup of coffee, {JOSH_ALLEN_LINK}, and good
-            music.
-          </p>
+          <p key={4}>I’m inspired by a hot cup of coffee, {JOSH_ALLEN_LINK}, and good music.</p>
         ),
       },
     ],
@@ -98,26 +89,25 @@ const data = {
       {
         section: (
           <p key={0}>
-            Chuck has been my near constant companion since the day he was brought
-            home from the Humane Society {CHUCK_AGE} years ago.
+            Chuck has been my near constant companion since the day he was brought home from the
+            Humane Society {CHUCK_AGE} years ago.
           </p>
         ),
       },
       {
         section: (
           <p key={1}>
-            Pre-Covid, Chuck’s office duties included (but were not limited to)
-            morning greeter, office morale booster, and treat taster. He worked
-            hard and was most committed to his role. He looks forward to a time
-            when he can get back to the office.
+            Pre-Covid, Chuck’s office duties included (but were not limited to) morning greeter,
+            office morale booster, and treat taster. He worked hard and was most committed to his
+            role. He looks forward to a time when he can get back to the office.
           </p>
         ),
       },
       {
         section: (
           <p key={2}>
-            When Chuck is not at work, he can be found lounging on a soft
-            surface, playing ball, or taking a walk with his human.
+            When Chuck is not at work, he can be found lounging on a soft surface, playing ball, or
+            taking a walk with his human.
           </p>
         ),
       },
@@ -134,7 +124,7 @@ const data = {
       {
         alt: 'Chuck taking a snooze on the job.',
         source: chuckWork1,
-      }
+      },
     ],
   },
   contact: {
@@ -143,17 +133,14 @@ const data = {
       {
         section: (
           <p key={0}>
-            Want to say “Hi!”? Have something you’d like to ask? Interested in
-            hiring me? Let’s connect!
+            Want to say “Hi!”? Have something you’d like to ask? Interested in hiring me? Let’s
+            connect!
           </p>
         ),
       },
       {
         section: (
-          <p key={1}>
-            Use the form below. Alternatively, shoot me an email at {EMAIL_LINK}
-            .
-          </p>
+          <p key={1}>Use the form below. Alternatively, shoot me an email at {EMAIL_LINK}.</p>
         ),
       },
       {
@@ -210,7 +197,7 @@ const data = {
   work: {
     name: {
       first: NAME.first,
-      last: NAME.last
+      last: NAME.last,
     },
     jobTitle: JOB_TITLE,
     lastUpdated: RESUME_LAST_UPDATED,
@@ -228,8 +215,7 @@ const data = {
               'Utilized ReactJS, GraphQL, and Stripe API to develop a seamless checkout experience for employee paid benefits',
           },
           {
-            description:
-              'Implemented a Salesforce chatbot to improve customer service',
+            description: 'Implemented a Salesforce chatbot to improve customer service',
           },
           {
             description:
@@ -280,8 +266,7 @@ const data = {
               'Ensured cross-browser compatibility across all customer facing applications',
           },
           {
-            description:
-              'Developed applications to meet WCAG level AA requirements',
+            description: 'Developed applications to meet WCAG level AA requirements',
           },
         ],
       },
@@ -292,12 +277,10 @@ const data = {
         timePeriod: '2012 - 2014',
         responsibilities: [
           {
-            description:
-              'Handled confidential information in accordance with HIPAA',
+            description: 'Handled confidential information in accordance with HIPAA',
           },
           {
-            description:
-              'Completed training in both inpatient and outpatient pharmacy procedures',
+            description: 'Completed training in both inpatient and outpatient pharmacy procedures',
           },
           {
             description:
@@ -316,7 +299,7 @@ const data = {
         responsibilities: [
           {
             description:
-              'Worked extensively with pharmacists, doctors\' offices, and insurance companies to meet and exceed customers\' needs and expectations.',
+              "Worked extensively with pharmacists, doctors' offices, and insurance companies to meet and exceed customers' needs and expectations.",
           },
           {
             description: 'Meticulously processed prescription data entry',
@@ -388,7 +371,7 @@ const data = {
         number: PHONE_NUMBER,
         formattedNumber: PHONE_NUMBER_FORMATTED,
       },
-      website: WEBSITE_URL
+      website: WEBSITE_URL,
     },
     education: [
       {

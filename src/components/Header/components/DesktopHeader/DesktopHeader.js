@@ -37,12 +37,14 @@ const DesktopHeader = (props) => {
 
 DesktopHeader.propTypes = {
   handleThemeClick: func,
-  navigation: arrayOf(shape({
-    icon: object,
-    label: string.isRequired,
-    path: string.isRequired
-  })).isRequired,
-  theme: string.isRequired
+  navigation: arrayOf(
+    shape({
+      icon: object,
+      label: string.isRequired,
+      path: string.isRequired,
+    })
+  ).isRequired,
+  theme: string.isRequired,
 }
 
 export default DesktopHeader

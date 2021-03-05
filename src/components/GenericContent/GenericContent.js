@@ -15,9 +15,11 @@ const GenericContent = (props) => {
 }
 
 GenericContent.propTypes = {
-  content: arrayOf(shape({
-    section: element.isRequired
-  }))
+  content: arrayOf(
+    shape({
+      section: element.isRequired,
+    })
+  ),
 }
 
 export default GenericContent

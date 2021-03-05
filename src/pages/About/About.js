@@ -9,9 +9,9 @@ const AboutContainer = styled.div({
   maxWidth: '700px',
   '@media print': {
     ' a[href^=http]:after': {
-      content: ' <" attr(href) "> '
-    }
-  }
+      content: ' <" attr(href) "> ',
+    },
+  },
 })
 
 const About = (props) => {
@@ -27,10 +27,12 @@ const About = (props) => {
 }
 
 About.propTypes = {
-  content: arrayOf(shape({
-    section: element.isRequired
-  })).isRequired,
-  title: string.isRequired
+  content: arrayOf(
+    shape({
+      section: element.isRequired,
+    })
+  ).isRequired,
+  title: string.isRequired,
 }
 
 export default About

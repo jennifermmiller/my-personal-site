@@ -34,12 +34,14 @@ const MobileHeader = (props) => {
 
 MobileHeader.propTypes = {
   handleThemeClick: func.isRequired,
-  navigation: arrayOf(shape({
-    icon: object,
-    label: string.isRequired,
-    path: string.isRequired
-  })).isRequired,
-  theme: string.isRequired
+  navigation: arrayOf(
+    shape({
+      icon: object,
+      label: string.isRequired,
+      path: string.isRequired,
+    })
+  ).isRequired,
+  theme: string.isRequired,
 }
 
 export default MobileHeader

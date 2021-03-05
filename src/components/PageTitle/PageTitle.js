@@ -14,7 +14,7 @@ const PageTitle = (props) => {
 }
 
 PageTitle.propTypes = {
-  tab: string
+  tab: string,
 }
 
 export default PageTitle

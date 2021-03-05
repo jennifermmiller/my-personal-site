@@ -2,11 +2,7 @@ import { arrayOf, object, shape, string } from 'prop-types'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import {
-  DESKTOP,
-  mediaQueryWithPrint,
-  TABLET,
-} from '../../constants/breakpoints'
+import { DESKTOP, mediaQueryWithPrint, TABLET } from '../../constants/breakpoints'
 
 const FooterContainer = styled.footer({
   alignItems: 'center',
@@ -56,7 +52,7 @@ const CopyrightContainer = styled.div({
 
 const Footer = (props) => {
   const { contactLinks, copyright } = props
-  
+
   return (
     <FooterContainer>
       <ContactContainer className="footer-links">
@@ -66,17 +62,21 @@ const Footer = (props) => {
           </a>
         ))}
       </ContactContainer>
-      <CopyrightContainer>&copy; <span>{copyright}</span></CopyrightContainer>
+      <CopyrightContainer>
+        &copy; <span>{copyright}</span>
+      </CopyrightContainer>
     </FooterContainer>
   )
 }
 
 Footer.propTypes = {
-  contactLinks: arrayOf(shape({
-    icon: object.isRequired,
-    url: string.isRequired
-  })).isRequired,
-  copyright: string.isRequired
+  contactLinks: arrayOf(
+    shape({
+      icon: object.isRequired,
+      url: string.isRequired,
+    })
+  ).isRequired,
+  copyright: string.isRequired,
 }
 
 export default Footer

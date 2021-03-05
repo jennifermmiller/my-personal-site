@@ -33,7 +33,7 @@ export const lightTheme = {
   // Resume
   nameBg: '#bbcde5',
   titleBg: '#acbed6',
-  textHighlight: '#0f508c'
+  textHighlight: '#0f508c',
 }
 
 export const darkTheme = {
@@ -71,5 +71,5 @@ export const darkTheme = {
   // Resume
   nameBg: '#101517',
   titleBg: '#2A2F31',
-  textHighlight: '#fda522'
+  textHighlight: '#fda522',
 }

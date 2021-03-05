@@ -80,7 +80,7 @@ const StatusContainer = styled.div(({ theme }) => ({
   },
 }))
 
-init('user_BEkCBtrnJNeaE7c2GdRHB')
+init(process.env.REACT_APP_EMAILJS_USER_ID)
 
 const ContactForm = () => {
   const { errors, handleSubmit, register } = useForm({ mode: 'onBlur' })
@@ -103,17 +103,13 @@ const ContactForm = () => {
       () => {
         form.reset()
 
-        setStatusMessage(
-          'Your message has been sent! Thanks for contacting me!'
-        )
+        setStatusMessage('Your message has been sent! Thanks for contacting me!')
         statusMessage.className = 'status-message success'
 
         setTimeout(() => setStatusMessage(''), 7000)
       },
       function (error) {
-        setStatusMessage(
-          'Oops! Message failed to send! Please try again later.'
-        )
+        setStatusMessage('Oops! Message failed to send! Please try again later.')
         statusMessage.className = 'status-message failure'
 
         // eslint-disable-next-line no-console
@@ -126,9 +122,7 @@ const ContactForm = () => {
 
   return (
     <FormContainer>
-      <StatusContainer className="status-message">
-        {statusMessage}
-      </StatusContainer>
+      <StatusContainer className="status-message">{statusMessage}</StatusContainer>
       <form id="contact-form" onSubmit={handleSubmit(sendEmail)}>
         <input type="hidden" name="contact_number" value={contactNumber} />
         <InputContainer>
@@ -172,12 +166,7 @@ const ContactForm = () => {
         </InputContainer>
         <InputContainer>
           <label htmlFor="subject">Subject</label>
-          <input
-            id="subject"
-            name="subject"
-            placeholder="Topic of conversation"
-            type="text"
-          />
+          <input id="subject" name="subject" placeholder="Topic of conversation" type="text" />
         </InputContainer>
         <InputContainer>
           <label htmlFor="message">Message</label>

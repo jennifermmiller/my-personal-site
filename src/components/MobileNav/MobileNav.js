@@ -46,18 +46,11 @@ const MobileNav = (props) => {
   return (
     <div ref={ref}>
       <MobileNavButton onClick={toggleOpen}>
-        <FontAwesomeIcon
-          icon={faBars}
-          title={open ? 'Close menu' : 'Open menu'}
-        />
+        <FontAwesomeIcon icon={faBars} title={open ? 'Close menu' : 'Open menu'} />
       </MobileNavButton>
       {open ? (
         <DropdownContainer>
-          <Nav
-            css={mobileSyles}
-            navigation={navigation}
-            onNavClick={toggleOpen}
-          />
+          <Nav css={mobileSyles} navigation={navigation} onNavClick={toggleOpen} />
         </DropdownContainer>
       ) : null}
     </div>
@@ -65,11 +58,13 @@ const MobileNav = (props) => {
 }
 
 MobileNav.propTypes = {
-  navigation: arrayOf(shape({
-    icon: object,
-    label: string.isRequired,
-    path: string.isRequired
-  })).isRequired,
+  navigation: arrayOf(
+    shape({
+      icon: object,
+      label: string.isRequired,
+      path: string.isRequired,
+    })
+  ).isRequired,
 }
 
 export default MobileNav

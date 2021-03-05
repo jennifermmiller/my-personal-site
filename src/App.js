@@ -13,6 +13,7 @@ import Work from './pages/Work/Work'
 import { GlobalStyles } from './theme/GlobalStyles'
 import { lightTheme, darkTheme } from './theme/themes'
 import Greeting from './components/Greeting/Greeting'
+import PageNotFound from './pages/PageNotFound'
 
 const FlexContainer = styled.div(({ theme }) => ({
   display: 'flex',
@@ -22,13 +23,12 @@ const FlexContainer = styled.div(({ theme }) => ({
   ' > main': {
     boxShadow: `0 2px 2px -2px ${theme.border}`,
     flexGrow: '1',
-    minHeight: 'calc(100vh - 8.5rem)',
+    minHeight: 'calc(100vh - 10rem)',
   },
 }))
 
 //TODO list:
 //    - address any TODOs in files
-//    - send button look terrible on mobile - switched to btn, check once deployed
 //    - Styling:
 //        - Add overlay to main content when mobile nav is open?
 //    - personalize README
@@ -39,31 +39,17 @@ const FlexContainer = styled.div(({ theme }) => ({
 //    - Longterm: add backend?
 
 function App() {
-  const {
-    about,
-    chuck,
-    contact,
-    footer,
-    home,
-    navigation,
-    personalLinks,
-    work,
-  } = data
+  const { about, chuck, contact, footer, home, navigation, personalLinks, work } = data
   const [theme, setTheme] = useState('light')
-  const toggleTheme = () =>
-    theme === 'light' ? setTheme('dark') : setTheme('light')
+  const toggleTheme = () => (theme === 'light' ? setTheme('dark') : setTheme('light'))
 
   return (
     <Router>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <div className="App">
-          <Greeting/>
+          <Greeting />
           <GlobalStyles />
-          <Header
-            handleThemeClick={toggleTheme}
-            navigation={navigation}
-            theme={theme}
-          />
+          <Header handleThemeClick={toggleTheme} navigation={navigation} theme={theme} />
           <FlexContainer>
             <main>
               <Switch>
@@ -81,6 +67,9 @@ function App() {
                 </Route>
                 <Route exact path="/">
                   <Home {...home} />
+                </Route>
+                <Route>
+                  <PageNotFound />
                 </Route>
               </Switch>
             </main>

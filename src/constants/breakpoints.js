@@ -8,11 +8,9 @@ export const MOBILE = `${MOBILE_INT}px`
 export const TABLET = `${TABLET_INT}px`
 export const DESKTOP = `${DESKTOP_INT}px`
 
-export const mediaQuery = (declaration) =>
-  `@media only screen and ${declaration}`
+export const mediaQuery = (declaration) => `@media only screen and ${declaration}`
 
-export const mediaQueryWithPrint = (declaration) =>
-  `@media print, screen and ${declaration}`
+export const mediaQueryWithPrint = (declaration) => `@media print, screen and ${declaration}`
 
 export const mediaQueries = {
   mobile: `(min-width: ${MOBILE})`,
