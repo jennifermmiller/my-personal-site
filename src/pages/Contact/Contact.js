@@ -1,3 +1,4 @@
+import { arrayOf, element, shape, string } from 'prop-types'
 import styled from 'styled-components'
 
 import PageHeader from '../../components/PageHeader'
@@ -20,6 +21,13 @@ const Contact = (props) => {
       <ContactForm />
     </ContactContainer>
   )
+}
+
+Contact.propTypes = {
+  content: arrayOf(shape({
+    section: element.isRequired
+  })).isRequired,
+  title: string.isRequired
 }
 
 export default Contact

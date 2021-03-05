@@ -1,3 +1,4 @@
+import { arrayOf, shape, string } from 'prop-types'
 import styled from 'styled-components'
 
 import PageTitle from '../../components/PageTitle'
@@ -72,6 +73,20 @@ const Home = (props) => {
       </Content>
     </HomeContainer>
   )
+}
+
+Home.propTypes = {
+  hobbies: arrayOf(shape({
+    description: string
+  })).isRequired,
+  name: shape({
+    first: string.isRequired,
+    last: string.isRequired
+  }).isRequired,
+  profileImage: shape({
+    alt: string.isRequired,
+    source: string.isRequired
+  }).isRequired
 }
 
 export default Home

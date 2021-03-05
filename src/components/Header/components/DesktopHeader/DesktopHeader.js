@@ -1,3 +1,4 @@
+import { arrayOf, func, object, shape, string } from 'prop-types'
 import styled from 'styled-components'
 
 import Nav from '../../../Nav'
@@ -32,6 +33,16 @@ const DesktopHeader = (props) => {
       <ToggleThemeButton handleThemeClick={handleThemeClick} theme={theme} />
     </DesktopHeaderContainer>
   )
+}
+
+DesktopHeader.propTypes = {
+  handleThemeClick: func,
+  navigation: arrayOf(shape({
+    icon: object,
+    label: string.isRequired,
+    path: string.isRequired
+  })).isRequired,
+  theme: string.isRequired
 }
 
 export default DesktopHeader

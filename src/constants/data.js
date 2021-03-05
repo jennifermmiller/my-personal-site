@@ -11,13 +11,8 @@ import Emoji from '../components/Emoji/'
 import profile from '../assets/profile.png'
 
 import chuckWork1 from '../assets/chuckWork1.png'
-// import chuckWork2 from '../assets/chuckWork2.png'
 import chuckWork3 from '../assets/chuckWork3.png'
 import chuckWork4 from '../assets/chuckWork4.jpg'
-// import chuckBall from '../assets/chuckBall.jpg'
-// import chuckBlankets from '../assets/chuckBlankets.jpg'
-// import chuckGeorge from '../assets/chuckGeorge.jpg'
-// import chuckWinter from '../assets/chuckWinter.jpg'
 
 import {
   EMAIL_LINK,
@@ -35,6 +30,7 @@ import {
   RESUME_LAST_UPDATED,
   SCHOOL_LINK,
   TRAIL_LINK,
+  WEBSITE_URL,
   WORK_LINK,
 } from './constants'
 
@@ -138,15 +134,7 @@ const data = {
       {
         alt: 'Chuck taking a snooze on the job.',
         source: chuckWork1,
-      },
-      // {
-      //   alt: "Chuck resting on his ball after playtime.",
-      //   source: chuckBall,
-      // },
-      // {
-      //   alt: "Chuck going for a winter hike.",
-      //   source: chuckWinter,
-      // },
+      }
     ],
   },
   contact: {
@@ -197,7 +185,7 @@ const data = {
         description: 'Coffee drinker',
       },
       {
-        description: 'Continous learner',
+        description: 'Continuous learner',
       },
       {
         description: 'Listener of vinyl',
@@ -323,7 +311,7 @@ const data = {
       {
         company: 'Wegmans Food Markets',
         location: 'Geneseo, NY',
-        jobTitle: 'Pharmacy Technician',
+        jobTitle: 'Lead Pharmacy Technician',
         timePeriod: '2007 - 2012',
         responsibilities: [
           {
@@ -347,51 +335,51 @@ const data = {
           },
         ],
       },
-      {
-        company: 'Hickory Hill Farm',
-        location: 'Geneseo, NY',
-        jobTitle: 'Groom',
-        timePeriod: '2002 - 2008',
-        responsibilities: [
-          {
-            description: 'Provided daily care for approximately 20 horses',
-          },
-          {
-            description: 'Contributed to facility maintenance and improvements',
-          },
-          {
-            description: 'Exercised and trained young/inexperienced horses',
-          },
-          {
-            description: 'Attended to sick and injured horses',
-          },
-        ],
-      },
-      {
-        company: 'Wegmans Food Markets',
-        location: 'Perinton, NY',
-        jobTitle: 'Cusomter Service Associate',
-        timePeriod: '2000 - 2007',
-        responsibilities: [
-          {
-            description: 'Completed training in six perishable departments',
-          },
-          {
-            description:
-              'Ensured that HACCP and company food safety standards were met',
-          },
-          {
-            description:
-              'Prepared bi-weekly orders for multiple departments and assisted with monthly inventory',
-          },
-          {
-            description: 'Traveled to new markets to assist in store openings',
-          },
-        ],
-      },
+      // Work experience no one probably cares about
+      // {
+      //   company: 'Hickory Hill Farm',
+      //   location: 'Geneseo, NY',
+      //   jobTitle: 'Groom',
+      //   timePeriod: '2002 - 2008',
+      //   responsibilities: [
+      //     {
+      //       description: 'Provided daily care for approximately 20 horses',
+      //     },
+      //     {
+      //       description: 'Contributed to facility maintenance and improvements',
+      //     },
+      //     {
+      //       description: 'Exercised and trained young/inexperienced horses',
+      //     },
+      //     {
+      //       description: 'Attended to sick and injured horses',
+      //     },
+      //   ],
+      // },
+      // {
+      //   company: 'Wegmans Food Markets',
+      //   location: 'Perinton, NY',
+      //   jobTitle: 'Cusomter Service Associate',
+      //   timePeriod: '2000 - 2007',
+      //   responsibilities: [
+      //     {
+      //       description: 'Completed training in six perishable departments',
+      //     },
+      //     {
+      //       description:
+      //         'Ensured that HACCP and company food safety standards were met',
+      //     },
+      //     {
+      //       description:
+      //         'Prepared bi-weekly orders for multiple departments and assisted with monthly inventory',
+      //     },
+      //     {
+      //       description: 'Traveled to new markets to assist in store openings',
+      //     },
+      //   ],
+      // },
     ],
     contactInformation: {
-      // website: TODO
       email: EMAIL_URL,
       github: GITHUB_URL,
       linkedIn: LINKEDIN_URL,
@@ -400,6 +388,7 @@ const data = {
         number: PHONE_NUMBER,
         formattedNumber: PHONE_NUMBER_FORMATTED,
       },
+      website: WEBSITE_URL
     },
     education: [
       {

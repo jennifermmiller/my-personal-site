@@ -1,3 +1,4 @@
+import { arrayOf, element, shape, string } from 'prop-types'
 import styled from 'styled-components'
 
 import PageHeader from '../../components/PageHeader/'
@@ -6,6 +7,11 @@ import PageTitle from '../../components/PageTitle'
 
 const AboutContainer = styled.div({
   maxWidth: '700px',
+  '@media print': {
+    ' a[href^=http]:after': {
+      content: ' <" attr(href) "> '
+    }
+  }
 })
 
 const About = (props) => {
@@ -18,6 +24,13 @@ const About = (props) => {
       <GenericContent content={content} />
     </AboutContainer>
   )
+}
+
+About.propTypes = {
+  content: arrayOf(shape({
+    section: element.isRequired
+  })).isRequired,
+  title: string.isRequired
 }
 
 export default About

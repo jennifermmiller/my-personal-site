@@ -28,12 +28,10 @@ const FlexContainer = styled.div(({ theme }) => ({
 
 //TODO list:
 //    - address any TODOs in files
-//    - nav dropdown need zindex higher than title on work tab
-//    - send button look terrible on mobile
+//    - send button look terrible on mobile - switched to btn, check once deployed
 //    - Styling:
 //        - Add overlay to main content when mobile nav is open?
 //    - personalize README
-//    - welcome message in console 
 //    - Improve carousel experience on Chuck's page
 //    - add Typescript?
 //    - add tests? (not a ton of functionality)

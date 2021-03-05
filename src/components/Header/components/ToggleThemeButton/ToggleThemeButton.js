@@ -1,3 +1,4 @@
+import { func, string } from 'prop-types'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
@@ -26,12 +27,17 @@ const ToggleThemeButton = (props) => {
         icon={theme === 'light' ? faMoon : faSun}
         title={
           theme === 'light'
-            ? 'Display page in Dark Mode'
-            : 'Display page in Light Mode'
+            ? 'Dark Mode'
+            : 'Light Mode'
         }
       />
     </ThemeButton>
   )
+}
+
+ToggleThemeButton.propTypes = {
+  handleThemeClick: func.isRequired,
+  theme: string.isRequired
 }
 
 export default ToggleThemeButton

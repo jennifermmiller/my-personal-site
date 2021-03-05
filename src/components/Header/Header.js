@@ -1,3 +1,4 @@
+import { arrayOf, func, object, shape, string } from 'prop-types'
 import { useMediaQuery } from 'react-responsive'
 
 import { TABLET } from '../../constants/breakpoints'
@@ -7,7 +8,7 @@ import MobileHeader from './components/MobileHeader'
 const Header = (props) => {
   const { handleThemeClick, navigation, theme } = props
   const isMobile = useMediaQuery({ query: `(max-width: ${TABLET})` })
-  
+
   return (
     <>
       {isMobile ? (
@@ -25,6 +26,16 @@ const Header = (props) => {
       )}
     </>
   )
+}
+
+Header.propTypes = {
+  handleThemeClick: func.isRequired,
+  navigation: arrayOf(shape({
+    icon: object,
+    label: string.isRequired,
+    path: string.isRequired
+  })).isRequired,
+  theme: string.isRequired
 }
 
 export default Header

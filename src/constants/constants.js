@@ -14,8 +14,10 @@ export const RESUME_LAST_UPDATED = 'March 2021'
 // URLs
 export const EMAIL_URL = 'jen.miller.uxe@gmail.com'
 export const GITHUB_URL = 'github.com/jennifermmiller'
+export const LINKEDIN_URL = 'linkedin.com/in/jen-miller-uxe'
+export const WEBSITE_URL = 'jenmillerux.dev'
+
 export const JOSH_ALLEN_URL = 'https://youtu.be/xEVIvJtXquQ'
-export const LINKEDIN_URL = 'linkedin.com/in/jen-miller-uxe/'
 export const SCHOOL_URL = 'https://www.linkedin.com/school/the-iron-yard/'
 export const TRAIL_URL =
   'https://www.greenvillesc.gov/316/Swamp-Rabbit-Trail-Interactive-Map'
@@ -48,10 +50,9 @@ export const TRAIL_LINK = (
   </a>
 )
 
-export const CONSOLE_GREETING = 'Welcome! Enjoy your visit! Go Bills!!!'
-
 //eslint-disable-next-line
-export const BUFFALO_ASCII = `
+export const CONSOLE_GREETING = `
+      Welcome! Enjoy your visit!
 
              _.-\`\`\`\`'-,_
    _,.,_ ,-'\`           \`'-.,_
@@ -66,4 +67,5 @@ export const BUFFALO_ASCII = `
                 \\( \\(     |/   |/
                /_(/_(    /_(  /_(
 
+              Go Bills!!!  
 `

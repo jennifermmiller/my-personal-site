@@ -1,3 +1,4 @@
+import { arrayOf, func, object, shape, string } from 'prop-types'
 import styled from 'styled-components'
 
 import MobileNav from '../../../MobileNav/MobileNav'
@@ -29,6 +30,16 @@ const MobileHeader = (props) => {
       <ToggleThemeButton handleThemeClick={handleThemeClick} theme={theme} />
     </MobileHeaderContainer>
   )
+}
+
+MobileHeader.propTypes = {
+  handleThemeClick: func.isRequired,
+  navigation: arrayOf(shape({
+    icon: object,
+    label: string.isRequired,
+    path: string.isRequired
+  })).isRequired,
+  theme: string.isRequired
 }
 
 export default MobileHeader

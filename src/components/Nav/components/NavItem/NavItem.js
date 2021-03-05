@@ -1,3 +1,4 @@
+import { func, object, string } from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -58,6 +59,13 @@ const NavItem = (props) => {
       </NavLink>
     </NavItemContainer>
   )
+}
+
+NavItem.propTypes = {
+  handleClick: func.isRequired,
+  icon: object,
+  label: string.isRequired,
+  path: string.isRequired
 }
 
 export default NavItem

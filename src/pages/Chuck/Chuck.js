@@ -1,3 +1,4 @@
+import { arrayOf, element, shape, string } from 'prop-types'
 import styled from 'styled-components'
 import AwesomeSlider from 'react-awesome-slider'
 import 'react-awesome-slider/dist/styles.css'
@@ -34,6 +35,17 @@ const Chuck = (props) => {
       </CarouselContainer>
     </>
   )
+}
+
+Chuck.propTypes = {
+  content: arrayOf(shape({
+    section: element.isRequired
+  })).isRequired,
+  images: arrayOf(shape({
+    alt: string,
+    source: string
+  })).isRequired,
+  title: string.isRequired
 }
 
 export default Chuck

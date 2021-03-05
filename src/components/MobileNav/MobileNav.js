@@ -1,3 +1,4 @@
+import { arrayOf, object, shape, string } from 'prop-types'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -61,6 +62,14 @@ const MobileNav = (props) => {
       ) : null}
     </div>
   )
+}
+
+MobileNav.propTypes = {
+  navigation: arrayOf(shape({
+    icon: object,
+    label: string.isRequired,
+    path: string.isRequired
+  })).isRequired,
 }
 
 export default MobileNav

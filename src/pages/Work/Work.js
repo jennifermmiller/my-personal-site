@@ -1,10 +1,11 @@
+import { arrayOf, shape, string } from 'prop-types'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faBusinessTime,
   faEnvelope,
   faGraduationCap,
-  // faLaptop,
+  faLaptop,
   faMapMarker,
   faMobileAlt,
   faPhoneAlt,
@@ -297,7 +298,7 @@ const Work = (props) => {
                 </a>
               </p>
               <p>
-                <a href={contactInformation.email} className="contact-item">
+                <a href={`mailto:${contactInformation.email}`} className="contact-item">
                   <span>{contactInformation.email}</span>
                   <FontAwesomeIcon
                     aria-hidden="true"
@@ -307,7 +308,7 @@ const Work = (props) => {
                 </a>
               </p>
               <p>
-                <a href={contactInformation.linkedIn} className="contact-item">
+                <a href={`https://${contactInformation.linkedIn}`} className="contact-item">
                   <span>{contactInformation.linkedIn}</span>
                   <FontAwesomeIcon
                     aria-hidden="true"
@@ -316,13 +317,12 @@ const Work = (props) => {
                   />
                 </a>
               </p>
-              {/* TODO: Add website
-                <p>
-                    <a href={contactInformation.website} className="contact-item">
-                        <span>{contactInformation.website}</span>
-                        <FontAwesomeIcon aria-hidden="true" icon={faLaptop} title=""/>
-                    </a>
-                </p> */}
+              <p>
+                <a href={`https://${contactInformation.website}`}className="contact-item">
+                  <span>{contactInformation.website}</span>
+                  <FontAwesomeIcon aria-hidden="true" icon={faLaptop} title=""/>
+                </a>
+              </p>
             </ContactContainer>
           </SectionContainer>
           <SectionContainer>
@@ -400,6 +400,48 @@ const Work = (props) => {
       </ContentContainer>
     </>
   )
+}
+
+Work.propTypes = {
+  contactInformation: shape({
+    email: string.isRequired,
+    github: string.isRequired,
+    linkedIn: string.isRequired,
+    location: string.isRequired,
+    phone: shape({
+      formattedNumber: string.isRequired,
+      number: string.isRequired
+    }),
+    website: string.isRequired
+  }),
+  education: arrayOf(shape({
+    description: string.isRequired,
+    location: string.isRequired,
+    name: string.isRequired,
+    timePeriod: string.isRequired
+  })),
+  jobs: arrayOf(shape({
+    company: string.isRequired,
+    jobTitle: string.isRequired,
+    location: string.isRequired,
+    responsibilities: arrayOf(shape({
+      description: string.isRequired
+    })).isRequired,
+    timePeriod: string.isRequired,
+  })),
+  jobTitle: string.isRequired,
+  lastUpdated: string,
+  name: shape({
+    first: string.isRequired,
+    last: string.isRequired
+  }).isRequired,
+  summary: string.isRequired,
+  technicalSkills: arrayOf(shape({
+    skills: arrayOf(shape({
+      name: string.isRequired,
+    })),
+    title: string.isRequired
+  }))
 }
 
 export default Work

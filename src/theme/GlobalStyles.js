@@ -61,10 +61,6 @@ export const GlobalStyles = createGlobalStyle`
       ul { 
         page-break-before:avoid;
       }
-
-      a[href^=http]:after {
-        content:" <" attr(href) "> ";
-      }
     }
   }
 
