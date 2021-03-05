@@ -19,16 +19,13 @@ export const WEBSITE_URL = 'jenmillerux.dev'
 
 export const JOSH_ALLEN_URL = 'https://youtu.be/xEVIvJtXquQ'
 export const SCHOOL_URL = 'https://www.linkedin.com/school/the-iron-yard/'
-export const TRAIL_URL =
-  'https://www.greenvillesc.gov/316/Swamp-Rabbit-Trail-Interactive-Map'
+export const TRAIL_URL = 'https://www.greenvillesc.gov/316/Swamp-Rabbit-Trail-Interactive-Map'
 export const WORK_URL = 'https://www.benefitfocus.com/'
 
 // Links
 export const EMAIL_LINK = <a href={`mailto:${EMAIL_URL}`}>{EMAIL_URL}</a>
 export const GITHUB_LINK = <a href={`https://${GITHUB_URL}`}>Github</a>
-export const LINKEDIN_LINK = (
-  <a href={`https://www.${LINKEDIN_URL}`}>LinkedIn</a>
-)
+export const LINKEDIN_LINK = <a href={`https://www.${LINKEDIN_URL}`}>LinkedIn</a>
 export const SCHOOL_LINK = (
   <a href={SCHOOL_URL} rel="noopener noreferrer" target="_blank">
     Iron Yard Academy
@@ -67,5 +64,5 @@ export const CONSOLE_GREETING = `
                 \\( \\(     |/   |/
                /_(/_(    /_(  /_(
 
-              Go Bills!!!  
+                Go Bills!!!  
 `

@@ -30,12 +30,14 @@ const Nav = (props) => {
 
 Nav.propTypes = {
   css: object,
-  navigation: arrayOf(shape({
-    icon: object,
-    label: string.isRequired,
-    path: string.isRequired
-  })).isRequired,
-  onNavClick: func
+  navigation: arrayOf(
+    shape({
+      icon: object,
+      label: string.isRequired,
+      path: string.isRequired,
+    })
+  ).isRequired,
+  onNavClick: func,
 }
 
 export default Nav

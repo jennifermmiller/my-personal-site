@@ -52,8 +52,7 @@ const NavItem = (props) => {
         className={label}
         exact={true}
         onClick={handleClick}
-        to={path}
-      >
+        to={path}>
         <FontAwesomeIcon aria-hidden="true" icon={icon} title="" />
         <Label>{label}</Label>
       </NavLink>
@@ -62,10 +61,10 @@ const NavItem = (props) => {
 }
 
 NavItem.propTypes = {
-  handleClick: func.isRequired,
+  handleClick: func,
   icon: object,
   label: string.isRequired,
-  path: string.isRequired
+  path: string.isRequired,
 }
 
 export default NavItem

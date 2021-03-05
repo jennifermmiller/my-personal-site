@@ -24,10 +24,12 @@ const Contact = (props) => {
 }
 
 Contact.propTypes = {
-  content: arrayOf(shape({
-    section: element.isRequired
-  })).isRequired,
-  title: string.isRequired
+  content: arrayOf(
+    shape({
+      section: element.isRequired,
+    })
+  ).isRequired,
+  title: string.isRequired,
 }
 
 export default Contact

@@ -12,17 +12,9 @@ const Header = (props) => {
   return (
     <>
       {isMobile ? (
-        <MobileHeader
-          handleThemeClick={handleThemeClick}
-          navigation={navigation}
-          theme={theme}
-        />
+        <MobileHeader handleThemeClick={handleThemeClick} navigation={navigation} theme={theme} />
       ) : (
-        <DesktopHeader
-          handleThemeClick={handleThemeClick}
-          navigation={navigation}
-          theme={theme}
-        />
+        <DesktopHeader handleThemeClick={handleThemeClick} navigation={navigation} theme={theme} />
       )}
     </>
   )
@@ -30,12 +22,14 @@ const Header = (props) => {
 
 Header.propTypes = {
   handleThemeClick: func.isRequired,
-  navigation: arrayOf(shape({
-    icon: object,
-    label: string.isRequired,
-    path: string.isRequired
-  })).isRequired,
-  theme: string.isRequired
+  navigation: arrayOf(
+    shape({
+      icon: object,
+      label: string.isRequired,
+      path: string.isRequired,
+    })
+  ).isRequired,
+  theme: string.isRequired,
 }
 
 export default Header

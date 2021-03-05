@@ -4,11 +4,7 @@ const Emoji = (props) => {
   const { label, symbol } = props
 
   return (
-    <span
-      aria-hidden={label ? 'false' : 'true'}
-      aria-label={label || ''}
-      role="img"
-    >
+    <span aria-hidden={label ? 'false' : 'true'} aria-label={label || ''} role="img">
       {symbol}
     </span>
   )
@@ -16,7 +12,7 @@ const Emoji = (props) => {
 
 Emoji.propTypes = {
   label: string,
-  symbol: string.isRequired
+  symbol: string.isRequired,
 }
 
 export default Emoji

@@ -25,11 +25,7 @@ const ToggleThemeButton = (props) => {
     <ThemeButton onClick={handleThemeClick}>
       <FontAwesomeIcon
         icon={theme === 'light' ? faMoon : faSun}
-        title={
-          theme === 'light'
-            ? 'Dark Mode'
-            : 'Light Mode'
-        }
+        title={theme === 'light' ? 'Dark Mode' : 'Light Mode'}
       />
     </ThemeButton>
   )
@@ -37,7 +33,7 @@ const ToggleThemeButton = (props) => {
 
 ToggleThemeButton.propTypes = {
   handleThemeClick: func.isRequired,
-  theme: string.isRequired
+  theme: string.isRequired,
 }
 
 export default ToggleThemeButton

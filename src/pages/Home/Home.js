@@ -38,7 +38,7 @@ const HobbyContainer = styled.p({
   marginTop: '2.625rem',
   textAlign: 'center',
   '.hobby:not(:last-child)::after': {
-    content: '\'\\00B7\'',
+    content: "'\\00B7'",
     padding: '0 0.3125rem',
   },
   [mediaQuery(`(min-width: ${TABLET})`)]: {
@@ -76,17 +76,19 @@ const Home = (props) => {
 }
 
 Home.propTypes = {
-  hobbies: arrayOf(shape({
-    description: string
-  })).isRequired,
+  hobbies: arrayOf(
+    shape({
+      description: string,
+    })
+  ).isRequired,
   name: shape({
     first: string.isRequired,
-    last: string.isRequired
+    last: string.isRequired,
   }).isRequired,
   profileImage: shape({
     alt: string.isRequired,
-    source: string.isRequired
-  }).isRequired
+    source: string.isRequired,
+  }).isRequired,
 }
 
 export default Home

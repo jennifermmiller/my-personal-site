@@ -7,7 +7,7 @@ const PageHeader = (props) => {
 }
 
 PageHeader.propTypes = {
-  title: string.isRequired
+  title: string.isRequired,
 }
 
 export default PageHeader

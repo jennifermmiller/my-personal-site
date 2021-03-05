@@ -28,7 +28,7 @@ const HeadingContainer = styled.div({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  paddingBottom: '3rem'
+  paddingBottom: '3rem',
 })
 
 const Name = styled.h1(({ theme }) => ({
@@ -41,10 +41,10 @@ const Name = styled.h1(({ theme }) => ({
   padding: '1rem 5rem',
   backgroundColor: theme.nameBg,
   ' > span:first-child': {
-    fontWeight: '400'
+    fontWeight: '400',
   },
   ' > span:last-child': {
-    color: theme.textHighlight
+    color: theme.textHighlight,
   },
   [mediaQueryWithPrint(`(min-width: ${MOBILE})`)]: {
     fontSize: '6rem',
@@ -65,7 +65,7 @@ const JobTitle = styled.div(({ theme }) => ({
   justifyContent: 'center',
   ' > span': {
     fontSize: '2rem',
-    fontWeight: '200'
+    fontWeight: '200',
   },
   [mediaQueryWithPrint(`(min-width: ${MOBILE})`)]: {
     ' > span': {
@@ -76,7 +76,7 @@ const JobTitle = styled.div(({ theme }) => ({
     backgroundColor: '#eaecec',
     ' > span': {
       fontSize: '22pt',
-    }
+    },
   },
 }))
 
@@ -210,11 +210,11 @@ const EducationDetailsContainer = styled.div({
 
 const SkillsContainer = styled.div({
   ' > h3': {
-    marginBottom: '0'
+    marginBottom: '0',
   },
   ' > p': {
-    marginTop: '0.5rem'
-  }
+    marginTop: '0.5rem',
+  },
 })
 
 const DetailsContainer = styled.div({
@@ -260,9 +260,7 @@ const Work = (props) => {
       <PageTitle tab="Work" />
       <HeadingContainer>
         <Name>
-          <span>{name.first}</span>
-          {' '}
-          <span>{name.last}</span>
+          <span>{name.first}</span> <span>{name.last}</span>
         </Name>
         <JobTitle>
           <span>{jobTitle}</span>
@@ -278,60 +276,37 @@ const Work = (props) => {
             <ContactContainer>
               <p className="contact-item">
                 <span>{contactInformation.location}</span>
-                <FontAwesomeIcon
-                  aria-hidden="true"
-                  icon={faMapMarker}
-                  title=""
-                />
+                <FontAwesomeIcon aria-hidden="true" icon={faMapMarker} title="" />
               </p>
               <p>
-                <a
-                  href={`tel:${contactInformation.phone.number}`}
-                  className="contact-item"
-                >
+                <a href={`tel:${contactInformation.phone.number}`} className="contact-item">
                   <span>{contactInformation.phone.formattedNumber}</span>
-                  <FontAwesomeIcon
-                    aria-hidden="true"
-                    icon={faMobileAlt}
-                    title=""
-                  />
+                  <FontAwesomeIcon aria-hidden="true" icon={faMobileAlt} title="" />
                 </a>
               </p>
               <p>
                 <a href={`mailto:${contactInformation.email}`} className="contact-item">
                   <span>{contactInformation.email}</span>
-                  <FontAwesomeIcon
-                    aria-hidden="true"
-                    icon={faEnvelope}
-                    title=""
-                  />
+                  <FontAwesomeIcon aria-hidden="true" icon={faEnvelope} title="" />
                 </a>
               </p>
               <p>
                 <a href={`https://${contactInformation.linkedIn}`} className="contact-item">
                   <span>{contactInformation.linkedIn}</span>
-                  <FontAwesomeIcon
-                    aria-hidden="true"
-                    icon={faLinkedin}
-                    title=""
-                  />
+                  <FontAwesomeIcon aria-hidden="true" icon={faLinkedin} title="" />
                 </a>
               </p>
               <p>
-                <a href={`https://${contactInformation.website}`}className="contact-item">
+                <a href={`https://${contactInformation.website}`} className="contact-item">
                   <span>{contactInformation.website}</span>
-                  <FontAwesomeIcon aria-hidden="true" icon={faLaptop} title=""/>
+                  <FontAwesomeIcon aria-hidden="true" icon={faLaptop} title="" />
                 </a>
               </p>
             </ContactContainer>
           </SectionContainer>
           <SectionContainer>
             <SectionHeader className="secondary-section-header">
-              <FontAwesomeIcon
-                aria-hidden="true"
-                icon={faGraduationCap}
-                title=""
-              />
+              <FontAwesomeIcon aria-hidden="true" icon={faGraduationCap} title="" />
               Education
             </SectionHeader>
             {education.map((school, index) => (
@@ -350,7 +325,7 @@ const Work = (props) => {
             <SectionHeader className="secondary-section-header">
               <FontAwesomeIcon aria-hidden="true" icon={faTools} title="" />
               Technical Skills
-            </SectionHeader>            
+            </SectionHeader>
             {technicalSkills.map((section, index) => (
               <SkillsContainer key={index}>
                 <h3>{section.title}</h3>
@@ -369,11 +344,7 @@ const Work = (props) => {
           </SectionContainer>
           <SectionContainer>
             <SectionHeader>
-              <FontAwesomeIcon
-                aria-hidden="true"
-                icon={faBusinessTime}
-                title=""
-              />
+              <FontAwesomeIcon aria-hidden="true" icon={faBusinessTime} title="" />
               Work Experience
             </SectionHeader>
             {jobs.map((job, index) => (
@@ -410,38 +381,48 @@ Work.propTypes = {
     location: string.isRequired,
     phone: shape({
       formattedNumber: string.isRequired,
-      number: string.isRequired
+      number: string.isRequired,
     }),
-    website: string.isRequired
+    website: string.isRequired,
   }),
-  education: arrayOf(shape({
-    description: string.isRequired,
-    location: string.isRequired,
-    name: string.isRequired,
-    timePeriod: string.isRequired
-  })),
-  jobs: arrayOf(shape({
-    company: string.isRequired,
-    jobTitle: string.isRequired,
-    location: string.isRequired,
-    responsibilities: arrayOf(shape({
-      description: string.isRequired
-    })).isRequired,
-    timePeriod: string.isRequired,
-  })),
+  education: arrayOf(
+    shape({
+      description: string.isRequired,
+      location: string.isRequired,
+      name: string.isRequired,
+      timePeriod: string.isRequired,
+    })
+  ),
+  jobs: arrayOf(
+    shape({
+      company: string.isRequired,
+      jobTitle: string.isRequired,
+      location: string.isRequired,
+      responsibilities: arrayOf(
+        shape({
+          description: string.isRequired,
+        })
+      ).isRequired,
+      timePeriod: string.isRequired,
+    })
+  ),
   jobTitle: string.isRequired,
   lastUpdated: string,
   name: shape({
     first: string.isRequired,
-    last: string.isRequired
+    last: string.isRequired,
   }).isRequired,
   summary: string.isRequired,
-  technicalSkills: arrayOf(shape({
-    skills: arrayOf(shape({
-      name: string.isRequired,
-    })),
-    title: string.isRequired
-  }))
+  technicalSkills: arrayOf(
+    shape({
+      skills: arrayOf(
+        shape({
+          name: string.isRequired,
+        })
+      ),
+      title: string.isRequired,
+    })
+  ),
 }
 
 export default Work

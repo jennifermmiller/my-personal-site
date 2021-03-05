@@ -6,12 +6,7 @@ const useComponentVisible = ({ enabled = true, onClickHideComponent, ref }) => {
 
   const handleClickOutside = useCallback(
     (event) => {
-      if (
-        enabled &&
-        targetRef &&
-        targetRef.current &&
-        !targetRef.current.contains(event.target)
-      ) {
+      if (enabled && targetRef && targetRef.current && !targetRef.current.contains(event.target)) {
         onClickHideComponent instanceof Function && onClickHideComponent()
       }
     },
