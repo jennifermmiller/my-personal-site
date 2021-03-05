@@ -64,14 +64,14 @@ const SubmitButton = styled.button(({ theme }) => ({
 }))
 
 const StatusContainer = styled.div(({ theme }) => ({
-  '&.success': {
+  ' > .success': {
     backgroundColor: theme.successBg,
     border: `1px solid ${theme.success}`,
     color: theme.success,
     marginBottom: '3rem',
     padding: '1rem',
   },
-  '&.failure': {
+  ' > .failure': {
     backgroundColor: theme.errorBg,
     border: `1px solid ${theme.error}`,
     color: theme.error,
@@ -99,7 +99,7 @@ const ContactForm = () => {
 
     generateContactNumber()
 
-    sendForm('default_service', 'template_xs0kgfv', '#contact-form').then(
+    sendForm('default_service', process.env.REACT_APP_EMAILJS_TEMPLATE, '#contact-form').then(
       () => {
         form.reset()
 
@@ -122,7 +122,9 @@ const ContactForm = () => {
 
   return (
     <FormContainer>
-      <StatusContainer className="status-message">{statusMessage}</StatusContainer>
+      <StatusContainer>
+        <p className="status-message">{statusMessage}</p>
+      </StatusContainer>
       <form id="contact-form" onSubmit={handleSubmit(sendEmail)}>
         <input type="hidden" name="contact_number" value={contactNumber} />
         <InputContainer>
