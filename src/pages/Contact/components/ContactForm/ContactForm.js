@@ -106,7 +106,10 @@ const ContactForm = () => {
         setStatusMessage('Your message has been sent! Thanks for contacting me!')
         statusMessage.className = 'status-message success'
 
-        setTimeout(() => setStatusMessage(''), 7000)
+        setTimeout(() => {
+          statusMessage.className = 'status-message'
+          setStatusMessage('')
+        }, 7000)
       },
       function (error) {
         setStatusMessage('Oops! Message failed to send! Please try again later.')
@@ -115,7 +118,10 @@ const ContactForm = () => {
         // eslint-disable-next-line no-console
         console.error(error.message)
 
-        setTimeout(() => setStatusMessage(''), 7000)
+        setTimeout(() => {
+          statusMessage.className = 'status-message'
+          setStatusMessage('')
+        }, 7000)
       }
     )
   }
