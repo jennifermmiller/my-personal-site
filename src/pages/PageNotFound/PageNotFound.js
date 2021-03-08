@@ -1,11 +1,11 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-// import { GiphyFetch } from '@giphy/js-fetch-api'
-// import { Gif } from '@giphy/react-components'
-// import { useAsync } from 'react-async-hook'
+import { GiphyFetch } from '@giphy/js-fetch-api'
+import { Gif } from '@giphy/react-components'
+import { useAsync } from 'react-async-hook'
 import styled from 'styled-components'
 
-// import giphyLogo from '../../assets/giphyLogo.gif'
+import giphyLogo from '../../assets/giphyLogo.gif'
 import { mediaQuery, MOBILE } from '../../constants/breakpoints'
 
 const PageContainer = styled.div({
@@ -53,28 +53,27 @@ const ReturnContainer = styled.div(({ theme }) => ({
   },
 }))
 
-// TODO:
-// const giphyFetch = new GiphyFetch('')
+const giphyFetch = new GiphyFetch(process.env.REACT_APP_GIPHY_API_KEY)
 
 const PageNotFound = () => {
-  // const [gif, setGif] = useState(null)
+  const [gif, setGif] = useState(null)
 
-  // useAsync(async () => {
-  //   const { data } = await giphyFetch.random({
-  //     hideAttribution: true,
-  //     tag: 'oh no',
-  //     rating: 'g',
-  //   })
-  //   setGif(data)
-  // }, [])
+  useAsync(async () => {
+    const { data } = await giphyFetch.random({
+      hideAttribution: true,
+      tag: 'oh no',
+      rating: 'g',
+    })
+    setGif(data)
+  }, [])
 
   return (
     <PageContainer>
       <h1>Oh no!</h1>
       <p>The page you are looking for does not exist!</p>
       <div>
-        {/* {gif && <Gif borderRadius={0} gif={gif} width={200} />} */}
-        {/* <img alt="Powered by Giphy" src={giphyLogo} /> */}
+        {gif && <Gif borderRadius={0} gif={gif} width={200} />}
+        <img alt="Powered by Giphy" src={giphyLogo} />
       </div>
       <ReturnContainer>
         <Link to="/">Return to home page</Link>
