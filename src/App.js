@@ -46,17 +46,16 @@ wrapHistory(history)
 
 //TODO list:
 //    - address any TODOs in files
-//    - add scroll behavior to router
-//    - Add animation to nav/buttons
 //    - Styling:
+//        - Add animation to nav/buttons
 //        - Add overlay to main content when mobile nav is open?
 //        - Add blurred background of code?
 //    - personalize README
 //    - Improve carousel experience on Chuck's page
-//    - add Typescript?
+//    - Replace propTypes with Typescript?
 //    - add tests? (not a ton of functionality)
 //    - add audible click sounds?
-//    - Longterm: add backend?
+//    - Longterm: add backend? look into Netilify CMS
 
 function App() {
   const { about, chuck, contact, footer, home, navigation, personalLinks, work } = data
