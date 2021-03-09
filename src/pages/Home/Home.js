@@ -2,7 +2,6 @@ import { arrayOf, shape, string } from 'prop-types'
 import styled from 'styled-components'
 
 import PageTitle from '../../components/PageTitle'
-import { mediaQuery, DESKTOP, TABLET } from '../../constants/breakpoints'
 
 const HomeContainer = styled.div({
   display: 'flex',
@@ -21,10 +20,6 @@ const Name = styled.h1({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
-  fontSize: '4rem',
-  ' > span:last-child': {
-    fontSize: '6rem',
-  },
 })
 
 const ImageContainer = styled.figure({
@@ -34,18 +29,10 @@ const ImageContainer = styled.figure({
 })
 
 const HobbyContainer = styled.p({
-  fontSize: '1.25rem',
-  marginTop: '2.625rem',
   textAlign: 'center',
   '.hobby:not(:last-child)::after': {
     content: "'\\00B7'",
     padding: '0 0.3125rem',
-  },
-  [mediaQuery(`(min-width: ${TABLET})`)]: {
-    fontSize: '1.625rem',
-  },
-  [mediaQuery(`(min-width: ${DESKTOP})`)]: {
-    fontSize: '2rem',
   },
 })
 
@@ -58,14 +45,14 @@ const Home = (props) => {
       <Content>
         <Name>
           <span>{name.first}</span>
-          <span>{name.last}</span>
+          <span className="text-xxl">{name.last}</span>
         </Name>
         <ImageContainer>
           <img alt={profileImage.alt} src={profileImage.source} />
         </ImageContainer>
         <HobbyContainer>
           {hobbies.map((hobby, index) => (
-            <span className="hobby" key={index}>
+            <span className="hobby h4" key={index}>
               {hobby.description}
             </span>
           ))}

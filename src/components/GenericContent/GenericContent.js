@@ -3,9 +3,6 @@ import styled from 'styled-components'
 
 const ContentContainer = styled.div({
   maxWidth: '720px',
-  ' p': {
-    fontSize: '1.25rem',
-  },
 })
 
 const GenericContent = (props) => {

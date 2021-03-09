@@ -10,7 +10,6 @@ import Nav from '../Nav'
 const MobileNavButton = styled.button({
   background: 'transparent',
   border: 'none',
-  fontSize: '2rem',
   padding: '1rem',
 })
 
@@ -31,6 +30,8 @@ const mobileSyles = {
   },
   '> li > a': {
     display: 'block',
+    paddingBottom: '1rem',
+    paddingTop: '1rem',
   },
 }
 
@@ -45,7 +46,7 @@ const MobileNav = (props) => {
 
   return (
     <div ref={ref}>
-      <MobileNavButton onClick={toggleOpen}>
+      <MobileNavButton className="h3" onClick={toggleOpen}>
         <FontAwesomeIcon icon={faBars} title={open ? 'Close menu' : 'Open menu'} />
       </MobileNavButton>
       {open ? (

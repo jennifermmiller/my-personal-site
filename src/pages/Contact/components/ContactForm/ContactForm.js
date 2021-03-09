@@ -14,16 +14,11 @@ const InputContainer = styled.div(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   marginBottom: '2rem',
-  ' > label': {
-    fontSize: '1.25rem',
-  },
   ' > input': {
-    fontSize: '1.25rem',
     lineHeight: '1.5rem',
     padding: '1rem',
   },
   ' > textarea': {
-    fontSize: '1.25rem',
     padding: '1rem',
     minHeight: '320px',
     width: '100%',
@@ -49,7 +44,6 @@ const SubmitButton = styled.button(({ theme }) => ({
   border: theme.button,
   borderRadius: '0.25rem',
   color: theme.buttonText,
-  fontSize: '1.25rem',
   lineHeight: '1.5rem',
   padding: '1rem 2rem',
   width: '100%',
@@ -197,7 +191,9 @@ const ContactForm = () => {
             )}
           </ErrorContainer>
         </InputContainer>
-        <SubmitButton type="submit">Send</SubmitButton>
+        <SubmitButton className="h5" type="submit">
+          Send
+        </SubmitButton>
       </form>
     </FormContainer>
   )

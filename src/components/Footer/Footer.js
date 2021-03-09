@@ -24,10 +24,10 @@ const FooterContainer = styled.footer({
 })
 
 const ContactContainer = styled.div(({ theme }) => ({
+  display: 'flex',
   '> a': {
-    fontSize: '2rem',
     padding: '0.5rem',
-    margin: '0 0.5rem 1rem',
+    margin: '0 0.5rem',
   },
   '> a:hover': {
     backgroundColor: theme.iconHoverBg,
@@ -41,7 +41,6 @@ const ContactContainer = styled.div(({ theme }) => ({
 }))
 
 const CopyrightContainer = styled.div({
-  fontSize: '0.75rem',
   marginTop: '1rem',
   [mediaQueryWithPrint(`(min-width: ${DESKTOP})`)]: {
     marginTop: '0',
@@ -58,11 +57,11 @@ const Footer = (props) => {
       <ContactContainer className="footer-links">
         {contactLinks.map((link, index) => (
           <a key={index} href={link.url}>
-            <FontAwesomeIcon icon={link.icon} title="" />
+            <FontAwesomeIcon className="h3" icon={link.icon} title="" />
           </a>
         ))}
       </ContactContainer>
-      <CopyrightContainer>
+      <CopyrightContainer className="text-small">
         &copy; <span>{copyright}</span>
       </CopyrightContainer>
     </FooterContainer>
