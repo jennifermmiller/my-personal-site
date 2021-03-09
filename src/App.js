@@ -24,17 +24,12 @@ const FocusVisible = styled.div({
   },
 })
 
-const FlexContainer = styled.div(({ theme }) => ({
+const FlexContainer = styled.div({
   display: 'flex',
   minHeight: '100%',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  ' > main': {
-    boxShadow: `0 2px 2px -2px ${theme.border}`,
-    flexGrow: '1',
-    minHeight: 'calc(100vh - 10rem)',
-  },
-}))
+})
 
 const history = createBrowserHistory()
 

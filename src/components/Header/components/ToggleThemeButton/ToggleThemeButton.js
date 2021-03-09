@@ -6,7 +6,6 @@ import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 const ThemeButton = styled.button(({ theme }) => ({
   background: 'transparent',
   border: 'none',
-  fontSize: '2rem',
   padding: '0.5rem',
   ':hover': {
     backgroundColor: theme.themeButtonHover,
@@ -24,6 +23,7 @@ const ToggleThemeButton = (props) => {
   return (
     <ThemeButton onClick={handleThemeClick}>
       <FontAwesomeIcon
+        className="h3"
         icon={theme === 'light' ? faMoon : faSun}
         title={theme === 'light' ? 'Dark Mode' : 'Light Mode'}
       />

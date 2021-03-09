@@ -5,10 +5,11 @@ import Nav from '../../../Nav'
 import ToggleThemeButton from '../ToggleThemeButton'
 
 const DesktopHeaderContainer = styled.header(({ theme }) => ({
-  alignItems: 'center',
+  alignItems: 'stretch',
   backgroundColor: theme.body,
   boxShadow: `0 2px 2px -2px ${theme.border}`,
   display: 'flex',
+  height: '60px',
   justifyContent: 'space-between',
   left: '0',
   padding: ' 0 1rem',
@@ -21,7 +22,16 @@ const DesktopHeaderContainer = styled.header(({ theme }) => ({
 
 const navItemStyles = {
   display: 'flex',
+  height: '100%',
   paddingLeft: '0',
+  margin: '0',
+  ' li': {
+    display: 'flex',
+  },
+  ' li > a ': {
+    alignItems: 'center',
+    display: 'flex',
+  },
 }
 
 const DesktopHeader = (props) => {

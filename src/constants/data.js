@@ -294,7 +294,7 @@ const data = {
       {
         company: 'Wegmans Food Markets',
         location: 'Geneseo, NY',
-        jobTitle: 'Lead Pharmacy Technician',
+        jobTitle: 'Pharmacy Technician',
         timePeriod: '2007 - 2012',
         responsibilities: [
           {

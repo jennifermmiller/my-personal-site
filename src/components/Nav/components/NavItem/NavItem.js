@@ -3,14 +3,10 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { mediaQuery, TABLET } from '../../../../constants/breakpoints'
-
 const NavItemContainer = styled.li(({ theme }) => ({
   ' > a': {
     color: theme.text,
-    fontSize: '1.5rem',
-    fontWeight: '600',
-    padding: '1rem 2rem',
+    padding: '0 2rem',
     textDecoration: 'none',
   },
   ' > a > svg': {
@@ -31,11 +27,6 @@ const NavItemContainer = styled.li(({ theme }) => ({
   ' > .active > svg': {
     color: theme.activeNavText,
   },
-  [mediaQuery(`(min-width: ${TABLET})`)]: {
-    '> a': {
-      fontSize: '1rem',
-    },
-  },
 }))
 
 const Label = styled.span({
@@ -49,7 +40,7 @@ const NavItem = (props) => {
     <NavItemContainer>
       <NavLink
         activeClassName="active"
-        className={label}
+        className={`${label} h5`}
         exact={true}
         onClick={handleClick}
         to={path}>

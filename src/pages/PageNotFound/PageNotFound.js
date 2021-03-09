@@ -14,12 +14,10 @@ const PageContainer = styled.div({
   flexDirection: 'column',
   justifyContent: 'center',
   ' > h1': {
-    fontSize: '4rem',
     marginBottom: '1rem',
     textAlign: 'center',
   },
   ' > p': {
-    fontSize: '2rem',
     margin: '0 0 2rem',
     maxWidth: '420px',
     textAlign: 'center',
@@ -69,8 +67,8 @@ const PageNotFound = () => {
 
   return (
     <PageContainer>
-      <h1>Oh no!</h1>
-      <p>The page you are looking for does not exist!</p>
+      <h1 className="text-xxl">Oh no!</h1>
+      <p className="h3">The page you are looking for does not exist!</p>
       <div>
         {gif && <Gif borderRadius={0} gif={gif} width={200} />}
         <img alt="Powered by Giphy" src={giphyLogo} />

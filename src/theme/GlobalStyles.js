@@ -11,22 +11,20 @@ export const GlobalStyles = createGlobalStyle`
   html {
     background-color: ${({ theme }) => theme.body};
     box-sizing: border-box;
-    color: ${({ theme }) => theme.text};
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
+    fontSize: 87.5%;
 
     @media ${mediaQueries.tablet} {
-      font-size: 14px;
+      font-size: 100%;
     }
 
     @media ${mediaQueries.desktop} {
-      font-size: 16px;
+      font-size: 112.5%;
     }
 
     @media print {
-      font: 9pt 'Helvetica', 'Arial', san-serif;
+      font: 8pt 'Helvetica', 'Arial', san-serif;
       background: #fff;
-      color: 000;
+      color: #000;
 
       .header,
       footer .divider,
@@ -36,7 +34,7 @@ export const GlobalStyles = createGlobalStyle`
 
       main {
         padding: 0;
-        margin:  1cm;
+        margin:  2cm;
         box-shadow: none !important;
       }
   
@@ -65,23 +63,65 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    margin: 0
+    margin: 0;
+    color: ${({ theme }) => theme.text};
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
   }
 
   *, *:before, *:after {
     box-sizing: inherit;
   }
 
-  main {
-    margin-top: 4rem;
-    padding: 1rem;
+  p {margin-bottom: 1rem;}
 
-    @media ${mediaQueries.tablet} {
-      padding: 2rem;
-    }
+  h1, h2, h3, h4, h5 {
+    margin: 1.38rem 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  h1, .h1 {
+    margin-top: 0;
+    font-size: 3.052rem;
+  }
+
+  h2, .h2 {
+    font-size: 2.441rem;
+  }
+
+  h3, .h3 {
+    font-size: 1.953rem;
+  }
+
+  h4, .h4 {
+    font-size: 1.563rem;
+  }
+
+  h5, .h5 {
+    font-size: 1.25rem;
+  }
+
+  .text-small {
+    font-size: 0.8rem;
+  }
+
+  .text-xxl {
+    font-size: 4.768rem;
+  }
+
+  main {
+    margin-top: 4.25rem;
+    padding: 4rem 2rem;
+    box-shadow: ${({ theme }) => `0 2px 2px -2px ${theme.border}`};
+    flex-grow: 1;
+    min-height: calc(100vh - 10rem);
   }
 
   h3 { 
+    margin: 1rem 0 0;
     font-weight: 500;
   }
 

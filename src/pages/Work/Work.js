@@ -32,7 +32,6 @@ const HeadingContainer = styled.div({
 })
 
 const Name = styled.h1(({ theme }) => ({
-  fontSize: '3rem',
   marginBottom: '0',
   textAlign: 'center',
   textTransform: 'uppercase',
@@ -47,7 +46,6 @@ const Name = styled.h1(({ theme }) => ({
     color: theme.textHighlight,
   },
   [mediaQueryWithPrint(`(min-width: ${MOBILE})`)]: {
-    fontSize: '6rem',
     marginBottom: '0',
   },
   '@media print': {
@@ -58,19 +56,13 @@ const Name = styled.h1(({ theme }) => ({
 
 const JobTitle = styled.div(({ theme }) => ({
   width: '110%',
-  padding: '4rem 0 2rem',
+  padding: '3.5rem 0 0.85rem',
   marginTop: '-3rem',
   backgroundColor: theme.titleBg,
   display: 'flex',
   justifyContent: 'center',
   ' > span': {
-    fontSize: '2rem',
     fontWeight: '200',
-  },
-  [mediaQueryWithPrint(`(min-width: ${MOBILE})`)]: {
-    ' > span': {
-      fontSize: '4rem',
-    },
   },
   '@media print': {
     backgroundColor: '#eaecec',
@@ -94,6 +86,9 @@ const ContentContainer = styled.div({
 })
 
 const ContactContainer = styled.div(({ theme }) => ({
+  ' > p': {
+    margin: '0.25rem',
+  },
   ' .contact-item': {
     alignItems: 'center',
     display: 'flex',
@@ -142,7 +137,6 @@ const SecondaryContainer = styled.div({
 })
 
 const SectionContainer = styled.div({
-  paddingBottom: 'rem 0',
   [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
     ' > .secondary-section-header': {
       justifyContent: 'flex-end',
@@ -155,6 +149,7 @@ const SectionHeader = styled.h2({
   alignItems: 'center',
   display: 'flex',
   justifyContent: 'center',
+  textAlign: 'center',
   textTransform: 'uppercase',
   ' > svg': {
     marginRight: '0.5rem',
@@ -209,9 +204,6 @@ const EducationDetailsContainer = styled.div({
 })
 
 const SkillsContainer = styled.div({
-  ' > h3': {
-    marginBottom: '0',
-  },
   ' > p': {
     marginTop: '0.5rem',
   },
@@ -263,13 +255,13 @@ const Work = (props) => {
           <span>{name.first}</span> <span>{name.last}</span>
         </Name>
         <JobTitle>
-          <span>{jobTitle}</span>
+          <span className="h2">{jobTitle}</span>
         </JobTitle>
       </HeadingContainer>
       <ContentContainer>
         <SecondaryContainer>
           <SectionContainer>
-            <SectionHeader className="secondary-section-header mtn">
+            <SectionHeader className="secondary-section-header h4 mtn">
               <FontAwesomeIcon aria-hidden="true" icon={faPhoneAlt} title="" />
               Contact
             </SectionHeader>
@@ -305,13 +297,13 @@ const Work = (props) => {
             </ContactContainer>
           </SectionContainer>
           <SectionContainer>
-            <SectionHeader className="secondary-section-header">
+            <SectionHeader className="secondary-section-header h4">
               <FontAwesomeIcon aria-hidden="true" icon={faGraduationCap} title="" />
               Education
             </SectionHeader>
             {education.map((school, index) => (
               <EducationContainer key={index}>
-                <h3>{school.name}</h3>
+                <h3 className="h5">{school.name}</h3>
                 <EducationDetailsContainer>
                   <span>{school.timePeriod}</span>
                   <span className="divider">/</span>
@@ -322,13 +314,13 @@ const Work = (props) => {
             ))}
           </SectionContainer>
           <SectionContainer>
-            <SectionHeader className="secondary-section-header">
+            <SectionHeader className="secondary-section-header h4">
               <FontAwesomeIcon aria-hidden="true" icon={faTools} title="" />
               Technical Skills
             </SectionHeader>
             {technicalSkills.map((section, index) => (
               <SkillsContainer key={index}>
-                <h3>{section.title}</h3>
+                <h3 className="h5">{section.title}</h3>
                 {displaySkillSet(section.skills)}
               </SkillsContainer>
             ))}
@@ -336,20 +328,20 @@ const Work = (props) => {
         </SecondaryContainer>
         <PrimaryContainer>
           <SectionContainer>
-            <SectionHeader className="mtn">
+            <SectionHeader className="mtn h4">
               <FontAwesomeIcon aria-hidden="true" icon={faUser} title="" />
               Profile
             </SectionHeader>
             <p>{summary}</p>
           </SectionContainer>
           <SectionContainer>
-            <SectionHeader>
+            <SectionHeader className="h4">
               <FontAwesomeIcon aria-hidden="true" icon={faBusinessTime} title="" />
               Work Experience
             </SectionHeader>
             {jobs.map((job, index) => (
               <JobContainer key={index}>
-                <h3>{job.jobTitle}</h3>
+                <h3 className="h5">{job.jobTitle}</h3>
                 <DetailsContainer>
                   <span>{job.company}</span>
                   <span className="divider">/</span>
