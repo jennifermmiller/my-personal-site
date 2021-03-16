@@ -74,6 +74,10 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: inherit;
   }
 
+  #root {
+    backdrop-filter: blur(5px);
+  }
+
   p {margin-bottom: 1rem;}
 
   h1, h2, h3, h4, h5 {
@@ -113,7 +117,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   main {
-    margin-top: 4.25rem;
     padding: 4rem 2rem;
     box-shadow: ${({ theme }) => `0 2px 2px -2px ${theme.border}`};
     flex-grow: 1;
@@ -134,9 +137,5 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.linkHoverBg};
     color: ${({ theme }) => theme.linkHoverText};
     text-decoration: none;
-  }
-
-  svg {
-    color: ${({ theme }) => theme.text};
   }
 `

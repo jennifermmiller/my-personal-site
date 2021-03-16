@@ -236,16 +236,7 @@ const displaySkillSet = (skills) => {
 }
 
 const Work = (props) => {
-  const {
-    contactInformation,
-    education,
-    jobs,
-    jobTitle,
-    // lastUpdated, TODO: put this somewhere? If not, remove
-    name,
-    summary,
-    technicalSkills,
-  } = props
+  const { contactInformation, education, jobs, jobTitle, name, summary, technicalSkills } = props
 
   return (
     <>
