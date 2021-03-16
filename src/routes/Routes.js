@@ -11,7 +11,6 @@ import PageNotFound from '../pages/PageNotFound'
 const Routes = (props) => {
   const { about, chuck, contact, home, work } = props
 
-  console.log(props)
   return (
     <Switch>
       <Route exact path="/about">

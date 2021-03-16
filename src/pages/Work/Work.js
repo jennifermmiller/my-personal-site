@@ -35,7 +35,7 @@ const Name = styled.h1(({ theme }) => ({
   marginBottom: '0',
   textAlign: 'center',
   textTransform: 'uppercase',
-  border: `3px solid ${theme.textHighlight}`,
+  border: `0.1875rem solid ${theme.textHighlight}`,
   zIndex: '5',
   padding: '1rem 5rem',
   backgroundColor: theme.nameBg,
@@ -120,7 +120,7 @@ const PrimaryContainer = styled.div(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   [mediaQueryWithPrint(`(min-width: ${TABLET})`)]: {
-    borderLeft: `2px solid ${theme.textHighlight}`,
+    borderLeft: `0.125rem solid ${theme.textHighlight}`,
     paddingLeft: '2rem',
   },
 }))

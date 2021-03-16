@@ -74,10 +74,6 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: inherit;
   }
 
-  #root {
-    backdrop-filter: blur(5px);
-  }
-
   p {margin-bottom: 1rem;}
 
   h1, h2, h3, h4, h5 {
@@ -118,7 +114,7 @@ export const GlobalStyles = createGlobalStyle`
 
   main {
     padding: 4rem 2rem;
-    box-shadow: ${({ theme }) => `0 2px 2px -2px ${theme.border}`};
+    box-shadow: ${({ theme }) => `0 0.125rem 0.125rem -0.125rem ${theme.border}`};
     flex-grow: 1;
     min-height: calc(100vh - 10rem);
   }

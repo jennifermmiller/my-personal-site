@@ -10,6 +10,7 @@ import { TABLET } from '../../constants/breakpoints' // TODO: only need number f
 import SideDrawer from '../SideDrawer'
 import Backdrop from '../Backdrop'
 import useDocumentScrollThrottled from '../../hooks/useDocumentScrollThrottle'
+import { TOOLBAR } from '../../constants/zindex'
 
 const MINIMUM_SCROLL = 80
 const TIMEOUT_DELAY = 400
@@ -18,9 +19,9 @@ const Header = styled.header`
   align-items: stretch;
   animation: drop-1 ease 1.5s;
   background-color: ${({ theme }) => theme.body};
-  box-shadow: ${({ theme }) => `0 2px 2px -2px ${theme.border}`};
+  box-shadow: ${({ theme }) => `0 0.125rem 0.125rem -0.125rem ${theme.border}`};
   display: flex;
-  height: 60px;
+  height: 3.75rem;
   justify-content: space-between;
   left: 0;
   padding-right: 1rem;
@@ -30,7 +31,7 @@ const Header = styled.header`
   transform: translateY(0);
   transition: transform 0.3s ease;
   width: 100%;
-  z-index: 500;
+  z-index: ${TOOLBAR};
   &.hidden {
     transform: translateY(-110%);
   }
@@ -117,7 +118,6 @@ const Toolbar = (props) => {
 }
 
 Toolbar.propTypes = {
-  handleDrawerClick: func.isRequired,
   handleThemeClick: func.isRequired,
   isMobile: bool,
   isDrawerOpen: bool,

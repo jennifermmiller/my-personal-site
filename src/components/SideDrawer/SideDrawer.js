@@ -3,39 +3,38 @@ import { useEffect } from 'react'
 import styled from 'styled-components'
 
 import Nav from '../Nav'
-
-// TODO: width 100% on phone
-// import {
-//   mediaQuery,
-//   MOBILE,
-//   MOBILE_SM,
-// } from '../../constants/breakpoints'
+import { mediaQueries } from '../../constants/breakpoints'
+import { SIDE_DRAWER } from '../../constants/zindex'
 
 //TODO: make header height a variable?
 
 const SideDrawerContainer = styled.div`
   background: ${({ theme }) => theme.titleBg};
-  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+  box-shadow: 0.0625rem 0 0.5rem rgba(0, 0, 0, 0.5);
   height: 100vh;
-  max-width: 300px;
   position: fixed;
   right: inherit;
   top: 0;
-  width: 75%;
-  z-index: 1100;
+  width: 100%;
+  z-index: ${SIDE_DRAWER};
 
   &.slide-in {
     transition: all 0.5s ease 0s;
   }
 
   &.slide-out {
-    transform: translate3d(-100%, 0px, 0px);
+    transform: translate3d(-100%, 0, 0);
     transition: all 0.5s ease 0s;
+  }
+
+  @media ${mediaQueries.mobile} {
+    max-width: 300px;
+    width: 75%;
   }
 `
 const ButtonContainer = styled.div`
   display: flex;
-  height: 60px;
+  height: 3.75rem;
   justify-content: flex-end;
 `
 
@@ -67,7 +66,7 @@ const mobileSyles = {
 }
 
 const SideDrawer = (props) => {
-  const { handleClose, isOpen, navigation, toggleOpen } = props
+  const { handleClose, isOpen, navigation } = props
 
   useEffect(() => {
     if (isOpen) {
@@ -88,7 +87,7 @@ const SideDrawer = (props) => {
         className="side-drawer"
         css={mobileSyles}
         navigation={navigation}
-        onNavClick={toggleOpen}
+        onNavClick={handleClose}
       />
     </SideDrawerContainer>
   )
@@ -104,7 +103,6 @@ SideDrawer.propTypes = {
       path: string.isRequired,
     })
   ).isRequired,
-  toggleOpen: func,
 }
 
 export default SideDrawer

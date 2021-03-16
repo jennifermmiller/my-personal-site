@@ -1,5 +1,6 @@
 import { func } from 'prop-types'
 import styled from 'styled-components'
+import { BACKDROP } from '../../constants/zindex'
 
 const StyledBackdrop = styled.div`
   background: rgba(0, 0, 0, 0.65);
@@ -8,13 +9,13 @@ const StyledBackdrop = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 100;
+  z-index: ${BACKDROP};
 `
 
 const Backdrop = (props) => {
   const { handleBackdropClick } = props
 
-  return <StyledBackdrop onClick={handleBackdropClick} />
+  return <StyledBackdrop onClick={handleBackdropClick} role="presentation" />
 }
 
 Backdrop.propTypes = {

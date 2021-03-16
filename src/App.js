@@ -14,6 +14,18 @@ history.listen(() => {
 
 wrapHistory(history)
 
+//TODO list:
+//    - address any TODOs in files
+//    - Styling:
+//        - Add animation to nav links/contact buttons
+//        - Change background? thoughts: blurred image of code
+//    - personalize README
+//    - Improve carousel experience on Chuck's page
+//    - Replace propTypes with Typescript?
+//    - add tests? (not a ton of functionality)
+//    - add audible click sounds?
+//    - Longterm: add backend? look into Netilify CMS
+
 function App() {
   return (
     <>
