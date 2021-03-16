@@ -14,13 +14,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
-import {
-  mediaQuery,
-  mediaQueryWithPrint,
-  MOBILE,
-  MOBILE_SM,
-  TABLET,
-} from '../../constants/breakpoints'
+import { mediaQuery, mediaQueryWithPrint, MOBILE, TABLET } from '../../constants/breakpoints'
 import PageTitle from '../../components/PageTitle'
 
 const HeadingContainer = styled.div({
@@ -37,7 +31,7 @@ const Name = styled.h1(({ theme }) => ({
   textTransform: 'uppercase',
   border: `0.1875rem solid ${theme.textHighlight}`,
   zIndex: '5',
-  padding: '1rem 5rem',
+  padding: '1rem',
   backgroundColor: theme.nameBg,
   ' > span:first-child': {
     fontWeight: '400',
@@ -47,6 +41,7 @@ const Name = styled.h1(({ theme }) => ({
   },
   [mediaQueryWithPrint(`(min-width: ${MOBILE})`)]: {
     marginBottom: '0',
+    padding: '1rem 5rem',
   },
   '@media print': {
     backgroundColor: '#fff',
@@ -55,12 +50,13 @@ const Name = styled.h1(({ theme }) => ({
 }))
 
 const JobTitle = styled.div(({ theme }) => ({
-  width: '110%',
+  width: '125%',
   padding: '3.5rem 0 0.85rem',
   marginTop: '-3rem',
   backgroundColor: theme.titleBg,
   display: 'flex',
   justifyContent: 'center',
+  textAlign: 'center',
   ' > span': {
     fontWeight: '200',
   },
@@ -87,7 +83,8 @@ const ContentContainer = styled.div({
 
 const ContactContainer = styled.div(({ theme }) => ({
   ' > p': {
-    margin: '0.25rem',
+    marginTop: '0.25rem',
+    marginBottom: '0.25rem',
   },
   ' .contact-item': {
     alignItems: 'center',
@@ -96,7 +93,8 @@ const ContactContainer = styled.div(({ theme }) => ({
     justifyContent: 'flex-end',
   },
   ' .contact-item > span': {
-    marginLeft: '1rem',
+    marginLeft: '0',
+    marginRight: '1rem',
   },
   ' a': {
     whiteSpace: 'nowrap',
@@ -110,11 +108,18 @@ const ContactContainer = styled.div(({ theme }) => ({
       justifyContent: 'flex-end',
     },
     ' .contact-item > span': {
-      marginLeft: '0',
-      marginRight: '1rem',
+      marginLeft: '1rem',
+      marginRight: '0',
     },
   },
 }))
+
+const IconContainer = styled.span`
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  width: 1rem;
+`
 
 const PrimaryContainer = styled.div(({ theme }) => ({
   display: 'flex',
@@ -189,7 +194,7 @@ const EducationDetailsContainer = styled.div({
   ' > .divider': {
     display: 'none',
   },
-  [mediaQuery(`(min-width: ${MOBILE_SM})`)]: {
+  [mediaQuery(`(min-width: ${MOBILE})`)]: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
     ' .divider': {
@@ -218,7 +223,7 @@ const DetailsContainer = styled.div({
   ' > .divider': {
     display: 'none',
   },
-  [mediaQueryWithPrint(`(min-width: ${MOBILE_SM})`)]: {
+  [mediaQueryWithPrint(`(min-width: ${MOBILE})`)]: {
     flexDirection: 'row',
     ' .divider': {
       display: 'block',
@@ -259,30 +264,40 @@ const Work = (props) => {
             <ContactContainer>
               <p className="contact-item">
                 <span>{contactInformation.location}</span>
-                <FontAwesomeIcon aria-hidden="true" icon={faMapMarker} title="" />
+                <IconContainer>
+                  <FontAwesomeIcon aria-hidden="true" icon={faMapMarker} title="" />
+                </IconContainer>
               </p>
               <p>
                 <a href={`tel:${contactInformation.phone.number}`} className="contact-item">
                   <span>{contactInformation.phone.formattedNumber}</span>
-                  <FontAwesomeIcon aria-hidden="true" icon={faMobileAlt} title="" />
+                  <IconContainer>
+                    <FontAwesomeIcon aria-hidden="true" icon={faMobileAlt} title="" />
+                  </IconContainer>
                 </a>
               </p>
               <p>
                 <a href={`mailto:${contactInformation.email}`} className="contact-item">
                   <span>{contactInformation.email}</span>
-                  <FontAwesomeIcon aria-hidden="true" icon={faEnvelope} title="" />
+                  <IconContainer>
+                    <FontAwesomeIcon aria-hidden="true" icon={faEnvelope} title="" />
+                  </IconContainer>
                 </a>
               </p>
               <p>
                 <a href={`https://${contactInformation.linkedIn}`} className="contact-item">
                   <span>{contactInformation.linkedIn}</span>
-                  <FontAwesomeIcon aria-hidden="true" icon={faLinkedin} title="" />
+                  <IconContainer>
+                    <FontAwesomeIcon aria-hidden="true" icon={faLinkedin} title="" />
+                  </IconContainer>
                 </a>
               </p>
               <p>
                 <a href={`https://${contactInformation.website}`} className="contact-item">
                   <span>{contactInformation.website}</span>
-                  <FontAwesomeIcon aria-hidden="true" icon={faLaptop} title="" />
+                  <IconContainer>
+                    <FontAwesomeIcon aria-hidden="true" icon={faLaptop} title="" />
+                  </IconContainer>
                 </a>
               </p>
             </ContactContainer>
