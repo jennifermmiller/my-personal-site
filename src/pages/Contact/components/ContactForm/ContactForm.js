@@ -14,12 +14,14 @@ const InputContainer = styled.div(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   marginBottom: '2rem',
+  ' > label': {
+    paddingLeft: '0.25rem',
+  },
   ' > input': {
-    lineHeight: '1.5rem',
-    padding: '1rem',
+    padding: '0.75rem',
   },
   ' > textarea': {
-    padding: '1rem',
+    padding: '0.75rem',
     minHeight: '320px',
     width: '100%',
   },
@@ -37,6 +39,7 @@ const ErrorContainer = styled.div(({ theme }) => ({
   color: theme.errorText,
   fontStyle: 'italic',
   lineHeight: '1.5rem',
+  paddingLeft: '0.25rem',
 }))
 
 const SubmitButton = styled.button(({ theme }) => ({
@@ -94,6 +97,7 @@ const ContactForm = () => {
 
     generateContactNumber()
 
+    // eslint-disable-next-line no-undef
     sendForm('default_service', process.env.REACT_APP_EMAILJS_TEMPLATE, '#contact-form').then(
       () => {
         form.reset()

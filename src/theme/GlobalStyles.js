@@ -24,12 +24,15 @@ export const GlobalStyles = createGlobalStyle`
     @media print {
       font: 8pt 'Helvetica', 'Arial', san-serif;
       background: #fff;
-      color: #000;
 
       .header,
       footer .divider,
       .footer-links {
         display: none;
+      }
+
+      body {
+        color: #000;
       }
 
       main {
@@ -53,6 +56,7 @@ export const GlobalStyles = createGlobalStyle`
       }
 
       a {
+        color: #002a66;
         page-break-inside:avoid
       }
 

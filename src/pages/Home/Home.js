@@ -20,6 +20,12 @@ const Name = styled.h1({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
+  ' > span': {
+    textTransform: 'uppercase',
+  },
+  ' > span:first-child': {
+    fontSize: '3.45rem',
+  },
 })
 
 const ImageContainer = styled.figure({

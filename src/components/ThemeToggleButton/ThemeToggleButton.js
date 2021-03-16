@@ -34,10 +34,10 @@ const StyledSwitch = styled.div`
         dark &&
         setAnimation(
           {
-            marginLeft: '0.1875rem',
+            marginLeft: '0',
           },
           {
-            marginLeft: '1.875rem',
+            marginLeft: '1.75rem',
           }
         )}
       linear;
