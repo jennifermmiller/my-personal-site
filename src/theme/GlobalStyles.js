@@ -113,9 +113,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   main {
-    margin-top: 4.25rem;
     padding: 4rem 2rem;
-    box-shadow: ${({ theme }) => `0 2px 2px -2px ${theme.border}`};
+    box-shadow: ${({ theme }) => `0 0.125rem 0.125rem -0.125rem ${theme.border}`};
     flex-grow: 1;
     min-height: calc(100vh - 10rem);
   }
@@ -134,9 +133,5 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.linkHoverBg};
     color: ${({ theme }) => theme.linkHoverText};
     text-decoration: none;
-  }
-
-  svg {
-    color: ${({ theme }) => theme.text};
   }
 `

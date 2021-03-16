@@ -5,7 +5,7 @@ import NavItem from './components/NavItem'
 
 const NavContainer = styled.nav({
   display: 'flex',
-  flexGrow: '2',
+  height: '100%',
   justifyContent: 'center',
 })
 

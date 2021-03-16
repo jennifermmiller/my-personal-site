@@ -60,20 +60,21 @@ const SubmitButton = styled.button(({ theme }) => ({
 const StatusContainer = styled.div(({ theme }) => ({
   ' > .success': {
     backgroundColor: theme.successBg,
-    border: `1px solid ${theme.success}`,
+    border: `0.0625rem solid ${theme.success}`,
     color: theme.success,
     marginBottom: '3rem',
     padding: '1rem',
   },
   ' > .failure': {
     backgroundColor: theme.errorBg,
-    border: `1px solid ${theme.error}`,
+    border: `0.0625rem solid ${theme.error}`,
     color: theme.error,
     marginBottom: '3rem',
     padding: '1rem',
   },
 }))
 
+// eslint-disable-next-line no-undef
 init(process.env.REACT_APP_EMAILJS_USER_ID)
 
 const ContactForm = () => {

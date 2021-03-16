@@ -26,6 +26,7 @@ const FooterContainer = styled.footer({
 const ContactContainer = styled.div(({ theme }) => ({
   display: 'flex',
   '> a': {
+    color: theme.text,
     padding: '0.5rem',
     margin: '0 0.5rem',
   },
