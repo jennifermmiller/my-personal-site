@@ -92,7 +92,7 @@ const Toolbar = (props) => {
 
   return (
     <>
-      <Header className={hideHeader && 'hidden'}>
+      <Header className={`header ${hideHeader ? 'hidden' : ''}`}>
         {isMobile && (
           <ButtonContainer>
             <DrawerToggleButton isOpen={isDrawerOpen} toggleDrawer={handleDrawerClick} />
