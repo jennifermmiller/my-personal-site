@@ -6,8 +6,6 @@ import Nav from '../Nav'
 import { mediaQueries } from '../../constants/breakpoints'
 import { SIDE_DRAWER } from '../../constants/zindex'
 
-//TODO: make header height a variable?
-
 const SideDrawerContainer = styled.div`
   background: ${({ theme }) => theme.titleBg};
   box-shadow: 0.0625rem 0 0.5rem rgba(0, 0, 0, 0.5);

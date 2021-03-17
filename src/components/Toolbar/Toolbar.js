@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import DrawerToggleButton from '../DrawerToggleButton'
 import ThemeToggleButton from '../ThemeToggleButton'
 import Nav from '../Nav'
-import { TABLET } from '../../constants/breakpoints' // TODO: only need number for resize event
+import { TABLET, TABLET_INT } from '../../constants/breakpoints'
 import SideDrawer from '../SideDrawer'
 import Backdrop from '../Backdrop'
 import useDocumentScrollThrottled from '../../hooks/useDocumentScrollThrottle'
@@ -80,7 +80,7 @@ const Toolbar = (props) => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= TABLET_INT) {
         setIsDrawerOpen(false)
       }
     }
