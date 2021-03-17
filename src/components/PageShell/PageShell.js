@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { array, object } from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components'
 
-import { GlobalStyles } from '../../theme/GlobalStyles'
-import { lightTheme, darkTheme } from '../../theme/themes'
+import { GlobalStyles } from '../../themes/GlobalStyles'
+import { lightTheme, darkTheme } from '../../themes/themes'
 
 import Toolbar from '../Toolbar'
 import Routes from '../../routes/Routes'

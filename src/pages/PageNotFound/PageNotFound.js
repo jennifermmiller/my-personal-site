@@ -1,12 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { GiphyFetch } from '@giphy/js-fetch-api'
 import { Gif } from '@giphy/react-components'
-import { useAsync } from 'react-async-hook'
 import styled from 'styled-components'
 
-import giphyLogo from '../../assets/giphyLogo.gif'
+import giphyLogo from '../../static/giphyLogo.gif'
 import { mediaQuery, MOBILE } from '../../constants/breakpoints'
+import { getRandom } from '../../services/giphy'
 
 const PageContainer = styled.div({
   alignItems: 'center',
@@ -51,18 +50,11 @@ const ReturnContainer = styled.div(({ theme }) => ({
   },
 }))
 
-const giphyFetch = new GiphyFetch(process.env.REACT_APP_GIPHY_API_KEY)
-
 const PageNotFound = () => {
   const [gif, setGif] = useState(null)
 
-  useAsync(async () => {
-    const { data } = await giphyFetch.random({
-      hideAttribution: true,
-      tag: 'oh no',
-      rating: 'g',
-    })
-    setGif(data)
+  useEffect(() => {
+    getRandom().then(({ data }) => setGif(data))
   }, [])
 
   return (

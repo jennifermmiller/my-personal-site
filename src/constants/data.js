@@ -3,11 +3,11 @@ import { faBriefcase, faEnvelope, faHome, faSmileWink } from '@fortawesome/free-
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import Emoji from '../components/Emoji/'
-import profile from '../assets/profile.png'
+import profile from '../static/profile.png'
 
-import chuckWork1 from '../assets/chuckWork1.png'
-import chuckWork3 from '../assets/chuckWork3.png'
-import chuckWork4 from '../assets/chuckWork4.jpg'
+import chuckWork1 from '../static/chuckWork1.png'
+import chuckWork3 from '../static/chuckWork3.png'
+import chuckWork4 from '../static/chuckWork4.jpg'
 
 import {
   EMAIL_LINK,
